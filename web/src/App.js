@@ -36,17 +36,18 @@ class App extends Component {
         return (
             <Grid className="App">
                 <Col className="App-header" xs={12}>
-                    <img src={logo} className="App-logo" alt="logo" />
+                    <img src={logo} className="App-logo" alt="logo"/>
                     <h2>Welcome to PolBotCheck</h2>
                 </Col>
                 <Row>
                     <Col className="App-profile" md={4}>
-                        <img className="Profile-picture" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Angela_Merkel_2016.jpg" />
+                        <img className="Profile-picture"
+                            src="https://upload.wikimedia.org/wikipedia/commons/9/93/Angela_Merkel_2016.jpg"/>
                         <div>Angela Merkel</div>
                     </Col>
                     <Col className="App-info" md={8}>
                         <Col className="Info-diagram">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Lowestbirthrates.svg" />
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Lowestbirthrates.svg"/>
                         </Col>
                         <Row>
                             <PieChart className="Info-followers col-md-6"></PieChart>
@@ -54,54 +55,22 @@ class App extends Component {
                         </Row>
                     </Col>
                 </Row>
+                <div className="master">
+                    <Button onClick={ ()=> {
+                        location.replace('http://localhost:3000/PartyPage');
+                    }
+                        }>Partei
+                    </Button>
+                </div>
+                <div>
+                    <Panel bsStyle="primary"
+                        bsSize="large"
+                    >Name: {this.state.member.name}</Panel>
+
+                </div>
             </Grid>
         );
     }
-  };
-
-  render() {
-    return (
-      <Grid className="App">
-        <Col className="App-header" xs={12}>
-          <img src={logo} className="App-logo" alt="logo"/>
-          <h2>Welcome to PolBotCheck</h2>
-        </Col>
-        <Row>
-          <Col className="App-profile" md={4}>
-            <img className="Profile-picture"
-                 src="https://upload.wikimedia.org/wikipedia/commons/9/93/Angela_Merkel_2016.jpg"/>
-            <div>Angela Merkel</div>
-          </Col>
-          <Col className="App-info" md={8}>
-            <Col className="Info-diagram">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Lowestbirthrates.svg"/>
-            </Col>
-            <Row>
-              <Col className="Info-followers" md={6}>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Tortendiagramm_Themen_Pabst.jpg"/>
-              </Col>
-              <Col className="Info-retweeters" md={6}>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Tortendiagramm_Themen_Pabst.jpg"/>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <div className="master">
-          <Button onClick={ ()=> {
-            location.replace('http://localhost:3000/PartyPage');
-          }
-          }>Partei
-          </Button>
-        </div>
-        <div>
-          <Panel bsStyle="primary"
-                 bsSize="large"
-          >Name: {this.state.member.name}</Panel>
-
-        </div>
-      </Grid>
-    );
-  }
 }
 
 export default App;
