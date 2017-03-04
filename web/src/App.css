@@ -1,3 +1,5 @@
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css';
+
 .App {
     text-align: center;
 }
@@ -15,9 +17,7 @@
 }
 
 .App-profile {
-    float: left;
-    width: 25%;
-    margin: 2em;
+    padding: 2em;
 }
 
 img {
@@ -25,14 +25,11 @@ img {
 }
 
 .Info-diagram {
-    width: 30%;
-    display: inline-block;
-    margin: 2em;
+    padding: 2em;
 }
 
-.Info-followers, .Info-retweeters {
-    float: left;
-    width: 25%;
+.Info-diagram img {
+    max-width: 66%;
 }
 
 @keyframes App-logo-spin {
