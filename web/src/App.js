@@ -8,11 +8,23 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Welcome to PolBotCheck</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="App-profile">
+            <img className="Profile-picture" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Angela_Merkel_2016.jpg" />
+            <div>Angela Merkel</div>
+        </div>
+        <div className="App-info">
+            <div className="Info-diagram">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Lowestbirthrates.svg" />
+            </div>
+            <div className="Info-followers">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Tortendiagramm_Themen_Pabst.jpg" />
+            </div>
+            <div className="Info-retweeters">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Tortendiagramm_Themen_Pabst.jpg" />
+            </div>
+        </div>
       </div>
     );
   }
