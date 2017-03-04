@@ -28,10 +28,11 @@ if not db.hasCollection(collectionName):
 else:
     followersCol = db.collections[collectionName]
 
-def saveFollower(follower):
-    doc = {"_key": follower["meta"]["user_id"]}
-    doc.update(follower)
+def saveFollower(username, follower, botness):
+    followerId = follower["meta"]["user_id"]
+    doc = {"_key": username + followerId, "follower": follower, "botness": botness}
     followersCol.createDocument(doc).save()
 
-follower = {'meta': {'screen_name': 'username', 'user_id': '1277127895'}, 'score': 0.37, 'categories': {'languageagnostic_classification': 0.33, 'friend_classification': 0.15, 'network_classification': 0.31, 'temporal_classification': 0.51, 'user_classification': 0.22, 'sentiment_classification': 0.5, 'content_classification': 0.6033333333333334}}
-saveFollower(follower)
+# follower = {'meta': {'screen_name': 'username', 'user_id': '1277127895'}, 'score': 0.37, 'categories': {'languageagnostic_classification': 0.33, 'friend_classification': 0.15, 'network_classification': 0.31, 'temporal_classification': 0.51, 'user_classification': 0.22, 'sentiment_classification': 0.5, 'content_classification': 0.6033333333333334}}
+# saveFollower('testRepresentative', follower)
+

@@ -66,7 +66,6 @@ def get_bot_or_not(screen_name):
     return(result)
 
 def get_followers(screen_name):
-    
     users = tweepy.Cursor(twitter_api.followers, screen_name=screen_name, count=200).items()
     #print(users)
     k=0
@@ -79,6 +78,6 @@ def get_followers(screen_name):
             user = next(users)
         except StopIteration:
             break
-        followerlist.append("@" + user.screen_name)
+        followerlist.append(user)
     return followerlist
 

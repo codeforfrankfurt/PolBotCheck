@@ -32,15 +32,9 @@ export default class PartyPage extends Component {
   };
 
   render() {
-
     return (
       <div>
-        <Panel bsStyle="primary"
-               bsSize="large"
-        >{this.state.name}</Panel>
-
-      </div>
+         </div>
     )
-
   }
 }
