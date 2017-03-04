@@ -18,37 +18,51 @@ def limit_handled(cursor):
             time.sleep(15 * 60)
 
 def get_content(screen_name):
+    timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
+    print(timestamp)
     content = []
     for tweet in limit_handled(tweepy.Cursor(api.user_timeline, id=screen_name, count=200).items()):
-        content.append(tweet.id)
-
-        with open('sample_tweet.json', 'w') as json_out:
-            json.dump(tweet._json, json_out)
-        exit()
-        print(tweet.id)
+        content.append(tweet.text)
     return content
 
+def get_all_retweeters(screen_name):
+    timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
+    print(timestamp)
+    all_retweeters = []
+    for tweet in limit_handled(tweepy.Cursor(api.user_timeline, id=screen_name, count=200).items()):
+        print(tweet.id)
+        retweeters_per_tweet = get_retweeters(tweet.id)
+        all_retweeters.append(retweeters_per_tweet)
+    return all_retweeters
+
 def get_retweeters(tweet_id):
+    timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
+    print(timestamp)
     content = []
     for tweet in api.retweets(id=tweet_id, count=200):
         content.append((tweet._json['user']['screen_name'], tweet._json['user']['name']))
-
     return content
+
 
 if __name__ == "__main__":
     # example to get list all tweets (text)
-    tweets_save = False
-    name = '@peteraltmaier'
+    tweets_save = True
+    name = '@quentzer32'
     content = get_content(name)
 
     if tweets_save == True:
         with open('sample_tweets.json', 'w') as json_out:
             json.dump(content, json_out)
+        print('samples have been saved')
 
     # example get user_ids of who retweeted tweet with specific id
-    retweeters_save = False
-    status_id = '837968136074891264'
-    retweeters = get_retweeters(status_id)
-    if retweeters_save == True:
-        with open('retweeters.json', 'w') as json_out:
-            json.dump(retweeters, json_out)
+    # retweeters_save = False
+    # status_id = '837968136074891264'
+    # retweeters = get_retweeters(status_id)
+    # print(retweeters)
+    # if retweeters_save == True:
+    #     with open('retweeters.json', 'w') as json_out:
+    #         json.dump(retweeters, json_out)
+
+    # example to get all retweeters associated with an user
+    # print(get_all_retweeters(screen_name=name))
