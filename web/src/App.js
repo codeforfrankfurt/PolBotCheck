@@ -21,10 +21,10 @@ class App extends Component {
                             <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Lowestbirthrates.svg" />
                         </Col>
                         <Row>
-                            <Col className="Info-followers" md={4}>
+                            <Col className="Info-followers" md={6}>
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Tortendiagramm_Themen_Pabst.jpg" />
                             </Col>
-                            <Col className="Info-retweeters" md={4}>
+                            <Col className="Info-retweeters" md={6}>
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Tortendiagramm_Themen_Pabst.jpg" />
                             </Col>
                         </Row>
