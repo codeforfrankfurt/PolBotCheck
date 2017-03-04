@@ -2,75 +2,49 @@ import React, {Component} from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import logo from './logo.svg';
 import './App.css';
-import {Button, Panel} from 'react-bootstrap';
+import {Jumbotron, Tabs, Tab} from 'react-bootstrap';
+import PartyPage from './Party';
+import MemberPage from './Member.js';
 
 class App extends Component {
-  state = {
-    member: {
-      name: "max meister",
-      pictureURL: "http://www.billboard.com/files/styles/article_main_image/public/media/donald-trump-thumbs-up-aug-2015-billboard-650.jpg",
-      party: "Die Linke",
-      followers: {
-        numFollowers: 3141592653,
-        ratioBots: "22%"
-      },
-      retweets: {
-        numRetweets: 1248653,
-        ratioBots: "47%"
-      },
-      wordCluster: {
-        hashTags: [
-          "#fakeNews",
-          "#letsBuildAWall"
-        ],
-        topics: [
-          "immigration",
-          "freeSpeech"
-        ]
-      }
-    }
-  };
+  state = {};
+
+  fetchMemberData() {
+    let data = require('../json/member.json');
+    return data;
+  }
+
+  componentWillMount() {
+    let newData = this.fetchMemberData();
+    this.setState(newData);
+  }
+
+  handleSelect() {
+    this.setState(this.state);
+  }
 
   render() {
     return (
       <Grid className="App">
-        <Col className="App-header" xs={12}>
+        <Row>
           <img src={logo} className="App-logo" alt="logo"/>
           <h2>Welcome to PolBotCheck</h2>
-        </Col>
-        <Row>
-          <Col className="App-profile" md={4}>
-            <img className="Profile-picture"
-                 src="https://upload.wikimedia.org/wikipedia/commons/9/93/Angela_Merkel_2016.jpg"/>
-            <div>Angela Merkel</div>
-          </Col>
-          <Col className="App-info" md={8}>
-            <Col className="Info-diagram">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Lowestbirthrates.svg"/>
-            </Col>
-            <Row>
-              <Col className="Info-followers" md={6}>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Tortendiagramm_Themen_Pabst.jpg"/>
-              </Col>
-              <Col className="Info-retweeters" md={6}>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Tortendiagramm_Themen_Pabst.jpg"/>
-              </Col>
-            </Row>
-          </Col>
         </Row>
-        <div className="master">
-          <Button onClick={ ()=> {
-            location.replace('http://localhost:3000/PartyPage');
-          }
-          }>Partei
-          </Button>
-        </div>
-        <div>
-          <Panel bsStyle="primary"
-                 bsSize="large"
-          >Name: {this.state.member.name}</Panel>
-
-        </div>
+        <Row>
+          <Jumbotron>
+            <p>Introduction and description....</p>
+          </Jumbotron>
+        </Row>
+        <Row>
+          <Tabs defaultActiveKey={1}
+                id="tab"
+                onSelect={this.handleSelect}>
+            <Tab eventKey={1} title="Member">
+              {<MemberPage member={this.state.member}/>}</Tab>
+            <Tab eventKey={2} title="Party">Tab 2 content</Tab>
+            <Tab eventKey={3} title="Topic">Tab 3 content</Tab>
+          </Tabs>
+        </Row>
       </Grid>
     );
   }
