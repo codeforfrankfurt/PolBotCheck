@@ -12,21 +12,16 @@ from __future__ import print_function
 import json
 import tweepy
 import requests
+import botornot
+import time
+from keys import myauth
 
 
-consumer_key = 'i5sRKkw2Y9wPcIdKKf3nA'
-consumer_secret = 'vfHWRFjsyfquUG7NJyTM45B3HaxzPgGlX3OTLR3IGeg'
-access_key = '1277127895-8jHJzzuu53zpJP4Cf7YJIh3z3MYjHtveIWq0K4u'
-access_secret = 'NlqlBsEgiyBTFqYajrpK4T8aP0csWe4mpterr8WFUFXs2'
-
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_key, access_secret )
-twitter_api = tweepy.API(auth, parser=tweepy.parsers.JSONParser())
-
-botornot_auth = { 'consumer_key': consumer_key, 'consumer_secret': consumer_secret, 'access_token': access_key, 'access_token_secret': access_secret }
-bon = botornot.BotOrNot(**botornot_auth)
-
-screen_name = '@clayadavis'
+auth = tweepy.OAuthHandler(myauth['consumer_key'], myauth['consumer_secret'])
+auth.set_access_token(myauth['access_token'], myauth['access_token_secret'] )
+twitter_api = tweepy.API(auth,wait_on_rate_limit=True, wait_on_rate_limit_notify=True,\
+                         retry_count=3, retry_delay=5, retry_errors=set([401, 404, 500, 503]))
+bon = botornot.BotOrNot(**myauth)
 
 def get_botOrNot(screen_name):
     """  not functioning yet, due to problem with parser"""
