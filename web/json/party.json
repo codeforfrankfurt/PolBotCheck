@@ -1,0 +1,28 @@
+{
+  "member": {
+    "name": "Die Linke",
+    "pictureURL": "http://www.billboard.com/files/styles/article_main_image/public/media/donald-trump-thumbs-up-aug-2015-billboard-650.jpg",
+    "members": [
+      "Max Meister",
+      "Erika Smith"
+    ],
+    "followers": {
+      "numFollowers": 3141592653,
+      "ratioBots": "22%"
+    },
+    "retweets": {
+      "numRetweets": 1248653,
+      "ratioBots": "47%"
+    },
+    "wordCluster": {
+      "hashTags": [
+        "#fakeNews",
+        "#buildAWall"
+      ],
+      "topics": [
+        "immigration",
+        "freeSpeech"
+      ]
+    }
+  }
+}
