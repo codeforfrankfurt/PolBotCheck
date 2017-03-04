@@ -1,3 +1,9 @@
 # PolBotCheck
 Checking political bots on social networks
-test
+
+
+## Frontend
+
+cd to 'web' folder
+
+run 'npm start'
