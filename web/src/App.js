@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
+import PieChart from './PieChart';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+    componentDidMount() {
+        var script = document.createElement('script');
+        script.setAttribute('src', '//d3js.org/d3.v3.min.js');
+        document.body.appendChild(script)
+    }
+
     render() {
         return (
             <Grid className="App">
@@ -21,12 +28,8 @@ class App extends Component {
                             <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Lowestbirthrates.svg" />
                         </Col>
                         <Row>
-                            <Col className="Info-followers" md={6}>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Tortendiagramm_Themen_Pabst.jpg" />
-                            </Col>
-                            <Col className="Info-retweeters" md={6}>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Tortendiagramm_Themen_Pabst.jpg" />
-                            </Col>
+                            <PieChart className="Info-followers col-md-6"></PieChart>
+                            <PieChart className="Info-retweeters col-md-6"></PieChart>
                         </Row>
                     </Col>
                 </Row>
