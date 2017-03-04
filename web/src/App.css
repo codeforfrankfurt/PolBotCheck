@@ -1,24 +1,38 @@
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css';
+
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+    float: left;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+    background-color: #222;
+    padding: 20px;
+    color: white;
 }
 
-.App-intro {
-  font-size: large;
+.App-profile {
+    padding: 2em;
+}
+
+img {
+    max-width: 100%;
+}
+
+.Info-diagram {
+    padding: 2em;
+}
+
+.Info-diagram img {
+    max-width: 66%;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
