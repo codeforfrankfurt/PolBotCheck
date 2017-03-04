@@ -51,8 +51,19 @@ def get_botOrNot(screen_name):
 
 def get_bot_or_not(screen_name):
     """ returns bot or not features, using python package"""
-    result = bon.check_account(screen_name)
-    print(result)
+    try:
+        result = bon.check_account(screen_name)
+        except Exception as err:
+            print(err)
+            return None
+#    except botornot.NoTimelineError:
+#        return None
+#    except tweepy.TweepError:
+#        return None
+#    except StopIteration:
+#        return None
+
+    return(result)
 
 def get_followers(screen_name):
     
@@ -70,3 +81,4 @@ def get_followers(screen_name):
             break
         followerlist.append("@" + user.screen_name)
     return followerlist
+

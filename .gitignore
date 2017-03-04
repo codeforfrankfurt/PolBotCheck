@@ -2,4 +2,4 @@ tags
 keys.py
 ./PolBotCheck/keys.py
 .node_modules
-
+*.pyc

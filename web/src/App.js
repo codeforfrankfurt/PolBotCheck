@@ -3,10 +3,10 @@ import {Grid, Row, Col} from 'react-bootstrap';
 import logo from './logo.svg';
 import './App.css';
 import {Jumbotron, Tabs, Tab} from 'react-bootstrap';
-import PartyPage from './Party';
 import MemberPage from './Member.js';
 
 class App extends Component {
+
   state = {};
 
   fetchMemberData() {
@@ -48,6 +48,5 @@ class App extends Component {
       </Grid>
     );
   }
-}
 
 export default App;
