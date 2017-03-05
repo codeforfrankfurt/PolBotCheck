@@ -5,6 +5,7 @@ import React, {Component} from 'react';
 import {Col, Row, Panel} from 'react-bootstrap';
 import PieChart from './PieChart';
 
+
 export default class MemberPage extends Component {
 
   render() {
@@ -24,8 +25,8 @@ export default class MemberPage extends Component {
             <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Lowestbirthrates.svg"/>
           </Col>
           <Row>
-            <PieChart className="Info-followers col-md-6"></PieChart>
-            <PieChart className="Info-retweeters col-md-6"></PieChart>
+            <PieChart className="Info-followers col-md-6" numbers={this.props.member.followers}/>
+            <PieChart className="Info-retweeters col-md-6" numbers={this.props.member.retweets}/>
           </Row>
         </Col>
       </div>
