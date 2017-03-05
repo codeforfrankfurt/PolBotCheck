@@ -1,1 +1,1 @@
-users = ['peteraltmeier']
+users = ['malechanissen', 'peteraltmeier', 'petertauber']

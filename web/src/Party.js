@@ -2,7 +2,6 @@
  * Created by peter on 04.03.17.
  */
 import React, {Component} from 'react';
-import {Panel} from 'react-bootstrap';
 
 export default class PartyPage extends Component {
   state = {

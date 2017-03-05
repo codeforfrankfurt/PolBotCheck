@@ -4,7 +4,7 @@ from arango import ArangoClient
 from datetime import tzinfo
 
 # Configure your ArangoDB server connection here
-conn = ArangoClient(protocol='http', host='192.168.178.44', port=8529, username='root', password='Qf5sc1ZOltQ7z4ab')
+conn = ArangoClient(protocol='http', host='disruptivepulse.com', port=6754, username='root', password='zentralebot')
 
 dbName = 'polBotCheck'
 if dbName not in conn.databases():
@@ -15,6 +15,12 @@ def getCollection(collectionName, edge=False):
     collectionNames = map(lambda c: c['name'], db.collections())
     if collectionName not in collectionNames:
         db.create_collection(collectionName, edge=edge)
+    return db.collection(collectionName)
+
+def getVertexCollection(graph, collectionName):
+    collectionNames = map(lambda c: c['name'], db.collections())
+    if collectionName not in collectionNames:
+        graph.create_vertex_collection(collectionName)
     return db.collection(collectionName)
 
 def getGraph(graphName):
@@ -35,18 +41,35 @@ def getEdgeDefinition(graph, edgeDefName, fromCollections, toCollections):
 
 # create the collections we need, if necessary
 usersCol = getCollection('users')
+
 followersGraph = getGraph('followers')
 followersCol = getEdgeDefinition(followersGraph, 'followers', ['users'], ['users'])
+
+retweetsGraph = getGraph('retweets')
+tweetsCol = getVertexCollection(retweetsGraph, 'tweets')
+retweetsCol = getEdgeDefinition(retweetsGraph, 'retweets', ['tweets'], ['tweets'])
 
 def saveUser(user):
     if not usersCol.has(user):
         usersCol.insert({'_key': user})
 
 def getUserEdgeDoc(fromName='', toName=''):
-    return {'_from': 'users/'+ fromName, '_to': 'users/' + toName}
+    if fromName != '':
+        return {'_from': 'users/'+ fromName, '_to': 'users/' + toName}
+    else:
+        return {'_to': 'users/' + toName}
+
+def getRetweetEdgeDoc(fromID='', toID=''):
+    if fromID != '':
+        return {'_from': 'tweets/'+ fromID, '_to': 'tweets/' + toID}
+    else:
+        return {'_to': 'tweets/' + toID}
 
 def hasFollower(fromName='', toName=''):
     return followersCol.find(getUserEdgeDoc(fromName=fromName, toName=toName), None, 1).count() >= 0
+
+def hasRetweet(fromID='', toID=''):
+    return retweetsCol.find(getRetweetEdgeDoc(fromID=fromID, toID=toID), None, 1).count() >= 0
 
 def saveFollower(username, follower, botness):
     doc = {'_key': follower.screen_name, 'botness': botness}
@@ -59,8 +82,21 @@ def saveFollower(username, follower, botness):
     if not hasFollower(fromName=follower.screen_name, toName=username):
         followersCol.insert(getUserEdgeDoc(fromName=follower.screen_name, toName=username))
 
-def saveTweet(tweet, retweets):
-    raise NotImplementedError
+def saveTweet(tweet):
+    if tweetsCol.has(tweet.id_str):
+        tweetsCol.update(tweet.id_str, tweet._json)
+    else:
+        tweetDoc = {'key': tweet.id_str}
+        tweetDoc.update(tweet._json)
+        tweetsCol.insert(tweetDoc)
+
+def saveRetweets(tweet, retweets):
+    saveTweet(tweet)
+    for retweet in retweets:
+        saveTweet(retweet)
+        
+        if not hasRetweet(fromID=tweet.id_str, toID=retweet.id_str):
+            retweetsCol.insert(getRetweetEdgeDoc(fromID=tweet.id_str, toID=retweet.id_str))
 
 def saveWordFreqs(wordFreqs):
     raise NotImplementedError

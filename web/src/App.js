@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
-import {Grid, Row, Col} from 'react-bootstrap';
+import {Grid, Row} from 'react-bootstrap';
 import logo from './logo.svg';
 import './App.css';
-import {Jumbotron, Tabs, Tab} from 'react-bootstrap';
+import {Jumbotron} from 'react-bootstrap';
 import MemberPage from './Member.js';
 
 class App extends Component {
 
-  state = {};
+  state = {
+    content: 'MEMBER'
+  };
 
   fetchMemberData() {
     let data = require('../json/member.json');
@@ -19,10 +21,6 @@ class App extends Component {
     this.setState(newData);
   }
 
-  handleSelect() {
-    this.setState(this.state);
-  }
-
   render() {
     return (
       <Grid className="App">
@@ -32,21 +30,28 @@ class App extends Component {
         </Row>
         <Row>
           <Jumbotron>
-            <p>Introduction and description....</p>
+            <p>Introduction and description</p>
           </Jumbotron>
         </Row>
         <Row>
-          <Tabs defaultActiveKey={1}
-                id="tab"
-                onSelect={this.handleSelect}>
-            <Tab eventKey={1} title="Member">
-              {<MemberPage member={this.state.member}/>}</Tab>
-            <Tab eventKey={2} title="Party">Tab 2 content</Tab>
-            <Tab eventKey={3} title="Topic">Tab 3 content</Tab>
-          </Tabs>
+          {(()=> {
+            switch (this.state.content) {
+              case 'MEMBER':
+                return <MemberPage member={this.state.member}/>;
+                break;
+              case 'PARTY':
+                return <p>PartyPage</p>;
+              case 'TOPIC':
+                return <p>TopicPage</p>;
+              default:
+                return <p>Unknown Page!</p>;
+            }
+          })()}
+
         </Row>
       </Grid>
     );
   }
+}
 
 export default App;
