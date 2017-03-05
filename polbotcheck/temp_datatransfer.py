@@ -1,6 +1,4 @@
-import json
-import tweepy
-import requests
+import twitter_api
 import botornotapi
 
 from userlist import users
@@ -8,7 +6,7 @@ import db
 
 
 for user in users:
-    followerlist = botornotapi.get_followers("@" + user)
+    followerlist = twitter_api.get_followers("@" + user)
     db.saveUser(user)
     for follower in followerlist:
         screenName = follower.screen_name

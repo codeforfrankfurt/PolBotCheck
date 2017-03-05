@@ -17,18 +17,18 @@ def limit_handled(cursor):
             yield cursor.next()
         except tweepy.RateLimitError:
             timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
-            print('Warning: Rate limit reached!' + timestamp)
+            print('Warning: Rate limit reached! ' + timestamp)
             time.sleep(15 * 60)
 
 def get_tweets(screen_name):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
     print(timestamp)
-    content = []
+    tweets = []
     for tweet in limit_handled(tweepy.Cursor(api.user_timeline, id=screen_name, count=200).items()):
-        content.append(tweet.text)
+        tweets.append(tweet.text)
         retweets = get_retweets(tweet.id)
         db.saveRetweets(tweet, retweets)
-    return content
+    return tweets
 
 # def get_all_retweeters(screen_name):
 #     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
@@ -44,10 +44,10 @@ def get_tweets(screen_name):
 def get_retweets(tweet_id):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
     print(timestamp)
-    content = []
-    for tweet in api.retweets(id=tweet_id, count=200):
-        content.append(tweet)
-    return content
+    retweets = []
+    for retweet in api.retweets(id=tweet_id, count=200):
+        retweets.append(retweet)
+    return retweets
 
 def get_followers(screen_name):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
