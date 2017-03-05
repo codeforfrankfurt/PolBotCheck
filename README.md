@@ -14,8 +14,8 @@ really interesting to the public or if it is only interesting for certain bots.
 
     cd polbotcheck
     cp keys-sample.py keys.py
-    cp db-credentials-sample.py db-credentials.py
-    python temp_datatranfer.py
+    cp db_credentials-sample.py db_credentials.py
+    python twitter_api.py
 
 ## Frontend
 
