@@ -98,11 +98,11 @@ def saveFollower(username, follower, botness):
         followersCol.insert(getUserEdgeDoc(fromName=follower.screen_name, toName=username))
 
 def saveTweet(tweet):
+    tweetDoc = {'_key': tweet.id_str}
+    tweetDoc.update(tweet._json)
     if tweetsCol.has(tweet.id_str):
-        tweetsCol.update(tweet.id_str, tweet._json)
+        tweetsCol.update(tweetDoc)
     else:
-        tweetDoc = {'_key': tweet.id_str}
-        tweetDoc.update(tweet._json)
         tweetsCol.insert(tweetDoc)
 
 def saveRetweets(tweet, retweets):
