@@ -1,1 +1,1 @@
-users = ['@peteraltmeier']
+users = ['peteraltmeier']

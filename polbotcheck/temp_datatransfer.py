@@ -8,12 +8,17 @@ import db
 
 
 for user in users:
-    followerlist = botornotapi.get_followers(user)
+    followerlist = botornotapi.get_followers("@" + user)
+    db.saveUser(user)
     for follower in followerlist:
-        followerBotness = botornotapi.get_bot_or_not("@" + follower.screen_name)
+        screenName = follower.screen_name
+        if db.hasFollower(fromName=screenName, toName=user):
+            print("Already checked " + screenName + " skipping for now.")
+            next
+        followerBotness = botornotapi.get_bot_or_not("@" + screenName)
         if followerBotness is not None:
-            db.saveFollower(user, follower, botness)
-            print("Saved follower " + follower['meta']['user_id'] + " for " + user)
-        else
-            print("Botness for " + user + " is none.")
+            db.saveFollower(user, follower, followerBotness)
+            print("Saved follower @" + screenName + " for @" + user)
+        else:
+            print("Botness for @" + screenName + " is none.")
 

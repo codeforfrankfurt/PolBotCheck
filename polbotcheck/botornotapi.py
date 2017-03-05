@@ -53,9 +53,9 @@ def get_bot_or_not(screen_name):
     """ returns bot or not features, using python package"""
     try:
         result = bon.check_account(screen_name)
-        except Exception as err:
-            print(err)
-            return None
+    except Exception as err:
+        print(err)
+        return None
 #    except botornot.NoTimelineError:
 #        return None
 #    except tweepy.TweepError:
