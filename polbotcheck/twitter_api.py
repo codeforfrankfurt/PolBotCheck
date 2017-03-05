@@ -26,9 +26,7 @@ def limit_handled(cursor):
 def save_tweets_with_retweets(screen_name):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
     print(timestamp)
-    tweets = []
     for tweet in limit_handled(tweepy.Cursor(api.user_timeline, id=screen_name, count=200).items()):
-        tweets.append(tweet.text)
         retweets = get_retweets(tweet.id)
         db.saveRetweets(tweet, retweets)
 
@@ -85,7 +83,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if not (args.tweets or args.followers or args.all):
         parser.error('No action requested, please see --help')
-    print(args)
+
     for user in USERS:
         if args.all:
             save_tweets_with_retweets(user)
