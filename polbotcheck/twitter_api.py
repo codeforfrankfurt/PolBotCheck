@@ -1,17 +1,14 @@
-import tweepy
-import json
-from keys import myauth
-import pprint
-import time
 import argparse
-
+import time
+import tweepy
+from keys import myauth
 import db
 import botornotapi
 from userlist import USERS
 
 auth = tweepy.OAuthHandler(myauth['consumer_key'], myauth['consumer_secret'])
-auth.set_access_token(myauth['access_token'], myauth['access_token_secret'] )
-api = tweepy.API(auth,wait_on_rate_limit=True, wait_on_rate_limit_notify=True,\
+auth.set_access_token(myauth['access_token'], myauth['access_token_secret'])
+api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True,\
                          retry_count=3, retry_delay=5, retry_errors=set([401, 404, 500, 503]))
 
 def limit_handled(cursor):
@@ -34,16 +31,16 @@ def save_followers_with_botness(user):
     followers = get_followers("@" + user)
     db.saveUser(user)
     for follower in followers:
-        screenName = follower.screen_name
-        if db.hasFollower(fromName=screenName, toName=user):
-            print("Already checked @" + screenName + " skipping for now.")
+        screen_name = follower.screen_name
+        if db.hasFollower(fromName=screen_name, toName=user):
+            print("Already checked @" + screen_name + " skipping for now.")
             continue
-        followerBotness = botornotapi.get_bot_or_not("@" + screenName)
-        if followerBotness is not None:
-            db.saveFollower(user, follower, followerBotness)
-            print("Saved follower @" + screenName + " for @" + user)
+        follower_botness = botornotapi.get_bot_or_not("@" + screen_name)
+        if follower_botness is not None:
+            db.saveFollower(user, follower, follower_botness)
+            print("Saved follower @" + screen_name + " for @" + user)
         else:
-            print("Botness for @" + screenName + " is none.")
+            print("Botness for @" + screen_name + " is none.")
 
 def get_retweets(tweet_id):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
