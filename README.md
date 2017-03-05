@@ -25,4 +25,8 @@ really interesting to the public or if it is only interesting for certain bots.
 
 _npm install_ is only needed the first time.
 
+## Arango Server Commands
+
+   arangodump --server.endpoint tcp://disruptivepulse.com:6754 --server.username root --server.database polBotCheck --output-directory "dump"
+   arangoimp --file SOMEFILE.json --server.endpoint tcp://disruptivepulse.com:6754 --server.username root --server.database polBotCheck --collection users --create-collection true
 
