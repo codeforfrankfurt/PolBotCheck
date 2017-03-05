@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import {Col, Row, Panel} from 'react-bootstrap';
 import PieChart from './PieChart';
-
+import BarChart from './BarChart';
 
 export default class MemberPage extends Component {
 
@@ -16,17 +16,24 @@ export default class MemberPage extends Component {
                src={this.props.member.pictureURL}/>
           <Panel bsStyle="primary"
                  bsSize="large">
-            <p>Name: {this.props.member.name ? this.props.member.name : '-' + '\n'}</p>
+            <p>Name: {this.props.member.name ? this.props.member.name : '-'}</p>
             <p>Partei: {this.props.member.party ? this.props.member.party : '-'}</p>
           </Panel>
         </Col>
         <Col className="App-info" md={8}>
-          <Col className="Info-diagram">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Lowestbirthrates.svg"/>
-          </Col>
+          <Row className="Info-diagram">
+            <BarChart className="Info-topics" topics={this.props.member.wordCluster.topics}/>
+            <p>Die meistbesprochenen Themen des Abgeordneten</p>
+          </Row>
           <Row>
-            <PieChart className="Info-followers col-md-6" numbers={this.props.member.followers}/>
-            <PieChart className="Info-retweeters col-md-6" numbers={this.props.member.retweets}/>
+            <Col md={6}>
+              <PieChart className="Info-followers" numbers={this.props.member.followers}/>
+              <p>Follower: Verhältnis von Bots / Menschen</p>
+            </Col>
+            <Col md={6}>
+              <PieChart className="Info-retweets" numbers={this.props.member.retweets}/>
+              <p>Retweets: Verhältnis von Bots / Menschen</p>
+            </Col>
           </Row>
         </Col>
       </div>

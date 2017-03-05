@@ -1,15 +1,24 @@
+/**
+ * Created by peter on 05.03.17.
+ */
 import React, {Component} from 'react';
-import {Pie} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 
-class PieChart extends Component {
+class BarChart extends Component {
 
   render() {
+    let scores = [];
+    let labels = [];
+    this.props.topics.map((value) => {
+      scores.push(value.score);
+      labels.push(value.label)
+    });
+
     const data = {
-      labels: ["Bots", "Menschen"],
+      labels: labels,
       datasets: [{
-        label: 'Verhältnis Bots / Menschen',
-        data: [this.props.numbers.numBots,
-          this.props.numbers.numHumans],
+        label: 'Score',
+        data: scores,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
@@ -30,12 +39,23 @@ class PieChart extends Component {
       }]
     };
 
+    let options = {
+      scales: {
+        xAxes: [{
+          stacked: true
+        }],
+        yAxes: [{
+          stacked: true
+        }]
+      }
+    };
+
     return (
       <div className={this.props.className}>
-        <Pie data={data} width={600} height={250}/>
+        <Bar data={data} options={options} width={600} height={250}/>
       </div>
     );
   }
 }
 
-export default PieChart;
+export default BarChart;
