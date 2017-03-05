@@ -7,12 +7,14 @@
       "Erika Smith"
     ],
     "followers": {
-      "numFollowers": 3141592653,
-      "ratioBots": "22%"
+      "numFollowers": 10,
+      "numHumans": 2,
+      "numBots": 8
     },
     "retweets": {
-      "numRetweets": 1248653,
-      "ratioBots": "47%"
+      "numRetweets": 12,
+      "numHumans": 11,
+      "numBots": 1
     },
     "wordCluster": {
       "hashTags": [
