@@ -55,6 +55,7 @@ def saveUser(user):
     if not usersCol.has(user):
         usersCol.insert({'_key': user})
 
+
 def getUserEdgeDoc(fromName='', toName=''):
     if fromName != '':
         return {'_from': 'users/'+ fromName, '_to': 'users/' + toName}
@@ -68,8 +69,15 @@ def getRetweetEdgeDoc(fromID='', toID=''):
         return {'_to': 'tweets/' + toID}
 
 
+def getUser(user):
+    myuser = usersCol.find({'_key':user})
+    try: 
+        foundUser = next(myuser)
+        return foundUser
+    except:
+        return None
+
 def getFollowers(toName=''):
-    """ not yet tested """
     return followersCol.find(getUserEdgeDoc(toName=toName))
 
 def hasFollower(fromName='', toName=''):
