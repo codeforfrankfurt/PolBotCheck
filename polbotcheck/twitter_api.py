@@ -46,7 +46,6 @@ def get_retweets(tweet_id):
     print(timestamp)
     content = []
     for tweet in api.retweets(id=tweet_id, count=200):
-        # maybe return tweet._json['user'] instead of screen_name and name
         content.append(tweet)
     return content
 
