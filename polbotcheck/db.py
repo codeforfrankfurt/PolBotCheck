@@ -3,8 +3,10 @@
 from arango import ArangoClient
 from datetime import tzinfo
 
+from db_credentials import db_credentials
+
 # Configure your ArangoDB server connection here
-conn = ArangoClient(protocol='http', host='192.168.42.152', port=8529, username='root', password='Qf5sc1ZOltQ7z4ab')
+conn = ArangoClient(protocol=db_credentials['protocol'], host=db_credentials['host'], port=db_credentials['port'], username=db_credentials['username'], password=db_credentials['password'])
 
 dbName = 'polBotCheck'
 if dbName not in conn.databases():
@@ -53,17 +55,36 @@ def saveUser(user):
     if not usersCol.has(user):
         usersCol.insert({'_key': user})
 
+
 def getUserEdgeDoc(fromName='', toName=''):
-    return {'_from': 'users/'+ fromName, '_to': 'users/' + toName}
+    if fromName != '':
+        return {'_from': 'users/'+ fromName, '_to': 'users/' + toName}
+    else:
+        return {'_to': 'users/' + toName}
 
 def getRetweetEdgeDoc(fromID='', toID=''):
-    return {'_from': 'tweets/'+ fromID, '_to': 'tweets/' + toID}
+    if fromID != '':
+        return {'_from': 'tweets/'+ fromID, '_to': 'tweets/' + toID}
+    else:
+        return {'_to': 'tweets/' + toID}
+
+
+def getUser(user):
+    myuser = usersCol.find({'_key':user})
+    try: 
+        foundUser = next(myuser)
+        return foundUser
+    except:
+        return None
+
+def getFollowers(toName=''):
+    return followersCol.find(getUserEdgeDoc(toName=toName))
 
 def hasFollower(fromName='', toName=''):
-    return followersCol.find(getUserEdgeDoc(fromName=fromName, toName=toName), None, 1).count() >= 0
+    return followersCol.find(getUserEdgeDoc(fromName=fromName, toName=toName), None, 1).count() > 0
 
 def hasRetweet(fromID='', toID=''):
-    return retweetsCol.find(getRetweetEdgeDoc(fromID=fromID, toID=toID), None, 1).count() >= 0
+    return retweetsCol.find(getRetweetEdgeDoc(fromID=fromID, toID=toID), None, 1).count() > 0
 
 def saveFollower(username, follower, botness):
     doc = {'_key': follower.screen_name, 'botness': botness}
@@ -80,7 +101,7 @@ def saveTweet(tweet):
     if tweetsCol.has(tweet.id_str):
         tweetsCol.update(tweet.id_str, tweet._json)
     else:
-        tweetDoc = {'key': tweet.id_str}
+        tweetDoc = {'_key': tweet.id_str}
         tweetDoc.update(tweet._json)
         tweetsCol.insert(tweetDoc)
 

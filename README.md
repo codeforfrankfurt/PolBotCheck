@@ -10,9 +10,19 @@ or a human. We check that on retweeters of a politician and calculate a score fo
 topic (aka hashtag) he or she is talking about. This helps to identify, if a tweet is
 really interesting to the public or if it is only interesting for certain bots.
 
+## Backend
 
-## Checkout and run
+    cd polbotcheck
+    cp keys-sample.py keys.py
+    cp db-credentials-sample.py db-credentials.py
+    python temp_datatranfer.py
 
-    get clone https://github.com/codeforfrankfurt/PolBotCheck.git
-    cd PolBotCheck/web
+## Frontend
+
+    cd web
+    npm install
     npm start
+
+_npm install_ is only needed the first time.
+
+

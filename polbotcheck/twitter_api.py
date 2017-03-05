@@ -5,6 +5,8 @@ import pprint
 import time
 
 import db
+import botornotapi
+from userlist import USERS
 
 auth = tweepy.OAuthHandler(myauth['consumer_key'], myauth['consumer_secret'])
 auth.set_access_token(myauth['access_token'], myauth['access_token_secret'] )
@@ -17,18 +19,48 @@ def limit_handled(cursor):
             yield cursor.next()
         except tweepy.RateLimitError:
             timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
-            print('Warning: Rate limit reached!' + timestamp)
+            print('Warning: Rate limit reached! ' + timestamp)
             time.sleep(15 * 60)
 
-def get_tweets(screen_name):
+def save_tweets_with_retweets(screen_name):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
     print(timestamp)
-    content = []
+    tweets = []
     for tweet in limit_handled(tweepy.Cursor(api.user_timeline, id=screen_name, count=200).items()):
-        content.append(tweet.text)
+        tweets.append(tweet.text)
         retweets = get_retweets(tweet.id)
         db.saveRetweets(tweet, retweets)
-    return content
+
+def save_followers_with_botness(user):
+    followers = get_followers("@" + user)
+    db.saveUser(user)
+    for follower in followers:
+        screenName = follower.screen_name
+        if db.hasFollower(fromName=screenName, toName=user):
+            print("Already checked @" + screenName + " skipping for now.")
+            continue
+        followerBotness = botornotapi.get_bot_or_not("@" + screenName)
+        if followerBotness is not None:
+            db.saveFollower(user, follower, followerBotness)
+            print("Saved follower @" + screenName + " for @" + user)
+        else:
+            print("Botness for @" + screenName + " is none.")
+
+def get_retweets(tweet_id):
+    timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
+    print(timestamp)
+    retweets = []
+    for retweet in api.retweets(id=tweet_id, count=200):
+        retweets.append(retweet)
+    return retweets
+
+def get_followers(screen_name):
+    timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
+    print(timestamp)
+    followers =[]
+    for user in limit_handled(tweepy.Cursor(twitter_api.followers, screen_name=screen_name, count=200).items()):
+        followers.append(user)
+    return followers
 
 # def get_all_retweeters(screen_name):
 #     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
@@ -41,37 +73,8 @@ def get_tweets(screen_name):
 #         # all_retweeters.append(retweeters_per_tweet)
 #     return all_retweeters
 
-def get_retweets(tweet_id):
-    timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
-    print(timestamp)
-    content = []
-    for tweet in api.retweets(id=tweet_id, count=200):
-        # maybe return tweet._json['user'] instead of screen_name and name
-        content.append(tweet)
-    return content
-
 
 if __name__ == "__main__":
-    # example to get list all tweets (text)
-    #tweets_save = True
-    name = '@malechanissen'
-    content = get_tweets(name)
-
-#    if tweets_save == True:
-#        with open('sample_tweets.json', 'w') as json_out:
-#            json.dump(content, json_out)
-#        print('samples have been saved')
-
-    # example get user_ids of who retweeted tweet with specific id
-    #retweeters_save = False
-    #status_id = '837968136074891264'
-    #retweets = get_retweets(status_id)
-    #print(retweets)
-    #
-    #db.saveRetweets()
-    #if retweeters_save == True:
-    #    with open('retweeters.json', 'w') as json_out:
-    #        json.dump(retweeters, json_out)
-
-    # example to get all retweeters associated with an user
-    # print(get_all_retweeters(screen_name=name))
+    for user in USERS:
+        save_tweets_with_retweets(user)
+        save_followers_with_botness(user)
