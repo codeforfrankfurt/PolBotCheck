@@ -4,7 +4,7 @@ from arango import ArangoClient
 from datetime import tzinfo
 
 # Configure your ArangoDB server connection here
-conn = ArangoClient(protocol='http', host='192.168.178.44', port=8529, username='root', password='Qf5sc1ZOltQ7z4ab')
+conn = ArangoClient(protocol='http', host='192.168.42.152', port=8529, username='root', password='Qf5sc1ZOltQ7z4ab')
 
 dbName = 'polBotCheck'
 if dbName not in conn.databases():
