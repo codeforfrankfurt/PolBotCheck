@@ -3,10 +3,10 @@
 from arango import ArangoClient
 from datetime import tzinfo
 
-from db-credentials import db_credentials
+from db_credentials import db_credentials
 
 # Configure your ArangoDB server connection here
-conn = ArangoClient(protocol=db_credentials.protocol, host=db_credentials.host, port=db_credentials.port, username=db_credentials.username, password=db_credentials.password)
+conn = ArangoClient(protocol=db_credentials['protocol'], host=db_credentials['host'], port=db_credentials['port'], username=db_credentials['username'], password=db_credentials['password'])
 
 dbName = 'polBotCheck'
 if dbName not in conn.databases():
