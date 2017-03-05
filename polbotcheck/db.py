@@ -73,10 +73,10 @@ def getFollowers(toName=''):
     return followersCol.find(getUserEdgeDoc(toName=toName))
 
 def hasFollower(fromName='', toName=''):
-    return followersCol.find(getUserEdgeDoc(fromName=fromName, toName=toName), None, 1).count() >= 0
+    return followersCol.find(getUserEdgeDoc(fromName=fromName, toName=toName), None, 1).count() > 0
 
 def hasRetweet(fromID='', toID=''):
-    return retweetsCol.find(getRetweetEdgeDoc(fromID=fromID, toID=toID), None, 1).count() >= 0
+    return retweetsCol.find(getRetweetEdgeDoc(fromID=fromID, toID=toID), None, 1).count() > 0
 
 def saveFollower(username, follower, botness):
     doc = {'_key': follower.screen_name, 'botness': botness}
