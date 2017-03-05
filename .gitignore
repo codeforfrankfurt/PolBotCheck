@@ -3,3 +3,7 @@ keys.py
 db_credentials.py
 .node_modules
 *.pyc
+
+# Jupyter/IPython notebook related
+.ipynb_checkpoints
+dev_*.ipynb
