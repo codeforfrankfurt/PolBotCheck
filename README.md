@@ -20,4 +20,9 @@ really interesting to the public or if it is only interesting for certain bots.
 ## Frontend
 
     cd web
+    npm install
     npm start
+
+_npm install_ is only needed the first time.
+
+
