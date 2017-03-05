@@ -1,5 +1,6 @@
 tags
 keys.py
 ./PolBotCheck/keys.py
+./PolBotCheck/db-credentials.py
 .node_modules
 *.pyc
