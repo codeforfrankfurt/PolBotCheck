@@ -49,6 +49,14 @@ def get_retweets(tweet_id):
         content.append(tweet)
     return content
 
+def get_followers(screen_name):
+    timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
+    print(timestamp)
+    followers =[]
+    for user in limit_handled(tweepy.Cursor(twitter_api.followers, screen_name=screen_name, count=200).items()):
+        followers.append(user)
+    return followers
+
 
 if __name__ == "__main__":
     # example to get list all tweets (text)
