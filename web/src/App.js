@@ -38,7 +38,6 @@ class App extends Component {
             switch (this.state.content) {
               case 'MEMBER':
                 return <MemberPage member={this.state.member}/>;
-                break;
               case 'PARTY':
                 return <p>PartyPage</p>;
               case 'TOPIC':
@@ -47,7 +46,6 @@ class App extends Component {
                 return <p>Unknown Page!</p>;
             }
           })()}
-
         </Row>
       </Grid>
     );
