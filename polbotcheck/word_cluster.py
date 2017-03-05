@@ -1,13 +1,7 @@
 import json
-from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.feature_extraction.text import HashingVectorizer
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.preprocessing import Normalizer
 import nltk
 from nltk.corpus import stopwords
-from pprint import pprint
-from os import path
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
@@ -48,7 +42,7 @@ def get_topic_frequencies(tweets, words_n=50, lang='english'):
     return topic_frequencies
 
 def save_wordcloud(frequencies, filename):
-    wordcloud = WordCloud().fit_words(frequencies)
+    wordcloud = WordCloud(width=1024, height=786).fit_words(frequencies)
     fig = plt.figure()
     fig.set_figwidth(12)
     fig.set_figheight(16)
@@ -70,4 +64,3 @@ if __name__ == "__main__":
     print(topic_frequencies)
 
     save_wordcloud(topic_frequencies, 'wordcloud_uk_election.png')
-
