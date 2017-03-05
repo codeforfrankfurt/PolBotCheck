@@ -18,29 +18,31 @@ def limit_handled(cursor):
             print('Warning: Rate limit reached!' + timestamp)
             time.sleep(15 * 60)
 
-def get_content(screen_name):
+def get_tweets(screen_name):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
     print(timestamp)
     content = []
     for tweet in limit_handled(tweepy.Cursor(api.user_timeline, id=screen_name, count=200).items()):
         content.append(tweet.text)
+        retweeters = get_retweeters(tweet.id)
     return content
 
-def get_all_retweeters(screen_name):
-    timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
-    print(timestamp)
-    all_retweeters = []
-    for tweet in limit_handled(tweepy.Cursor(api.user_timeline, id=screen_name, count=200).items()):
-        print(tweet.id)
-        retweeters_per_tweet = get_retweeters(tweet.id)
-        all_retweeters.append(retweeters_per_tweet)
-    return all_retweeters
+# def get_all_retweeters(screen_name):
+#     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
+#     print(timestamp)
+#     all_retweeters = []
+#     for tweet in limit_handled(tweepy.Cursor(api.user_timeline, id=screen_name, count=200).items()):
+#         print(tweet.id)
+#         retweeters_per_tweet = get_retweeters(tweet.id)
+#         all_retweeters.append(retweeters_per_tweet)
+#     return all_retweeters
 
 def get_retweeters(tweet_id):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
     print(timestamp)
     content = []
     for tweet in api.retweets(id=tweet_id, count=200):
+        # maybe return tweet._json['user'] instead of screen_name and name
         content.append((tweet._json['user']['screen_name'], tweet._json['user']['name']))
     return content
 
@@ -49,7 +51,7 @@ if __name__ == "__main__":
     # example to get list all tweets (text)
     tweets_save = True
     name = '@quentzer32'
-    content = get_content(name)
+    content = get_tweets(name)
 
     if tweets_save == True:
         with open('sample_tweets.json', 'w') as json_out:
