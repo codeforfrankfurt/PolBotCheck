@@ -86,7 +86,7 @@ def saveTweet(tweet):
     if tweetsCol.has(tweet.id_str):
         tweetsCol.update(tweet.id_str, tweet._json)
     else:
-        tweetDoc = {'key': tweet.id_str}
+        tweetDoc = {'_key': tweet.id_str}
         tweetDoc.update(tweet._json)
         tweetsCol.insert(tweetDoc)
 
