@@ -67,9 +67,10 @@ def getRetweetEdgeDoc(fromID='', toID=''):
     else:
         return {'_to': 'tweets/' + toID}
 
-#
-#def getFollowers(toName=''):
-#    return followersCol.find(getUserEdgeDoc(toName=toName))
+
+def getFollowers(toName=''):
+    """ not yet tested """
+    return followersCol.find(getUserEdgeDoc(toName=toName))
 
 def hasFollower(fromName='', toName=''):
     return followersCol.find(getUserEdgeDoc(fromName=fromName, toName=toName), None, 1).count() >= 0
