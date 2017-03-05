@@ -19,11 +19,17 @@
     "wordCluster": {
       "hashTags": [
         "#fakeNews",
-        "#buildAWall"
+        "#letsBuildAWall"
       ],
       "topics": [
-        "immigration",
-        "freeSpeech"
+        {
+          "label": "immigration",
+          "score": 12
+        },
+        {
+          "label": "freeSpeech",
+          "score": 31
+        }
       ]
     }
   }

@@ -1,6 +1,6 @@
 {
   "member": {
-    "name": "max meister",
+    "name": "Donald Duck",
     "pictureURL": "http://www.billboard.com/files/styles/article_main_image/public/media/donald-trump-thumbs-up-aug-2015-billboard-650.jpg",
     "party": "Die Linke",
     "followers": {
@@ -19,8 +19,14 @@
         "#letsBuildAWall"
       ],
       "topics": [
-        "immigration",
-        "freeSpeech"
+        {
+          "label": "immigration",
+          "score": 12
+        },
+        {
+          "label": "freeSpeech",
+          "score": 31
+        }
       ]
     }
   }
