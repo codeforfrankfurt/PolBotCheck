@@ -3,6 +3,7 @@ import json
 from keys import myauth
 import pprint
 import time
+import argparse
 
 import db
 import botornotapi
@@ -75,6 +76,21 @@ def get_followers(screen_name):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='retrieve data from twitter and save to database')
+    flags = ['tweets', 'followers']
+    parser.add_argument('-t', '--tweets', action='store_true', help='get tweets and retweets')
+    parser.add_argument('-f', '--followers', action='store_true', help='get followers and their botnes')
+    parser.add_argument('-a', '--all', action='store_true', help='get all available entities')
+
+    args = parser.parse_args()
+    if not (args.tweets or args.followers or args.all):
+        parser.error('No action requested, please see --help')
+    print(args)
     for user in USERS:
-        save_tweets_with_retweets(user)
-        save_followers_with_botness(user)
+        if args.all:
+            save_tweets_with_retweets(user)
+            save_followers_with_botness(user)
+        elif args.tweets:
+            save_tweets_with_retweets(user)
+        elif args.followers:
+            save_followers_with_botness(user)
