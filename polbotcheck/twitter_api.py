@@ -14,7 +14,8 @@ def limit_handled(cursor):
         try:
             yield cursor.next()
         except tweepy.RateLimitError:
-            print('Warning: Rate limit reached!')
+            timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
+            print('Warning: Rate limit reached!' + timestamp)
             time.sleep(15 * 60)
 
 def get_content(screen_name):

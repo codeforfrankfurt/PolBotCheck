@@ -13,8 +13,8 @@ for user in users:
     for follower in followerlist:
         screenName = follower.screen_name
         if db.hasFollower(fromName=screenName, toName=user):
-            print("Already checked " + screenName + " skipping for now.")
-            next
+            print("Already checked @" + screenName + " skipping for now.")
+            continue
         followerBotness = botornotapi.get_bot_or_not("@" + screenName)
         if followerBotness is not None:
             db.saveFollower(user, follower, followerBotness)

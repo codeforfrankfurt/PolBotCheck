@@ -42,8 +42,11 @@ def saveUser(user):
     if not usersCol.has(user):
         usersCol.insert({'_key': user})
 
+def getUserEdgeDoc(fromName='', toName=''):
+    return {'_from': 'users/'+ fromName, '_to': 'users/' + toName}
+
 def hasFollower(fromName='', toName=''):
-    followersCol.find({'_from': 'users/'+ fromName, '_to': 'users/' + toName}, None, 1).count() >= 0
+    return followersCol.find(getUserEdgeDoc(fromName=fromName, toName=toName), None, 1).count() >= 0
 
 def saveFollower(username, follower, botness):
     doc = {'_key': follower.screen_name, 'botness': botness}
@@ -53,7 +56,6 @@ def saveFollower(username, follower, botness):
     else:
         usersCol.insert(doc)
     
-    doc = {"_from": 'users/' + follower.screen_name, "_to": 'users/' + username}
-    if not hasFollower(doc):
-        followersCol.insert(doc)
+    if not hasFollower(fromName=follower.screen_name, toName=username):
+        followersCol.insert(getUserEdgeDoc(fromName=follower.screen_name, toName=username))
 
