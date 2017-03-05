@@ -59,3 +59,8 @@ def saveFollower(username, follower, botness):
     if not hasFollower(fromName=follower.screen_name, toName=username):
         followersCol.insert(getUserEdgeDoc(fromName=follower.screen_name, toName=username))
 
+def saveTweet(tweet, retweets):
+    raise NotImplementedError
+
+def saveWordFreqs(wordFreqs):
+    raise NotImplementedError
