@@ -3,7 +3,7 @@ import {Grid, Row} from 'react-bootstrap';
 import logo from './logo.svg';
 import './App.css';
 import {Jumbotron} from 'react-bootstrap';
-import MemberPage from './Member.js';
+import MemberPage from './MemberPage.js';
 
 class App extends Component {
 
@@ -12,8 +12,7 @@ class App extends Component {
   };
 
   fetchMemberData() {
-    let data = require('../json/member.json');
-    return data;
+    return require('../json/member.json');
   }
 
   componentWillMount() {

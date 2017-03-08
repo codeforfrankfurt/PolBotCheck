@@ -6,13 +6,13 @@ import {Col, Row, Panel} from 'react-bootstrap';
 import PieChart from './PieChart';
 import BarChart from './BarChart';
 
-export default class MemberPage extends Component {
+class MemberPage extends Component {
 
   render() {
     return (
       <div>
         <Col className="App-profile" md={4}>
-          <img className="Profile-picture"
+          <img className="Profile-picture" alt="Profilbild"
                src={this.props.member.pictureURL}/>
           <Panel bsStyle="primary"
                  bsSize="large">
@@ -40,3 +40,5 @@ export default class MemberPage extends Component {
     )
   }
 }
+
+export default MemberPage;
