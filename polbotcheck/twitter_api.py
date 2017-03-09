@@ -6,9 +6,9 @@ import db
 import botornotapi
 from userlist import USERS
 
-auth = tweepy.OAuthHandler(myauth['consumer_key'], myauth['consumer_secret'])
-auth.set_access_token(myauth['access_token'], myauth['access_token_secret'])
-api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True,\
+AUTH = tweepy.OAuthHandler(myauth['consumer_key'], myauth['consumer_secret'])
+AUTH.set_access_token(myauth['access_token'], myauth['access_token_secret'])
+TWITTER_API = tweepy.API(AUTH, wait_on_rate_limit=True, wait_on_rate_limit_notify=True,\
                          retry_count=3, retry_delay=5, retry_errors=set([401, 404, 500, 503]))
 
 def limit_handled(cursor):
@@ -23,7 +23,7 @@ def limit_handled(cursor):
 def save_tweets_with_retweets(screen_name):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
     print(timestamp)
-    for tweet in limit_handled(tweepy.Cursor(api.user_timeline, id=screen_name, count=200).items()):
+    for tweet in limit_handled(tweepy.Cursor(TWITTER_API.user_timeline, id=screen_name, count=200).items()):
         retweets = get_retweets(tweet.id)
         db.saveRetweets(tweet, retweets)
 
@@ -46,7 +46,7 @@ def get_retweets(tweet_id):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
     print(timestamp)
     retweets = []
-    for retweet in api.retweets(id=tweet_id, count=200):
+    for retweet in TWITTER_API.retweets(id=tweet_id, count=200):
         retweets.append(retweet)
     return retweets
 
@@ -54,7 +54,7 @@ def get_followers(screen_name):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
     print(timestamp)
     followers =[]
-    for user in limit_handled(tweepy.Cursor(twitter_api.followers, screen_name=screen_name, count=200).items()):
+    for user in limit_handled(tweepy.Cursor(TWITTER_API.followers, screen_name=screen_name, count=200).items()):
         followers.append(user)
     return followers
 
