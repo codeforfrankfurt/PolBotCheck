@@ -1,4 +1,4 @@
-@import 'https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css';
+@import '//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css';
 
 .App {
     text-align: center;
@@ -22,6 +22,10 @@
 
 img {
     max-width: 100%;
+}
+
+ul {
+    text-align: left;
 }
 
 .Info-diagram {

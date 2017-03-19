@@ -1,0 +1,40 @@
+{
+  "content": "MEMBER",
+  "member": {
+    "name": "Angela Merkel",
+    "pictureURL": "https://upload.wikimedia.org/wikipedia/commons/9/93/Angela_Merkel_2016.jpg",
+    "party": "CDU",
+    "followers": {
+      "numFollowers": 10,
+      "numHumans": 4,
+      "numBots": 12
+    },
+    "retweets": {
+      "numRetweets": 12,
+      "numHumans": 11,
+      "numBots": 1
+    },
+    "wordCluster": {
+      "hashTags": [
+        "#immigration",
+        "#freeSpeech",
+        "#fakeNews",
+        "#letsBuildAWall"
+      ],
+      "topics": [
+        {
+          "label": "#immigration",
+          "score": 12
+        },
+        {
+          "label": "#Europa",
+          "score": 31
+        },
+        {
+          "label": "#Wirtschaft",
+          "score": 17
+        }
+      ]
+    }
+  }
+}
