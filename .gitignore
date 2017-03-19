@@ -8,3 +8,5 @@ db_credentials.py
 # Jupyter/IPython notebook related
 .ipynb_checkpoints
 dev_*.ipynb
+
+.DS_Store
