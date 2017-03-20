@@ -34,10 +34,14 @@ class App extends Component {
                 if it is humans or bots.
             </h2>
             <p>
-                We use information from Truthy BotOrNot, a project from Indiana University, which calculates a
-                probability of a Twitter account being a bot or a human. We check that on retweeters of a politician
-                and calculate a score for each topic (aka hashtag) he or she is talking about. This helps to identify,
-                if a tweet is really interesting to the public or if it is only interesting for certain bots.
+                We use information from <a href="http://truthy.indiana.edu/botornot/">Truthy BotOrNot</a>, a project
+                from Indiana University, which calculates a probability of a Twitter account being a bot or a human.
+                We check that on retweeters of a politician and calculate a score for each topic (aka hashtag) he or
+                she is talking about. This helps to identify, if a tweet is really interesting to the public or if it
+                is only interesting for certain bots.
+            </p>
+            <p>
+                The list of politicians was loaded from <a href="http://www.bundestwitter.de">Bundestwitter</a>.
             </p>
           </Jumbotron>
         </Row>
