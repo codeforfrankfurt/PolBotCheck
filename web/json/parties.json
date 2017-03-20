@@ -1,8 +1,11 @@
 [
-  "CDU",
-  "SPD",
-  "Linke",
-  "Grüne",
-  "FDP",
-  "AfD"
+  {"name": "CDU", "longName": "Christlich Demokratische Union Deutschlands"},
+  {"name": "SPD", "longName": "Sozialdemokratische Partei Deutschlands"},
+  {"name": "DIE LINKE", "longName": "Die Linke"},
+  {"name": "GRÜNE", "longName": "Bündnis 90/Die Grünen"},
+  {"name": "CSU", "longName": "Christlich-Soziale Union in Bayern"},
+  {"name": "AfD", "longName": "Alternative für Deutschland"},
+  {"name": "FDP", "longName": "Freie Demokratische Partei"},
+  {"name": "PIRATEN", "longName": "Piratenpartei Deutschland"},
+  {"name": "FREIE WÄHLER", "longName": "Freie Wähler"}
 ]
