@@ -6,6 +6,20 @@ import './App.css'
 
 class App extends Component {
 
+  state = {
+      politicians: [],
+      parties: [],
+      topics: []
+  };
+
+  componentWillMount() {
+    this.setState({
+        politicians: require('../json/politicians.json'),
+        parties: require('../json/parties.json'),
+        topics: require('../json/topics.json')
+    })
+  }
+
   render() {
     return (
       <Grid className="App">
@@ -31,33 +45,25 @@ class App extends Component {
               <Col md={4}>
                   <h3>Politiker</h3>
                   <ul>
-                      <li><Link to="/politicians/AngelaMerkel">Angela Merkel</Link></li>
-                      <li>Martin Schulz</li>
-                      <li>Dietmar Bartsch</li>
-                      <li>Sahra Wagenknecht</li>
-                      <li>Katrin Göring-Eckardt</li>
-                      <li>Cem Özdemir</li>
-                      <li>Christian Lindner</li>
+                    {this.state.politicians.map(function(value) {
+                        return <li key={value.screenname}><Link to={'/politicians/' + value.screenname}>{value.name}</Link></li>
+                    })}
                   </ul>
               </Col>
               <Col md={4}>
                   <h3>Parteien</h3>
                   <ul>
-                      <li>CDU</li>
-                      <li>SPD</li>
-                      <li>Linke</li>
-                      <li>Grüne</li>
-                      <li>FDP</li>
-                      <li>AfD</li>
+                      {this.state.parties.map(function(value) {
+                          return <li key={value}><Link to={'/parties/' + value}>{value}</Link></li>;
+                      })}
                   </ul>
               </Col>
               <Col md={4}>
                   <h3>Themen</h3>
                   <ul>
-                      <li>Flüchtlinge</li>
-                      <li>Steuern</li>
-                      <li>Renten</li>
-                      <li>Agenda</li>
+                      {this.state.topics.map(function(value) {
+                          return <li key={value}><Link to={'/topics/' + value}>{value}</Link></li>;
+                      })}
                   </ul>
               </Col>
           </Row>

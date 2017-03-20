@@ -1,13 +1,13 @@
 {
   "content": "MEMBER",
   "member": {
-    "name": "Angela Merkel",
-    "pictureURL": "https://upload.wikimedia.org/wikipedia/commons/9/93/Angela_Merkel_2016.jpg",
-    "party": "CDU",
+    "name": "Agnieszka Brugger",
+    "pictureURL": "https://pbs.twimg.com/profile_images/741583083078582272/jm2xvrJ7_400x400.jpg",
+    "party": "Grüne",
     "followers": {
-      "numFollowers": 16,
-      "numHumans": 4,
-      "numBots": 12
+      "numFollowers": 5329,
+      "numHumans": 4129,
+      "numBots": 1200
     },
     "retweets": {
       "numRetweets": 12,
@@ -21,22 +21,21 @@
     },
     "wordCluster": {
       "hashTags": [
-        "#immigration",
-        "#freeSpeech",
-        "#fakeNews",
-        "#letsBuildAWall"
+        "#Frieden",
+        "#Sicherheit",
+        "#BVB"
       ],
       "topics": [
         {
-          "label": "#immigration",
+          "label": "#Frieden",
           "score": 12
         },
         {
-          "label": "#Europa",
+          "label": "#Sicherheit",
           "score": 31
         },
         {
-          "label": "#Wirtschaft",
+          "label": "#BVB",
           "score": 17
         }
       ]

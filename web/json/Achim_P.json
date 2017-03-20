@@ -1,0 +1,45 @@
+{
+  "content": "MEMBER",
+  "member": {
+    "name": "Achim Post",
+    "pictureURL": "https://pbs.twimg.com/profile_images/734197279301722112/M24ldAh3_400x400.jpg",
+    "party": "SPD",
+    "followers": {
+      "numFollowers": 2437,
+      "numHumans": 1967,
+      "numBots": 470
+    },
+    "retweets": {
+      "numRetweets": 512,
+      "numHumans": 311,
+      "numBots": 201
+    },
+    "retweeters": {
+      "numRetweeters": 122,
+      "numHumans": 39,
+      "numBots": 93
+    },
+    "wordCluster": {
+      "hashTags": [
+        "#sprachfoerderung",
+        "#kita",
+        "#Schulz",
+        "#MartinSchulz"
+      ],
+      "topics": [
+        {
+          "label": "#MartinSchulz",
+          "score": 12
+        },
+        {
+          "label": "#sprachfoerderung",
+          "score": 31
+        },
+        {
+          "label": "#kita",
+          "score": 17
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2450 @@
+[
+  {
+    "name": "Achim Post",
+    "screenname": "Achim_P",
+    "verified": 1,
+    "urlpath": "achim-post",
+    "followers_count": 2437,
+    "statuses_count": 4181,
+    "friends_count": 1676
+  },
+  {
+    "name": "Agnieszka Brugger",
+    "screenname": "agnieszka_mdb",
+    "verified": 1,
+    "urlpath": "agnieszka-brugger",
+    "followers_count": 5324,
+    "statuses_count": 3507,
+    "friends_count": 1472
+  },
+  {
+    "name": "Alexander S. Neu",
+    "screenname": "AlexanderSNeu",
+    "verified": 0,
+    "urlpath": "alexander-s-neu",
+    "followers_count": 4066,
+    "statuses_count": 3798,
+    "friends_count": 256
+  },
+  {
+    "name": "Andrea Lindholz",
+    "screenname": "AndreaLindholz",
+    "verified": 1,
+    "urlpath": "andrea-lindholz",
+    "followers_count": 967,
+    "statuses_count": 274,
+    "friends_count": 293
+  },
+  {
+    "name": "Andreas Mattfeldt",
+    "screenname": "AMattfeldt",
+    "verified": 0,
+    "urlpath": "andreas-mattfeldt",
+    "followers_count": 225,
+    "statuses_count": 127,
+    "friends_count": 89
+  },
+  {
+    "name": "Andreas Nick",
+    "screenname": "DrAndreasNick",
+    "verified": 1,
+    "urlpath": "andreas-nick",
+    "followers_count": 2636,
+    "statuses_count": 12260,
+    "friends_count": 3572
+  },
+  {
+    "name": "Andreas Rimkus",
+    "screenname": "SPDDuesseldorf",
+    "verified": 0,
+    "urlpath": "andreas-rimkus",
+    "followers_count": 438,
+    "statuses_count": 550,
+    "friends_count": 144
+  },
+  {
+    "name": "Andreas Rimkus",
+    "screenname": "SPDuesseldorf",
+    "verified": 1,
+    "urlpath": "andreas-rimkus",
+    "followers_count": 1026,
+    "statuses_count": 2037,
+    "friends_count": 514
+  },
+  {
+    "name": "Andreas Schwarz",
+    "screenname": "schwarz_spd",
+    "verified": 0,
+    "urlpath": "andreas-schwarz",
+    "followers_count": 198,
+    "statuses_count": 108,
+    "friends_count": 29
+  },
+  {
+    "name": "Andreas Schwarz",
+    "screenname": "Schwarz_MdB",
+    "verified": 1,
+    "urlpath": "andreas-schwarz",
+    "followers_count": 1308,
+    "statuses_count": 652,
+    "friends_count": 892
+  },
+  {
+    "name": "Andrej Hunko",
+    "screenname": "AndrejHunko",
+    "verified": 1,
+    "urlpath": "andrej-hunko",
+    "followers_count": 4603,
+    "statuses_count": 8736,
+    "friends_count": 2091
+  },
+  {
+    "name": "Anja Weisgerber",
+    "screenname": "anjaweisgerber",
+    "verified": 1,
+    "urlpath": "anja-weisgerber",
+    "followers_count": 924,
+    "statuses_count": 1945,
+    "friends_count": 105
+  },
+  {
+    "name": "Annalena Baerbock",
+    "screenname": "ABaerbock",
+    "verified": 1,
+    "urlpath": "annalena-baerbock",
+    "followers_count": 2877,
+    "statuses_count": 909,
+    "friends_count": 951
+  },
+  {
+    "name": "Annette Groth",
+    "screenname": "Annette_Groth",
+    "verified": 0,
+    "urlpath": "annette-groth",
+    "followers_count": 3093,
+    "statuses_count": 4116,
+    "friends_count": 1133
+  },
+  {
+    "name": "Annette Sawade",
+    "screenname": "AnnetteSawade",
+    "verified": 1,
+    "urlpath": "annette-sawade",
+    "followers_count": 720,
+    "statuses_count": 257,
+    "friends_count": 165
+  },
+  {
+    "name": "Armin Schuster",
+    "screenname": "armin_schuster",
+    "verified": 1,
+    "urlpath": "armin-schuster",
+    "followers_count": 1004,
+    "statuses_count": 1432,
+    "friends_count": 93
+  },
+  {
+    "name": "Axel Fischer",
+    "screenname": "Axel_Fischer",
+    "verified": 0,
+    "urlpath": "axel-fischer",
+    "followers_count": 608,
+    "statuses_count": 495,
+    "friends_count": 189
+  },
+  {
+    "name": "Aydan \u00d6zoguz",
+    "screenname": "oezoguz",
+    "verified": 1,
+    "urlpath": "aydan-ozoguz",
+    "followers_count": 12229,
+    "statuses_count": 643,
+    "friends_count": 250
+  },
+  {
+    "name": "B\u00e4rbel Bas",
+    "screenname": "baerbelbas",
+    "verified": 1,
+    "urlpath": "baerbel-bas",
+    "followers_count": 2646,
+    "statuses_count": 3853,
+    "friends_count": 1096
+  },
+  {
+    "name": "B\u00e4rbel H\u00f6hn",
+    "screenname": "BaerbelHoehn",
+    "verified": 1,
+    "urlpath": "baerbel-hoehn",
+    "followers_count": 14848,
+    "statuses_count": 5189,
+    "friends_count": 1661
+  },
+  {
+    "name": "B\u00e4rbel Kofler",
+    "screenname": "BaerbelKofler",
+    "verified": 1,
+    "urlpath": "baerbel-kofler",
+    "followers_count": 2364,
+    "statuses_count": 293,
+    "friends_count": 128
+  },
+  {
+    "name": "Beate M\u00fcller-Gemmeke",
+    "screenname": "GrueneBeate",
+    "verified": 1,
+    "urlpath": "beate-mueller-gemmeke",
+    "followers_count": 3471,
+    "statuses_count": 5940,
+    "friends_count": 936
+  },
+  {
+    "name": "Bernd Siebert",
+    "screenname": "BerndSiebert",
+    "verified": 0,
+    "urlpath": "bernd-siebert",
+    "followers_count": 2022,
+    "statuses_count": 274,
+    "friends_count": 896
+  },
+  {
+    "name": "Bettina Hornhues",
+    "screenname": "BettinaHornhues",
+    "verified": 1,
+    "urlpath": "bettina-hornhues",
+    "followers_count": 739,
+    "statuses_count": 1323,
+    "friends_count": 224
+  },
+  {
+    "name": "Birgit Malecha-Nissen",
+    "screenname": "malechanissen",
+    "verified": 0,
+    "urlpath": "birgit-malecha-nissen",
+    "followers_count": 122,
+    "statuses_count": 268,
+    "friends_count": 0
+  },
+  {
+    "name": "Brigitte Pothmer",
+    "screenname": "BrigittePothmer",
+    "verified": 1,
+    "urlpath": "brigitte-pothmer",
+    "followers_count": 1986,
+    "statuses_count": 2877,
+    "friends_count": 328
+  },
+  {
+    "name": "brigitte zypries",
+    "screenname": "brigittezypries",
+    "verified": 1,
+    "urlpath": "brigitte-zypries",
+    "followers_count": 9093,
+    "statuses_count": 3213,
+    "friends_count": 424
+  },
+  {
+    "name": "Britta Ha\u00dfelmann",
+    "screenname": "BriHasselmann",
+    "verified": 1,
+    "urlpath": "britta-hasselmann",
+    "followers_count": 4675,
+    "statuses_count": 6680,
+    "friends_count": 1279
+  },
+  {
+    "name": "Burkhard Lischka",
+    "screenname": "LischkaB",
+    "verified": 1,
+    "urlpath": "burkhard-lischka",
+    "followers_count": 2704,
+    "statuses_count": 5695,
+    "friends_count": 519
+  },
+  {
+    "name": "Cansel Kiziltepe",
+    "screenname": "CanselK",
+    "verified": 1,
+    "urlpath": "cansel-kiziltepe",
+    "followers_count": 1973,
+    "statuses_count": 1644,
+    "friends_count": 769
+  },
+  {
+    "name": "Caren Lay",
+    "screenname": "CarenLay",
+    "verified": 1,
+    "urlpath": "caren-lay",
+    "followers_count": 5604,
+    "statuses_count": 1660,
+    "friends_count": 431
+  },
+  {
+    "name": "Carsten Schneider",
+    "screenname": "schneidercar",
+    "verified": 1,
+    "urlpath": "carsten-schneider",
+    "followers_count": 6500,
+    "statuses_count": 2009,
+    "friends_count": 478
+  },
+  {
+    "name": "CDU\/CSU",
+    "screenname": "cducsubt",
+    "verified": 1,
+    "urlpath": "cdu-csu",
+    "followers_count": 63925,
+    "statuses_count": 10724,
+    "friends_count": 789
+  },
+  {
+    "name": "Chris K\u00fchn",
+    "screenname": "ChrisKuehn_mdb",
+    "verified": 0,
+    "urlpath": "chris-kuehn",
+    "followers_count": 1494,
+    "statuses_count": 959,
+    "friends_count": 442
+  },
+  {
+    "name": "Christian Flisek",
+    "screenname": "ChristianFlisek",
+    "verified": 1,
+    "urlpath": "christian-flisek",
+    "followers_count": 3788,
+    "statuses_count": 1082,
+    "friends_count": 396
+  },
+  {
+    "name": "Christian Hirte",
+    "screenname": "ChristianHirte",
+    "verified": 1,
+    "urlpath": "christian-hirte",
+    "followers_count": 2459,
+    "statuses_count": 6585,
+    "friends_count": 205
+  },
+  {
+    "name": "Christian Lange",
+    "screenname": "LangeMdB",
+    "verified": 1,
+    "urlpath": "christian-lange",
+    "followers_count": 3001,
+    "statuses_count": 3204,
+    "friends_count": 276
+  },
+  {
+    "name": "Christina Kampmann",
+    "screenname": "c_kampmann",
+    "verified": 1,
+    "urlpath": "christina-kampmann",
+    "followers_count": 3514,
+    "statuses_count": 2393,
+    "friends_count": 830
+  },
+  {
+    "name": "Christina Schwarzer",
+    "screenname": "TinaSchwarzer",
+    "verified": 1,
+    "urlpath": "christina-schwarzer",
+    "followers_count": 2511,
+    "statuses_count": 5214,
+    "friends_count": 1310
+  },
+  {
+    "name": "Christine Buchholz",
+    "screenname": "ch_buchholz",
+    "verified": 1,
+    "urlpath": "christine-buchholz",
+    "followers_count": 4038,
+    "statuses_count": 2643,
+    "friends_count": 129
+  },
+  {
+    "name": "Christoph Str\u00e4sser",
+    "screenname": "ChStraesser",
+    "verified": 1,
+    "urlpath": "christoph-straesser",
+    "followers_count": 3320,
+    "statuses_count": 1564,
+    "friends_count": 453
+  },
+  {
+    "name": "Corinna R\u00fcffer",
+    "screenname": "crueffer",
+    "verified": 0,
+    "urlpath": "corinna-rueffer",
+    "followers_count": 1170,
+    "statuses_count": 424,
+    "friends_count": 336
+  },
+  {
+    "name": "Cornelia M\u00f6hring",
+    "screenname": "Conni_Moehring",
+    "verified": 1,
+    "urlpath": "cornelia-moehring",
+    "followers_count": 1494,
+    "statuses_count": 1516,
+    "friends_count": 325
+  },
+  {
+    "name": "Dagmar Schmidt",
+    "screenname": "dieschmidt",
+    "verified": 0,
+    "urlpath": "dagmarschmidt",
+    "followers_count": 918,
+    "statuses_count": 297,
+    "friends_count": 64
+  },
+  {
+    "name": "Dagmar W\u00f6hrl",
+    "screenname": "DWoehrl",
+    "verified": 1,
+    "urlpath": "dagmar-woehrl",
+    "followers_count": 9035,
+    "statuses_count": 13029,
+    "friends_count": 1958
+  },
+  {
+    "name": "Dagmar Ziegler",
+    "screenname": "ZieglerMdB",
+    "verified": 1,
+    "urlpath": "dagmar-ziegler",
+    "followers_count": 1258,
+    "statuses_count": 1033,
+    "friends_count": 579
+  },
+  {
+    "name": "Daniela Kolbe",
+    "screenname": "danielakolbe",
+    "verified": 1,
+    "urlpath": "daniela-kolbe",
+    "followers_count": 3140,
+    "statuses_count": 1486,
+    "friends_count": 826
+  },
+  {
+    "name": "Dennis Rohde",
+    "screenname": "DennisRohde",
+    "verified": 1,
+    "urlpath": "dennis-rohde",
+    "followers_count": 964,
+    "statuses_count": 1956,
+    "friends_count": 350
+  },
+  {
+    "name": "Detlev Pilger",
+    "screenname": "DetlevPilger",
+    "verified": 1,
+    "urlpath": "detlev-pilger",
+    "followers_count": 708,
+    "statuses_count": 591,
+    "friends_count": 44
+  },
+  {
+    "name": "Diana Golze",
+    "screenname": "GolzeDiana",
+    "verified": 0,
+    "urlpath": "diana-golze",
+    "followers_count": 1663,
+    "statuses_count": 3407,
+    "friends_count": 71
+  },
+  {
+    "name": "Dieter Janecek",
+    "screenname": "DJanecek",
+    "verified": 1,
+    "urlpath": "dieter-janecek",
+    "followers_count": 6639,
+    "statuses_count": 29633,
+    "friends_count": 1093
+  },
+  {
+    "name": "Dietmar Bartsch",
+    "screenname": "DietmarBartsch",
+    "verified": 1,
+    "urlpath": "dietmar-bartsch",
+    "followers_count": 10461,
+    "statuses_count": 1463,
+    "friends_count": 124
+  },
+  {
+    "name": "Doris Wagner",
+    "screenname": "DorisWagner_MdB",
+    "verified": 1,
+    "urlpath": "doris-wagner",
+    "followers_count": 1491,
+    "statuses_count": 1166,
+    "friends_count": 1170
+  },
+  {
+    "name": "Dorothee B\u00e4r",
+    "screenname": "DoroBaer",
+    "verified": 1,
+    "urlpath": "dorothee-baer",
+    "followers_count": 60032,
+    "statuses_count": 24242,
+    "friends_count": 2344
+  },
+  {
+    "name": "Dr. Andreas Scheuer",
+    "screenname": "AndiScheuer",
+    "verified": 1,
+    "urlpath": "dr-andreas-scheuer",
+    "followers_count": 24453,
+    "statuses_count": 1273,
+    "friends_count": 176
+  },
+  {
+    "name": "Dr. Bernd Fabritius",
+    "screenname": "BerndFabritius",
+    "verified": 1,
+    "urlpath": "bernd-fabritius",
+    "followers_count": 1243,
+    "statuses_count": 295,
+    "friends_count": 469
+  },
+  {
+    "name": "Dr. Diether Dehm",
+    "screenname": "Diether_Dehm",
+    "verified": 0,
+    "urlpath": "dr-diether-dehm",
+    "followers_count": 4131,
+    "statuses_count": 2819,
+    "friends_count": 3122
+  },
+  {
+    "name": "Dr. Ernst Dieter Rossmann",
+    "screenname": "edrossmann",
+    "verified": 1,
+    "urlpath": "dr-ernst-dieter-rossmann",
+    "followers_count": 1741,
+    "statuses_count": 473,
+    "friends_count": 79
+  },
+  {
+    "name": "Dr. Eva H\u00f6gl",
+    "screenname": "EvaHoegl",
+    "verified": 1,
+    "urlpath": "dr-eva-hoegl",
+    "followers_count": 9376,
+    "statuses_count": 11324,
+    "friends_count": 2753
+  },
+  {
+    "name": "Dr. Frank Steffel",
+    "screenname": "franksteffel",
+    "verified": 1,
+    "urlpath": "dr-frank-steffel",
+    "followers_count": 2219,
+    "statuses_count": 1235,
+    "friends_count": 448
+  },
+  {
+    "name": "Dr. Franz Josef Jung",
+    "screenname": "jungfj",
+    "verified": 0,
+    "urlpath": "dr-franz-josef-jung",
+    "followers_count": 715,
+    "statuses_count": 132,
+    "friends_count": 11
+  },
+  {
+    "name": "Dr. Gesine L\u00f6tzsch",
+    "screenname": "LoetzschMdB",
+    "verified": 0,
+    "urlpath": "dr-gesine-loetzsch",
+    "followers_count": 3298,
+    "statuses_count": 1430,
+    "friends_count": 658
+  },
+  {
+    "name": "Dr. Gesine L\u00f6tzsch",
+    "screenname": "LoetzschMdB",
+    "verified": 0,
+    "urlpath": "dr-gesine-loetzsch",
+    "followers_count": 3298,
+    "statuses_count": 1430,
+    "friends_count": 658
+  },
+  {
+    "name": "Dr. Gregor Gysi",
+    "screenname": "GregorGysi",
+    "verified": 1,
+    "urlpath": "dr-gregor-gysi",
+    "followers_count": 116126,
+    "statuses_count": 1703,
+    "friends_count": 145
+  },
+  {
+    "name": "Dr. Helge Braun",
+    "screenname": "HBraun",
+    "verified": 1,
+    "urlpath": "dr-helge-braun",
+    "followers_count": 9719,
+    "statuses_count": 2819,
+    "friends_count": 844
+  },
+  {
+    "name": "Dr. Konstantin von Notz",
+    "screenname": "KonstantinNotz",
+    "verified": 1,
+    "urlpath": "dr-konstantin-von-notz",
+    "followers_count": 31634,
+    "statuses_count": 18331,
+    "friends_count": 2038
+  },
+  {
+    "name": "Dr. Kristina Schr\u00f6der",
+    "screenname": "schroeder_k",
+    "verified": 1,
+    "urlpath": "dr-kristina-schroeder",
+    "followers_count": 44153,
+    "statuses_count": 3505,
+    "friends_count": 637
+  },
+  {
+    "name": "Dr. Martin Rosemann",
+    "screenname": "MartinRosemann",
+    "verified": 0,
+    "urlpath": "dr-martin-rosemann",
+    "followers_count": 1056,
+    "statuses_count": 925,
+    "friends_count": 444
+  },
+  {
+    "name": "Dr. Matthias Heider",
+    "screenname": "MatthiasHeider",
+    "verified": 1,
+    "urlpath": "dr-matthias-heider",
+    "followers_count": 907,
+    "statuses_count": 455,
+    "friends_count": 68
+  },
+  {
+    "name": "Dr. Michael Fuchs",
+    "screenname": "drmfuchs",
+    "verified": 1,
+    "urlpath": "dr-michael-fuchs",
+    "followers_count": 5814,
+    "statuses_count": 5040,
+    "friends_count": 240
+  },
+  {
+    "name": "Dr. Michael Meister",
+    "screenname": "meister_schafft",
+    "verified": 1,
+    "urlpath": "dr-michael-meister",
+    "followers_count": 2727,
+    "statuses_count": 2032,
+    "friends_count": 590
+  },
+  {
+    "name": "Dr. Peter Tauber",
+    "screenname": "petertauber",
+    "verified": 1,
+    "urlpath": "dr-peter-tauber",
+    "followers_count": 139870,
+    "statuses_count": 19904,
+    "friends_count": 974
+  },
+  {
+    "name": "Dr. Petra Sitte",
+    "screenname": "Petra_Sitte_MdB",
+    "verified": 1,
+    "urlpath": "dr-petra-sitte",
+    "followers_count": 3228,
+    "statuses_count": 8153,
+    "friends_count": 489
+  },
+  {
+    "name": "Dr. Philipp Lengsfeld",
+    "screenname": "PLengsfeld",
+    "verified": 1,
+    "urlpath": "philipp-lengsfeld",
+    "followers_count": 4920,
+    "statuses_count": 7369,
+    "friends_count": 726
+  },
+  {
+    "name": "Dr. Rosemarie Hein",
+    "screenname": "RosemarieHein",
+    "verified": 0,
+    "urlpath": "dr-rosemarie-hein",
+    "followers_count": 1128,
+    "statuses_count": 378,
+    "friends_count": 801
+  },
+  {
+    "name": "Dr. Roy K\u00fchne",
+    "screenname": "Dr_Roy_Kuehne",
+    "verified": 0,
+    "urlpath": "roy-kuehne",
+    "followers_count": 861,
+    "statuses_count": 379,
+    "friends_count": 109
+  },
+  {
+    "name": "Dr. Stefan Kaufmann",
+    "screenname": "StefanKaufmann",
+    "verified": 1,
+    "urlpath": "dr-stefan-kaufmann",
+    "followers_count": 4138,
+    "statuses_count": 11628,
+    "friends_count": 2470
+  },
+  {
+    "name": "Dr. Stephan Harbarth",
+    "screenname": "stephanharbarth",
+    "verified": 1,
+    "urlpath": "dr-stephan-harbarth",
+    "followers_count": 1478,
+    "statuses_count": 1561,
+    "friends_count": 103
+  },
+  {
+    "name": "Dr. Thomas Feist",
+    "screenname": "drthomasfeist",
+    "verified": 0,
+    "urlpath": "dr-thomas-feist",
+    "followers_count": 2449,
+    "statuses_count": 10001,
+    "friends_count": 166
+  },
+  {
+    "name": "Dr. Tobias Lindner",
+    "screenname": "tobiaslindner",
+    "verified": 1,
+    "urlpath": "dr-tobias-lindner",
+    "followers_count": 3258,
+    "statuses_count": 3844,
+    "friends_count": 1643
+  },
+  {
+    "name": "Dr. Valerie Wilms",
+    "screenname": "WilmsVal",
+    "verified": 1,
+    "urlpath": "dr-valerie-wilms",
+    "followers_count": 1834,
+    "statuses_count": 1869,
+    "friends_count": 482
+  },
+  {
+    "name": "Dr. Wilhelm Priesmeier",
+    "screenname": "W_Priesmeier",
+    "verified": 0,
+    "urlpath": "dr-wilhelm-priesmeier",
+    "followers_count": 905,
+    "statuses_count": 685,
+    "friends_count": 240
+  },
+  {
+    "name": "Eckhardt Rehberg",
+    "screenname": "EckhardtRehberg",
+    "verified": 0,
+    "urlpath": "eckhardt-rehberg",
+    "followers_count": 554,
+    "statuses_count": 62,
+    "friends_count": 16
+  },
+  {
+    "name": "Edgar Franke",
+    "screenname": "FrankeEdgar",
+    "verified": 1,
+    "urlpath": "edgar-franke",
+    "followers_count": 1782,
+    "statuses_count": 474,
+    "friends_count": 1851
+  },
+  {
+    "name": "Ekin Delig\u00f6z",
+    "screenname": "ekindeligoez",
+    "verified": 1,
+    "urlpath": "ekin-deligoez",
+    "followers_count": 5899,
+    "statuses_count": 8327,
+    "friends_count": 978
+  },
+  {
+    "name": "Elke Ferner",
+    "screenname": "Elke_Ferner",
+    "verified": 1,
+    "urlpath": "elke-ferner",
+    "followers_count": 6611,
+    "statuses_count": 5076,
+    "friends_count": 1690
+  },
+  {
+    "name": "Erika Steinbach",
+    "screenname": "SteinbachErika",
+    "verified": 1,
+    "urlpath": "erika-steinbach",
+    "followers_count": 31569,
+    "statuses_count": 19096,
+    "friends_count": 294
+  },
+  {
+    "name": "Erwin R\u00fcddel",
+    "screenname": "Erwin_Rueddel",
+    "verified": 1,
+    "urlpath": "erwin-rueddel",
+    "followers_count": 2748,
+    "statuses_count": 9233,
+    "friends_count": 111
+  },
+  {
+    "name": "Florian Hahn",
+    "screenname": "hahnflo",
+    "verified": 1,
+    "urlpath": "florian-hahn",
+    "followers_count": 1959,
+    "statuses_count": 2449,
+    "friends_count": 399
+  },
+  {
+    "name": "Florian Post",
+    "screenname": "FlorianPost",
+    "verified": 0,
+    "urlpath": "florian-post",
+    "followers_count": 818,
+    "statuses_count": 83,
+    "friends_count": 208
+  },
+  {
+    "name": "Florian Pronold",
+    "screenname": "FlorianPronold",
+    "verified": 1,
+    "urlpath": "florian-pronold",
+    "followers_count": 13633,
+    "statuses_count": 3482,
+    "friends_count": 2736
+  },
+  {
+    "name": "Frank Heinrich",
+    "screenname": "FrankHeinrich",
+    "verified": 1,
+    "urlpath": "frank-heinrich",
+    "followers_count": 1277,
+    "statuses_count": 882,
+    "friends_count": 2
+  },
+  {
+    "name": "Frank Schwabe",
+    "screenname": "FrankSchwabe",
+    "verified": 1,
+    "urlpath": "frank-schwabe",
+    "followers_count": 3093,
+    "statuses_count": 6999,
+    "friends_count": 607
+  },
+  {
+    "name": "Franziska Brantner",
+    "screenname": "fbrantner",
+    "verified": 0,
+    "urlpath": "franziska-brantner",
+    "followers_count": 4548,
+    "statuses_count": 2853,
+    "friends_count": 601
+  },
+  {
+    "name": "Friedrich Ostendorff",
+    "screenname": "FOstendorff",
+    "verified": 1,
+    "urlpath": "friedrich-ostendorff",
+    "followers_count": 1187,
+    "statuses_count": 611,
+    "friends_count": 68
+  },
+  {
+    "name": "Gabi Weber",
+    "screenname": "GabiWeberSPD",
+    "verified": 1,
+    "urlpath": "gabi-weber",
+    "followers_count": 1625,
+    "statuses_count": 2324,
+    "friends_count": 206
+  },
+  {
+    "name": "Gabriele Hiller-Ohm",
+    "screenname": "GabiHillerOhm",
+    "verified": 1,
+    "urlpath": "gabriele-hiller-ohm",
+    "followers_count": 2795,
+    "statuses_count": 14020,
+    "friends_count": 358
+  },
+  {
+    "name": "Gabriele Katzmarek",
+    "screenname": "GabiKatzmarek",
+    "verified": 0,
+    "urlpath": "gabriele-katzmarek",
+    "followers_count": 340,
+    "statuses_count": 525,
+    "friends_count": 44
+  },
+  {
+    "name": "Gero Storjohann",
+    "screenname": "gero_storjohann",
+    "verified": 1,
+    "urlpath": "gero-storjohann",
+    "followers_count": 380,
+    "statuses_count": 299,
+    "friends_count": 13
+  },
+  {
+    "name": "Gerold Reichenbach",
+    "screenname": "g_reichenbach",
+    "verified": 1,
+    "urlpath": "gerold-reichenbach",
+    "followers_count": 2533,
+    "statuses_count": 10140,
+    "friends_count": 420
+  },
+  {
+    "name": "Gr\u00fcne im Bundestag",
+    "screenname": "GrueneBundestag",
+    "verified": 1,
+    "urlpath": "gruene-im-bundestag",
+    "followers_count": 62141,
+    "statuses_count": 12806,
+    "friends_count": 739
+  },
+  {
+    "name": "G\u00fcnter Krings",
+    "screenname": "guenterkrings",
+    "verified": 1,
+    "urlpath": "guenter-krings",
+    "followers_count": 841,
+    "statuses_count": 32,
+    "friends_count": 18
+  },
+  {
+    "name": "Halina Wawzyniak",
+    "screenname": "Halina_Waw",
+    "verified": 1,
+    "urlpath": "halina-wawzyniak",
+    "followers_count": 11022,
+    "statuses_count": 28378,
+    "friends_count": 588
+  },
+  {
+    "name": "Hans-Christian Str\u00f6bele",
+    "screenname": "MdB_Stroebele",
+    "verified": 1,
+    "urlpath": "hans-christian-stroebele",
+    "followers_count": 99339,
+    "statuses_count": 2428,
+    "friends_count": 931
+  },
+  {
+    "name": "Hans-Joachim Fuchtel",
+    "screenname": "fuchtel",
+    "verified": 1,
+    "urlpath": "hans-joachim-fuchtel",
+    "followers_count": 1607,
+    "statuses_count": 943,
+    "friends_count": 116
+  },
+  {
+    "name": "Harald Alfred Petzold",
+    "screenname": "HPetzold",
+    "verified": 0,
+    "urlpath": "harald-alfred-petzold",
+    "followers_count": 1196,
+    "statuses_count": 1517,
+    "friends_count": 564
+  },
+  {
+    "name": "Harald Ebner",
+    "screenname": "ebner_sha",
+    "verified": 1,
+    "urlpath": "harald-ebner",
+    "followers_count": 2887,
+    "statuses_count": 5083,
+    "friends_count": 500
+  },
+  {
+    "name": "Harald Terpe",
+    "screenname": "terpeundteam",
+    "verified": 1,
+    "urlpath": "harald-terpe",
+    "followers_count": 1750,
+    "statuses_count": 1055,
+    "friends_count": 273
+  },
+  {
+    "name": "Harald Weinberg",
+    "screenname": "HaraldWeinberg",
+    "verified": 0,
+    "urlpath": "harald-weinberg",
+    "followers_count": 440,
+    "statuses_count": 486,
+    "friends_count": 336
+  },
+  {
+    "name": "Hartmut Koschyk",
+    "screenname": "koschyk",
+    "verified": 0,
+    "urlpath": "hartmut-koschyk",
+    "followers_count": 2587,
+    "statuses_count": 9982,
+    "friends_count": 32
+  },
+  {
+    "name": "Heike Brehmer",
+    "screenname": "HeikeBrehmerMdB",
+    "verified": 0,
+    "urlpath": "heike-brehmer",
+    "followers_count": 786,
+    "statuses_count": 872,
+    "friends_count": 363
+  },
+  {
+    "name": "Heike H\u00e4nsel",
+    "screenname": "HeikeHaensel",
+    "verified": 1,
+    "urlpath": "heike-haensel",
+    "followers_count": 4224,
+    "statuses_count": 5222,
+    "friends_count": 208
+  },
+  {
+    "name": "Helmut Fedor Nowak",
+    "screenname": "Helmut_Nowak",
+    "verified": 0,
+    "urlpath": "helmut-fedor-nowak",
+    "followers_count": 678,
+    "statuses_count": 278,
+    "friends_count": 204
+  },
+  {
+    "name": "Herbert Behrens",
+    "screenname": "HerbertBehrens",
+    "verified": 0,
+    "urlpath": "herbert-behrens",
+    "followers_count": 1660,
+    "statuses_count": 1748,
+    "friends_count": 1590
+  },
+  {
+    "name": "Heribert Hirte",
+    "screenname": "HHirte",
+    "verified": 0,
+    "urlpath": "heribert-hirte",
+    "followers_count": 2227,
+    "statuses_count": 2577,
+    "friends_count": 380
+  },
+  {
+    "name": "Herlind Gundelach",
+    "screenname": "HGundelach",
+    "verified": 0,
+    "urlpath": "herlind-gundelach",
+    "followers_count": 570,
+    "statuses_count": 199,
+    "friends_count": 161
+  },
+  {
+    "name": "Hermann Gr\u00f6he",
+    "screenname": "groehe",
+    "verified": 1,
+    "urlpath": "hermann-groehe",
+    "followers_count": 42514,
+    "statuses_count": 2059,
+    "friends_count": 275
+  },
+  {
+    "name": "Hilde Mattheis",
+    "screenname": "HildeMattheis",
+    "verified": 1,
+    "urlpath": "hilde-mattheis",
+    "followers_count": 3992,
+    "statuses_count": 686,
+    "friends_count": 890
+  },
+  {
+    "name": "Hubertus Heil",
+    "screenname": "hubertus_heil",
+    "verified": 1,
+    "urlpath": "hubertus-heil",
+    "followers_count": 40824,
+    "statuses_count": 3009,
+    "friends_count": 3293
+  },
+  {
+    "name": "Ingo Wellenreuther",
+    "screenname": "Wellenreuther",
+    "verified": 0,
+    "urlpath": "ingo-wellenreuther",
+    "followers_count": 1024,
+    "statuses_count": 654,
+    "friends_count": 1
+  },
+  {
+    "name": "Irene Mihalic",
+    "screenname": "IreneMihalic",
+    "verified": 1,
+    "urlpath": "irene-mihalic",
+    "followers_count": 3082,
+    "statuses_count": 4306,
+    "friends_count": 427
+  },
+  {
+    "name": "Jan Metzler",
+    "screenname": "JanMetzler",
+    "verified": 1,
+    "urlpath": "jan-metzler",
+    "followers_count": 1358,
+    "statuses_count": 723,
+    "friends_count": 63
+  },
+  {
+    "name": "Jan van Aken",
+    "screenname": "jan_vanaken",
+    "verified": 1,
+    "urlpath": "jan-van-aken",
+    "followers_count": 7300,
+    "statuses_count": 1245,
+    "friends_count": 177
+  },
+  {
+    "name": "Jana Schimke",
+    "screenname": "JanaSchimke",
+    "verified": 0,
+    "urlpath": "jana-schimke",
+    "followers_count": 444,
+    "statuses_count": 61,
+    "friends_count": 120
+  },
+  {
+    "name": "Jens Koeppen",
+    "screenname": "JensKoeppen",
+    "verified": 1,
+    "urlpath": "jens-koeppen",
+    "followers_count": 2838,
+    "statuses_count": 4368,
+    "friends_count": 402
+  },
+  {
+    "name": "Jens Spahn",
+    "screenname": "jensspahn",
+    "verified": 0,
+    "urlpath": "jens-spahn",
+    "followers_count": 38503,
+    "statuses_count": 4435,
+    "friends_count": 493
+  },
+  {
+    "name": "Jens Zimmermann",
+    "screenname": "JensZimmermann1",
+    "verified": 1,
+    "urlpath": "jens-zimmermann",
+    "followers_count": 1752,
+    "statuses_count": 3107,
+    "friends_count": 371
+  },
+  {
+    "name": "Johannes Eberhard Steiniger",
+    "screenname": "JoSteiniger",
+    "verified": 0,
+    "urlpath": "johannes-eberhard-steiniger",
+    "followers_count": 1937,
+    "statuses_count": 5284,
+    "friends_count": 879
+  },
+  {
+    "name": "Johannes Kahrs",
+    "screenname": "kahrs",
+    "verified": 1,
+    "urlpath": "johannes-kahrs",
+    "followers_count": 12995,
+    "statuses_count": 56753,
+    "friends_count": 3126
+  },
+  {
+    "name": "Johannes Singhammer",
+    "screenname": "JohannesSingham",
+    "verified": 1,
+    "urlpath": "johannes-singhammer",
+    "followers_count": 1714,
+    "statuses_count": 552,
+    "friends_count": 222
+  },
+  {
+    "name": "Julia Bartz",
+    "screenname": "Julia_Obermeier",
+    "verified": 1,
+    "urlpath": "julia-bartz",
+    "followers_count": 2160,
+    "statuses_count": 1036,
+    "friends_count": 460
+  },
+  {
+    "name": "Julia Verlinden",
+    "screenname": "julia_verlinden",
+    "verified": 1,
+    "urlpath": "julia-verlinden",
+    "followers_count": 2710,
+    "statuses_count": 1960,
+    "friends_count": 1311
+  },
+  {
+    "name": "J\u00fcrgen Hardt",
+    "screenname": "juergenhardt",
+    "verified": 1,
+    "urlpath": "juergen-hardt",
+    "followers_count": 2519,
+    "statuses_count": 2959,
+    "friends_count": 353
+  },
+  {
+    "name": "J\u00fcrgen Klimke",
+    "screenname": "Klimke_CDU",
+    "verified": 0,
+    "urlpath": "juergen-klimke",
+    "followers_count": 1472,
+    "statuses_count": 254,
+    "friends_count": 603
+  },
+  {
+    "name": "J\u00fcrgen Trittin",
+    "screenname": "JTrittin",
+    "verified": 1,
+    "urlpath": "juergen-trittin",
+    "followers_count": 67114,
+    "statuses_count": 3965,
+    "friends_count": 299
+  },
+  {
+    "name": "Jutta Krellmann",
+    "screenname": "JuttaKrellmann",
+    "verified": 1,
+    "urlpath": "jutta-krellmann",
+    "followers_count": 1413,
+    "statuses_count": 2230,
+    "friends_count": 955
+  },
+  {
+    "name": "Kai Gehring",
+    "screenname": "KaiGehring",
+    "verified": 1,
+    "urlpath": "kai-gehring",
+    "followers_count": 5774,
+    "statuses_count": 5850,
+    "friends_count": 2528
+  },
+  {
+    "name": "Kai Wegner",
+    "screenname": "kaiwegner",
+    "verified": 1,
+    "urlpath": "kai-wegner",
+    "followers_count": 2814,
+    "statuses_count": 2556,
+    "friends_count": 685
+  },
+  {
+    "name": "Karamba Diaby",
+    "screenname": "KarambaDiaby",
+    "verified": 1,
+    "urlpath": "karamba-diaby",
+    "followers_count": 4032,
+    "statuses_count": 1171,
+    "friends_count": 961
+  },
+  {
+    "name": "Karin Binder",
+    "screenname": "karinbinder",
+    "verified": 1,
+    "urlpath": "karin-binder",
+    "followers_count": 1483,
+    "statuses_count": 938,
+    "friends_count": 386
+  },
+  {
+    "name": "Karl-Keinz Huber",
+    "screenname": "charlesmhuber49",
+    "verified": 0,
+    "urlpath": "karl-heinz-huber",
+    "followers_count": 1225,
+    "statuses_count": 4064,
+    "friends_count": 1127
+  },
+  {
+    "name": "Karsten M\u00f6ring",
+    "screenname": "KarstenMoering",
+    "verified": 0,
+    "urlpath": "karsten-moering",
+    "followers_count": 679,
+    "statuses_count": 127,
+    "friends_count": 368
+  },
+  {
+    "name": "Katharina Dr\u00f6ge",
+    "screenname": "katdro",
+    "verified": 1,
+    "urlpath": "katharina-droege",
+    "followers_count": 2148,
+    "statuses_count": 1331,
+    "friends_count": 665
+  },
+  {
+    "name": "Kathrin Vogler",
+    "screenname": "voglerk",
+    "verified": 0,
+    "urlpath": "kathrin-vogler",
+    "followers_count": 2009,
+    "statuses_count": 4540,
+    "friends_count": 2001
+  },
+  {
+    "name": "Katja D\u00f6rner",
+    "screenname": "katjadoerner",
+    "verified": 1,
+    "urlpath": "katja-doerner",
+    "followers_count": 6510,
+    "statuses_count": 8542,
+    "friends_count": 344
+  },
+  {
+    "name": "Katja Isabel Leikert",
+    "screenname": "KLeikert",
+    "verified": 0,
+    "urlpath": "katja-isabel-leikert",
+    "followers_count": 483,
+    "statuses_count": 126,
+    "friends_count": 45
+  },
+  {
+    "name": "Katja Kipping",
+    "screenname": "katjakipping",
+    "verified": 1,
+    "urlpath": "katja-kipping",
+    "followers_count": 64614,
+    "statuses_count": 3786,
+    "friends_count": 329
+  },
+  {
+    "name": "Katrin Albsteiger",
+    "screenname": "dieAlbsteigerin",
+    "verified": 1,
+    "urlpath": "katrin-albsteiger",
+    "followers_count": 10902,
+    "statuses_count": 2415,
+    "friends_count": 2360
+  },
+  {
+    "name": "Katrin G\u00f6ring-Eckardt",
+    "screenname": "GoeringEckardt",
+    "verified": 1,
+    "urlpath": "katrin-goering-eckardt",
+    "followers_count": 81520,
+    "statuses_count": 8843,
+    "friends_count": 760
+  },
+  {
+    "name": "Katrin Werner",
+    "screenname": "Katrin_Werner",
+    "verified": 1,
+    "urlpath": "katrin-werner",
+    "followers_count": 1160,
+    "statuses_count": 1340,
+    "friends_count": 695
+  },
+  {
+    "name": "Kerstin Andreae",
+    "screenname": "KerstinAndreae",
+    "verified": 1,
+    "urlpath": "kerstin-andreae",
+    "followers_count": 5787,
+    "statuses_count": 1426,
+    "friends_count": 1258
+  },
+  {
+    "name": "Kerstin Griese",
+    "screenname": "KerstinGriese",
+    "verified": 1,
+    "urlpath": "kerstin-griese",
+    "followers_count": 3946,
+    "statuses_count": 7703,
+    "friends_count": 1773
+  },
+  {
+    "name": "Kerstin Tack",
+    "screenname": "kerstin_tack",
+    "verified": 1,
+    "urlpath": "kerstin-tack",
+    "followers_count": 2277,
+    "statuses_count": 889,
+    "friends_count": 1337
+  },
+  {
+    "name": "Kirsten Tackmann",
+    "screenname": "KirstenTackmann",
+    "verified": 1,
+    "urlpath": "kirsten-tackmann",
+    "followers_count": 2217,
+    "statuses_count": 1308,
+    "friends_count": 597
+  },
+  {
+    "name": "Klaus Ernst",
+    "screenname": "ernst_klaus",
+    "verified": 1,
+    "urlpath": "klaus-ernst",
+    "followers_count": 4358,
+    "statuses_count": 756,
+    "friends_count": 226
+  },
+  {
+    "name": "Kordula Schulz-Asche",
+    "screenname": "K_SA",
+    "verified": 1,
+    "urlpath": "kordula-schulz-asche",
+    "followers_count": 3570,
+    "statuses_count": 16582,
+    "friends_count": 904
+  },
+  {
+    "name": "Lars Castellucci",
+    "screenname": "larscastellucci",
+    "verified": 1,
+    "urlpath": "lars-castellucci",
+    "followers_count": 2112,
+    "statuses_count": 2855,
+    "friends_count": 1100
+  },
+  {
+    "name": "Lars Klingbeil",
+    "screenname": "larsklingbeil",
+    "verified": 1,
+    "urlpath": "lars-klingbeil",
+    "followers_count": 16135,
+    "statuses_count": 15974,
+    "friends_count": 1151
+  },
+  {
+    "name": "Linksfraktion",
+    "screenname": "Linksfraktion",
+    "verified": 1,
+    "urlpath": "linksfraktion",
+    "followers_count": 41856,
+    "statuses_count": 18211,
+    "friends_count": 1076
+  },
+  {
+    "name": "Lisa Paus",
+    "screenname": "lisapaus",
+    "verified": 1,
+    "urlpath": "lisa-paus",
+    "followers_count": 4231,
+    "statuses_count": 8146,
+    "friends_count": 1139
+  },
+  {
+    "name": "Luise Amtsberg",
+    "screenname": "Luise_Amtsberg",
+    "verified": 0,
+    "urlpath": "luise-amtsberg",
+    "followers_count": 3541,
+    "statuses_count": 1075,
+    "friends_count": 214
+  },
+  {
+    "name": "Mahmut \u00d6zdemir",
+    "screenname": "oezdemir_spd",
+    "verified": 1,
+    "urlpath": "mahmut-oezdemir",
+    "followers_count": 810,
+    "statuses_count": 60,
+    "friends_count": 6
+  },
+  {
+    "name": "Maik Beermann",
+    "screenname": "MaikBeermann",
+    "verified": 1,
+    "urlpath": "maik-beermann",
+    "followers_count": 1119,
+    "statuses_count": 1284,
+    "friends_count": 332
+  },
+  {
+    "name": "Manfred Behrens",
+    "screenname": "Manfredbehrens",
+    "verified": 1,
+    "urlpath": "manfred-behrens",
+    "followers_count": 898,
+    "statuses_count": 236,
+    "friends_count": 8
+  },
+  {
+    "name": "Manfred Grund",
+    "screenname": "manfred_grund",
+    "verified": 1,
+    "urlpath": "manfred-grund",
+    "followers_count": 5627,
+    "statuses_count": 2940,
+    "friends_count": 4281
+  },
+  {
+    "name": "Manuel Sarrazin",
+    "screenname": "ManuelSarrazin",
+    "verified": 1,
+    "urlpath": "manuel-sarrazin",
+    "followers_count": 2915,
+    "statuses_count": 2977,
+    "friends_count": 565
+  },
+  {
+    "name": "Marco B\u00fclow",
+    "screenname": "marcobuelow",
+    "verified": 1,
+    "urlpath": "marco-buelow",
+    "followers_count": 5541,
+    "statuses_count": 8693,
+    "friends_count": 204
+  },
+  {
+    "name": "Marco Wanderwitz",
+    "screenname": "wanderwitz",
+    "verified": 1,
+    "urlpath": "marco-wanderwitz",
+    "followers_count": 1750,
+    "statuses_count": 7672,
+    "friends_count": 674
+  },
+  {
+    "name": "Marcus Weinberg",
+    "screenname": "MarcusWeinberg",
+    "verified": 1,
+    "urlpath": "marcus-weinberg",
+    "followers_count": 988,
+    "statuses_count": 129,
+    "friends_count": 437
+  },
+  {
+    "name": "Maria Klein-Schmeink",
+    "screenname": "MariaKlSchmeink",
+    "verified": 1,
+    "urlpath": "maria-klein-schmeink",
+    "followers_count": 2144,
+    "statuses_count": 6692,
+    "friends_count": 921
+  },
+  {
+    "name": "Marieluise Beck",
+    "screenname": "MarieluiseBeck",
+    "verified": 0,
+    "urlpath": "marieluise-beck",
+    "followers_count": 2788,
+    "statuses_count": 526,
+    "friends_count": 92
+  },
+  {
+    "name": "Mark Hauptmann",
+    "screenname": "MarkHauptmann",
+    "verified": 0,
+    "urlpath": "mark-hauptmann",
+    "followers_count": 1216,
+    "statuses_count": 1121,
+    "friends_count": 184
+  },
+  {
+    "name": "Markus Kurth",
+    "screenname": "markuskurthmdb",
+    "verified": 1,
+    "urlpath": "markus-kurth",
+    "followers_count": 1894,
+    "statuses_count": 532,
+    "friends_count": 399
+  },
+  {
+    "name": "Marlene Mortler",
+    "screenname": "marlenemortler",
+    "verified": 1,
+    "urlpath": "marlene-mortler",
+    "followers_count": 3003,
+    "statuses_count": 3442,
+    "friends_count": 136
+  },
+  {
+    "name": "Martin Rabanus",
+    "screenname": "MartinRabanus",
+    "verified": 1,
+    "urlpath": "martin-rabanus",
+    "followers_count": 1001,
+    "statuses_count": 540,
+    "friends_count": 482
+  },
+  {
+    "name": "Martina Renner",
+    "screenname": "MartinaRenner",
+    "verified": 1,
+    "urlpath": "martina-renner",
+    "followers_count": 4118,
+    "statuses_count": 4420,
+    "friends_count": 844
+  },
+  {
+    "name": "Matthias Hauer",
+    "screenname": "MatthiasHauer",
+    "verified": 0,
+    "urlpath": "matthias-hauer",
+    "followers_count": 1327,
+    "statuses_count": 2279,
+    "friends_count": 557
+  },
+  {
+    "name": "Matthias Ilgen",
+    "screenname": "MatthiasIlgen",
+    "verified": 1,
+    "urlpath": "matthias-ilgen",
+    "followers_count": 957,
+    "statuses_count": 565,
+    "friends_count": 170
+  },
+  {
+    "name": "Matthias Lietz",
+    "screenname": "MatthiasLietz",
+    "verified": 0,
+    "urlpath": "matthias-lietz",
+    "followers_count": 491,
+    "statuses_count": 1453,
+    "friends_count": 50
+  },
+  {
+    "name": "Matthias W. Birkwald",
+    "screenname": "MWBirkwald",
+    "verified": 1,
+    "urlpath": "matthias-w-birkwald",
+    "followers_count": 3426,
+    "statuses_count": 2931,
+    "friends_count": 1718
+  },
+  {
+    "name": "Mechthild Heil",
+    "screenname": "MechthildHeil",
+    "verified": 1,
+    "urlpath": "mechthild-heil",
+    "followers_count": 1717,
+    "statuses_count": 1344,
+    "friends_count": 1092
+  },
+  {
+    "name": "Mechthild Rawert",
+    "screenname": "MechthildRawert",
+    "verified": 1,
+    "urlpath": "mechthild-rawert",
+    "followers_count": 2420,
+    "statuses_count": 12524,
+    "friends_count": 1051
+  },
+  {
+    "name": "Metin Hakverdi",
+    "screenname": "MetinHakverdi",
+    "verified": 0,
+    "urlpath": "metin-hakverdi",
+    "followers_count": 1986,
+    "statuses_count": 1167,
+    "friends_count": 1276
+  },
+  {
+    "name": "Michael Grosse-Br\u00f6mer",
+    "screenname": "MGrosseBroemer",
+    "verified": 1,
+    "urlpath": "michael-grosse-broemer",
+    "followers_count": 9536,
+    "statuses_count": 10984,
+    "friends_count": 220
+  },
+  {
+    "name": "Michael Hartmann",
+    "screenname": "HartmannMdB",
+    "verified": 1,
+    "urlpath": "michael-hartmann",
+    "followers_count": 1707,
+    "statuses_count": 2688,
+    "friends_count": 338
+  },
+  {
+    "name": "Michael Kretschmer",
+    "screenname": "kretsc",
+    "verified": 1,
+    "urlpath": "michael-kretschmer",
+    "followers_count": 3221,
+    "statuses_count": 970,
+    "friends_count": 421
+  },
+  {
+    "name": "Michael Leutert",
+    "screenname": "MichaelLeutert",
+    "verified": 1,
+    "urlpath": "michael-leutert",
+    "followers_count": 3025,
+    "statuses_count": 2837,
+    "friends_count": 1303
+  },
+  {
+    "name": "Michael Roth",
+    "screenname": "MiRo_SPD",
+    "verified": 1,
+    "urlpath": "michael-roth",
+    "followers_count": 10841,
+    "statuses_count": 7122,
+    "friends_count": 702
+  },
+  {
+    "name": "Michael Thews",
+    "screenname": "michael_thews",
+    "verified": 1,
+    "urlpath": "michael-thews",
+    "followers_count": 1214,
+    "statuses_count": 2161,
+    "friends_count": 200
+  },
+  {
+    "name": "Michaela Engelmeier",
+    "screenname": "michaelaengel",
+    "verified": 1,
+    "urlpath": "michaela-engelmeier",
+    "followers_count": 2558,
+    "statuses_count": 4403,
+    "friends_count": 2067
+  },
+  {
+    "name": "Monika Lazar",
+    "screenname": "monikalazar",
+    "verified": 1,
+    "urlpath": "monika-lazar",
+    "followers_count": 4066,
+    "statuses_count": 15167,
+    "friends_count": 194
+  },
+  {
+    "name": "Nadine Sch\u00f6n",
+    "screenname": "NadineSchoen",
+    "verified": 1,
+    "urlpath": "nadine-schoen",
+    "followers_count": 6690,
+    "statuses_count": 2855,
+    "friends_count": 1079
+  },
+  {
+    "name": "Nicole Gohlke",
+    "screenname": "NicoleGohlke",
+    "verified": 1,
+    "urlpath": "nicole-gohlke",
+    "followers_count": 4187,
+    "statuses_count": 3242,
+    "friends_count": 461
+  },
+  {
+    "name": "Nicole Maisch",
+    "screenname": "NicoleMaisch",
+    "verified": 1,
+    "urlpath": "nicole-maisch",
+    "followers_count": 3724,
+    "statuses_count": 2036,
+    "friends_count": 280
+  },
+  {
+    "name": "Niels Annen",
+    "screenname": "NielsAnnen",
+    "verified": 1,
+    "urlpath": "niels-annen",
+    "followers_count": 4811,
+    "statuses_count": 4601,
+    "friends_count": 706
+  },
+  {
+    "name": "Niema Movassat",
+    "screenname": "NiemaMovassat",
+    "verified": 1,
+    "urlpath": "niema-movassat",
+    "followers_count": 6120,
+    "statuses_count": 12125,
+    "friends_count": 767
+  },
+  {
+    "name": "Nina Warken",
+    "screenname": "ninawarken",
+    "verified": 0,
+    "urlpath": "nina-warken",
+    "followers_count": 830,
+    "statuses_count": 1102,
+    "friends_count": 319
+  },
+  {
+    "name": "Olav Gutting",
+    "screenname": "olavgutting",
+    "verified": 0,
+    "urlpath": "olav-gutting",
+    "followers_count": 1955,
+    "statuses_count": 6339,
+    "friends_count": 362
+  },
+  {
+    "name": "Oliver Kaczmarek",
+    "screenname": "KaczmarekOliver",
+    "verified": 1,
+    "urlpath": "oliver-kaczmarek",
+    "followers_count": 1877,
+    "statuses_count": 1610,
+    "friends_count": 395
+  },
+  {
+    "name": "Oliver Krischer",
+    "screenname": "Oliver_Krischer",
+    "verified": 1,
+    "urlpath": "oliver-krischer",
+    "followers_count": 3745,
+    "statuses_count": 5525,
+    "friends_count": 514
+  },
+  {
+    "name": "Omid Nouripour",
+    "screenname": "nouripour",
+    "verified": 1,
+    "urlpath": "omid-nouripour",
+    "followers_count": 13156,
+    "statuses_count": 12872,
+    "friends_count": 5122
+  },
+  {
+    "name": "\u00d6zcan Mutlu",
+    "screenname": "OezcanMutlu",
+    "verified": 1,
+    "urlpath": "oezcan-mutlu",
+    "followers_count": 8973,
+    "statuses_count": 18650,
+    "friends_count": 1091
+  },
+  {
+    "name": "Patrick Schnieder",
+    "screenname": "PSchnieder",
+    "verified": 1,
+    "urlpath": "patrick-schnieder",
+    "followers_count": 3196,
+    "statuses_count": 7882,
+    "friends_count": 829
+  },
+  {
+    "name": "Patrick Sensburg",
+    "screenname": "PatrickSensburg",
+    "verified": 1,
+    "urlpath": "patrick-sensburg",
+    "followers_count": 1569,
+    "statuses_count": 536,
+    "friends_count": 73
+  },
+  {
+    "name": "Peer Steinbr\u00fcck",
+    "screenname": "peersteinbrueck",
+    "verified": 1,
+    "urlpath": "peer-steinbrueck",
+    "followers_count": 48189,
+    "statuses_count": 0,
+    "friends_count": 126
+  },
+  {
+    "name": "Peter Altmaier",
+    "screenname": "peteraltmaier",
+    "verified": 1,
+    "urlpath": "peter-altmaier",
+    "followers_count": 149904,
+    "statuses_count": 9551,
+    "friends_count": 619
+  },
+  {
+    "name": "Peter Beyer",
+    "screenname": "PeterbeyerCDU",
+    "verified": 0,
+    "urlpath": "peter-beyer",
+    "followers_count": 356,
+    "statuses_count": 16,
+    "friends_count": 11
+  },
+  {
+    "name": "Peter Meiwald",
+    "screenname": "PeterMeiwald",
+    "verified": 1,
+    "urlpath": "peter-meiwald",
+    "followers_count": 1669,
+    "statuses_count": 6295,
+    "friends_count": 1220
+  },
+  {
+    "name": "Petra Ernstberger",
+    "screenname": "PErnstberger",
+    "verified": 1,
+    "urlpath": "petra-ernstberger",
+    "followers_count": 1116,
+    "statuses_count": 196,
+    "friends_count": 546
+  },
+  {
+    "name": "Petra Pau",
+    "screenname": "PetraPauMaHe",
+    "verified": 1,
+    "urlpath": "petra-pau",
+    "followers_count": 8756,
+    "statuses_count": 12305,
+    "friends_count": 536
+  },
+  {
+    "name": "Philipp Mi\u00dffelder",
+    "screenname": "Missfelder",
+    "verified": 1,
+    "urlpath": "philipp-missfelder",
+    "followers_count": 9619,
+    "statuses_count": 704,
+    "friends_count": 737
+  },
+  {
+    "name": "Priska Hinz",
+    "screenname": "PriskaHinz",
+    "verified": 1,
+    "urlpath": "priska-hinz",
+    "followers_count": 4307,
+    "statuses_count": 4344,
+    "friends_count": 423
+  },
+  {
+    "name": "Prof. Dr. Matthias Zimmer",
+    "screenname": "matthiaszimmer",
+    "verified": 0,
+    "urlpath": "matthias-zimmer",
+    "followers_count": 596,
+    "statuses_count": 678,
+    "friends_count": 150
+  },
+  {
+    "name": "Rainer Arnold",
+    "screenname": "rainerarnold",
+    "verified": 1,
+    "urlpath": "rainer-arnold",
+    "followers_count": 2675,
+    "statuses_count": 1357,
+    "friends_count": 80
+  },
+  {
+    "name": "Rainer Spiering",
+    "screenname": "rainerspiering",
+    "verified": 0,
+    "urlpath": "rainer-spiering",
+    "followers_count": 193,
+    "statuses_count": 136,
+    "friends_count": 68
+  },
+  {
+    "name": "Ralph Brinkhaus",
+    "screenname": "rbrinkhaus",
+    "verified": 1,
+    "urlpath": "ralph-brinkhaus",
+    "followers_count": 2700,
+    "statuses_count": 891,
+    "friends_count": 390
+  },
+  {
+    "name": "Renate K\u00fcnast",
+    "screenname": "RenateKuenast",
+    "verified": 1,
+    "urlpath": "renate-kuenast",
+    "followers_count": 28837,
+    "statuses_count": 12289,
+    "friends_count": 813
+  },
+  {
+    "name": "Rita Schwarzel\u00fchr-Sutter",
+    "screenname": "rischwasu",
+    "verified": 1,
+    "urlpath": "rita-schwarzeluehr-sutter",
+    "followers_count": 2020,
+    "statuses_count": 3157,
+    "friends_count": 297
+  },
+  {
+    "name": "Roderich Kiesewetter",
+    "screenname": "RKiesewetter",
+    "verified": 1,
+    "urlpath": "roderich-kiesewetter",
+    "followers_count": 5391,
+    "statuses_count": 10272,
+    "friends_count": 5270
+  },
+  {
+    "name": "R\u00fcdiger Kruse",
+    "screenname": "RuedigerKruse",
+    "verified": 1,
+    "urlpath": "ruediger-kruse",
+    "followers_count": 1773,
+    "statuses_count": 1584,
+    "friends_count": 1273
+  },
+  {
+    "name": "Sabine B\u00e4tzing",
+    "screenname": "Sabine_Baetzing",
+    "verified": 1,
+    "urlpath": "sabine-baetzing",
+    "followers_count": 4806,
+    "statuses_count": 8264,
+    "friends_count": 417
+  },
+  {
+    "name": "Sabine Leidig",
+    "screenname": "SabineLeidig",
+    "verified": 1,
+    "urlpath": "sabine-leidig",
+    "followers_count": 4002,
+    "statuses_count": 5400,
+    "friends_count": 1895
+  },
+  {
+    "name": "Sahra Wagenknecht",
+    "screenname": "SWagenknecht",
+    "verified": 1,
+    "urlpath": "sahra-wagenknecht",
+    "followers_count": 115065,
+    "statuses_count": 701,
+    "friends_count": 65
+  },
+  {
+    "name": "Saskia Esken",
+    "screenname": "EskenSaskia",
+    "verified": 1,
+    "urlpath": "saskia-esken",
+    "followers_count": 3852,
+    "statuses_count": 12065,
+    "friends_count": 1499
+  },
+  {
+    "name": "Sebastian Hartmann",
+    "screenname": "sebast_hartmann",
+    "verified": 1,
+    "urlpath": "sebastian-hartmann",
+    "followers_count": 3348,
+    "statuses_count": 2000,
+    "friends_count": 379
+  },
+  {
+    "name": "Sebastian Steineke",
+    "screenname": "SteinekeCDU",
+    "verified": 1,
+    "urlpath": "sebastian-steineke",
+    "followers_count": 3990,
+    "statuses_count": 15994,
+    "friends_count": 1587
+  },
+  {
+    "name": "Sevim Dagdelen",
+    "screenname": "SevimDagdelen",
+    "verified": 1,
+    "urlpath": "sevim-dagdelen",
+    "followers_count": 17301,
+    "statuses_count": 3379,
+    "friends_count": 247
+  },
+  {
+    "name": "Sibylle Pfeiffer",
+    "screenname": "SibyllePfeiffer",
+    "verified": 1,
+    "urlpath": "sibylle-pfeiffer",
+    "followers_count": 851,
+    "statuses_count": 121,
+    "friends_count": 136
+  },
+  {
+    "name": "Sigmar Gabriel",
+    "screenname": "sigmargabriel",
+    "verified": 1,
+    "urlpath": "sigmar-gabriel",
+    "followers_count": 142400,
+    "statuses_count": 2773,
+    "friends_count": 483
+  },
+  {
+    "name": "Soenke Rix",
+    "screenname": "SoenkeRix",
+    "verified": 1,
+    "urlpath": "soenke-rix",
+    "followers_count": 4306,
+    "statuses_count": 8188,
+    "friends_count": 1129
+  },
+  {
+    "name": "S\u00f6ren Bartol",
+    "screenname": "soerenbartol",
+    "verified": 1,
+    "urlpath": "soeren-bartol",
+    "followers_count": 2695,
+    "statuses_count": 1904,
+    "friends_count": 598
+  },
+  {
+    "name": "SPD im Bundestag",
+    "screenname": "spdbt",
+    "verified": 1,
+    "urlpath": "spd-im-bundestag",
+    "followers_count": 67372,
+    "statuses_count": 7614,
+    "friends_count": 598
+  },
+  {
+    "name": "Stefan Liebich",
+    "screenname": "berlinliebich",
+    "verified": 1,
+    "urlpath": "stefan-liebich",
+    "followers_count": 8358,
+    "statuses_count": 6952,
+    "friends_count": 4864
+  },
+  {
+    "name": "Stefan M\u00fcller",
+    "screenname": "smuellermdb",
+    "verified": 1,
+    "urlpath": "stefan-mueller",
+    "followers_count": 4418,
+    "statuses_count": 1201,
+    "friends_count": 246
+  },
+  {
+    "name": "Stefan Rebmann",
+    "screenname": "RebmannMdB",
+    "verified": 1,
+    "urlpath": "stefan-rebmann",
+    "followers_count": 1427,
+    "statuses_count": 2148,
+    "friends_count": 253
+  },
+  {
+    "name": "Stefan Schwartze",
+    "screenname": "s_schwartze",
+    "verified": 0,
+    "urlpath": "stefan-schwartze",
+    "followers_count": 2293,
+    "statuses_count": 1246,
+    "friends_count": 928
+  },
+  {
+    "name": "Steffen Bilger",
+    "screenname": "SteffenBilger",
+    "verified": 1,
+    "urlpath": "steffen-bilger",
+    "followers_count": 3064,
+    "statuses_count": 2272,
+    "friends_count": 648
+  },
+  {
+    "name": "Steffen Kanitz",
+    "screenname": "steffenkanitz",
+    "verified": 1,
+    "urlpath": "steffen-kanitz",
+    "followers_count": 525,
+    "statuses_count": 459,
+    "friends_count": 12
+  },
+  {
+    "name": "Steffen-Claudio Lemme",
+    "screenname": "SCLemme",
+    "verified": 1,
+    "urlpath": "steffen-claudio-lemme",
+    "followers_count": 1959,
+    "statuses_count": 2262,
+    "friends_count": 1217
+  },
+  {
+    "name": "Steffi Lemke",
+    "screenname": "SteffiLemke",
+    "verified": 1,
+    "urlpath": "steffi-lemke",
+    "followers_count": 13021,
+    "statuses_count": 9334,
+    "friends_count": 1020
+  },
+  {
+    "name": "Stephan K\u00fchn",
+    "screenname": "stephankuehn",
+    "verified": 1,
+    "urlpath": "stephan-kuehn",
+    "followers_count": 2420,
+    "statuses_count": 2339,
+    "friends_count": 1016
+  },
+  {
+    "name": "Susann R\u00fcthrich",
+    "screenname": "SusannRuethrich",
+    "verified": 1,
+    "urlpath": "susann-ruethrich",
+    "followers_count": 415,
+    "statuses_count": 19,
+    "friends_count": 109
+  },
+  {
+    "name": "Susanna Karawanskij",
+    "screenname": "SuzaKarawanskij",
+    "verified": 0,
+    "urlpath": "susanna-karawanskij",
+    "followers_count": 1397,
+    "statuses_count": 261,
+    "friends_count": 476
+  },
+  {
+    "name": "Sven Kindler",
+    "screenname": "sven_kindler",
+    "verified": 1,
+    "urlpath": "sven-kindler",
+    "followers_count": 8186,
+    "statuses_count": 22759,
+    "friends_count": 1018
+  },
+  {
+    "name": "Sven Volmering",
+    "screenname": "SvenVolmering",
+    "verified": 1,
+    "urlpath": "sven-volmering",
+    "followers_count": 3259,
+    "statuses_count": 12686,
+    "friends_count": 2575
+  },
+  {
+    "name": "Swen Schulz",
+    "screenname": "swenschulz",
+    "verified": 1,
+    "urlpath": "swen-schulz",
+    "followers_count": 3096,
+    "statuses_count": 901,
+    "friends_count": 720
+  },
+  {
+    "name": "Sylvia Kotting-Uhl",
+    "screenname": "BabettesChefin",
+    "verified": 1,
+    "urlpath": "sylvia-kotting-uhl",
+    "followers_count": 3377,
+    "statuses_count": 4864,
+    "friends_count": 342
+  },
+  {
+    "name": "Sylvia Pantel",
+    "screenname": "SylviaPantel",
+    "verified": 1,
+    "urlpath": "sylvia-pantel",
+    "followers_count": 377,
+    "statuses_count": 11,
+    "friends_count": 117
+  },
+  {
+    "name": "Tabea R\u00f6\u00dfner",
+    "screenname": "TabeaRoessner",
+    "verified": 1,
+    "urlpath": "tabea-roessner",
+    "followers_count": 6557,
+    "statuses_count": 9084,
+    "friends_count": 758
+  },
+  {
+    "name": "Tankred Schipanski",
+    "screenname": "TSchipanski",
+    "verified": 1,
+    "urlpath": "tankred-schipanski",
+    "followers_count": 2053,
+    "statuses_count": 14987,
+    "friends_count": 96
+  },
+  {
+    "name": "Thomas Gebhart",
+    "screenname": "thomasgebhart",
+    "verified": 1,
+    "urlpath": "thomas-gebhart",
+    "followers_count": 1685,
+    "statuses_count": 846,
+    "friends_count": 271
+  },
+  {
+    "name": "Thomas Hitschler",
+    "screenname": "ThomasHitschler",
+    "verified": 0,
+    "urlpath": "thomas-hitschler",
+    "followers_count": 2054,
+    "statuses_count": 7400,
+    "friends_count": 898
+  },
+  {
+    "name": "Thomas Jarzombek",
+    "screenname": "tj_tweets",
+    "verified": 1,
+    "urlpath": "thomas-jarzombek",
+    "followers_count": 9965,
+    "statuses_count": 6713,
+    "friends_count": 561
+  },
+  {
+    "name": "Thomas Nord",
+    "screenname": "NordMdb",
+    "verified": 0,
+    "urlpath": "thomas-nord",
+    "followers_count": 1284,
+    "statuses_count": 857,
+    "friends_count": 457
+  },
+  {
+    "name": "Thomas Oppermann",
+    "screenname": "ThomasOppermann",
+    "verified": 1,
+    "urlpath": "thomas-oppermann",
+    "followers_count": 56396,
+    "statuses_count": 2475,
+    "friends_count": 136
+  },
+  {
+    "name": "Tino Sorge",
+    "screenname": "TinoSorge",
+    "verified": 0,
+    "urlpath": "tino-sorge",
+    "followers_count": 1136,
+    "statuses_count": 1900,
+    "friends_count": 341
+  },
+  {
+    "name": "Tobias Josef Zech",
+    "screenname": "TobiasZech",
+    "verified": 0,
+    "urlpath": "tobias-josef-zech",
+    "followers_count": 1272,
+    "statuses_count": 450,
+    "friends_count": 751
+  },
+  {
+    "name": "Tom Koenigs",
+    "screenname": "KoenigsGruen",
+    "verified": 1,
+    "urlpath": "tom-koenigs",
+    "followers_count": 3080,
+    "statuses_count": 861,
+    "friends_count": 280
+  },
+  {
+    "name": "Uli Freese",
+    "screenname": "UliFreese",
+    "verified": 0,
+    "urlpath": "uli-freese",
+    "followers_count": 435,
+    "statuses_count": 301,
+    "friends_count": 114
+  },
+  {
+    "name": "Ulle Schauws",
+    "screenname": "ulle_schauws",
+    "verified": 1,
+    "urlpath": "ulle-schauws",
+    "followers_count": 2275,
+    "statuses_count": 4028,
+    "friends_count": 1633
+  },
+  {
+    "name": "Ulli Nissen",
+    "screenname": "UlliNissen",
+    "verified": 0,
+    "urlpath": "ulli-nissen",
+    "followers_count": 1991,
+    "statuses_count": 2549,
+    "friends_count": 1812
+  },
+  {
+    "name": "Ulrich Kelber",
+    "screenname": "UlrichKelber",
+    "verified": 1,
+    "urlpath": "ulrich-kelber",
+    "followers_count": 14776,
+    "statuses_count": 22450,
+    "friends_count": 283
+  },
+  {
+    "name": "Ute Vogt",
+    "screenname": "UteVogt",
+    "verified": 1,
+    "urlpath": "ute-vogt",
+    "followers_count": 3536,
+    "statuses_count": 1863,
+    "friends_count": 317
+  },
+  {
+    "name": "Uwe Kekeritz",
+    "screenname": "UweKekeritz",
+    "verified": 0,
+    "urlpath": "uwe-kekeritz",
+    "followers_count": 1573,
+    "statuses_count": 1398,
+    "friends_count": 525
+  },
+  {
+    "name": "Uwe Schummer",
+    "screenname": "UweSchummer",
+    "verified": 1,
+    "urlpath": "uwe-schummer",
+    "followers_count": 6912,
+    "statuses_count": 21820,
+    "friends_count": 1662
+  },
+  {
+    "name": "Volker Beck",
+    "screenname": "Volker_Beck",
+    "verified": 1,
+    "urlpath": "volker-beck",
+    "followers_count": 73472,
+    "statuses_count": 48678,
+    "friends_count": 6120
+  },
+  {
+    "name": "Volker Ullrich",
+    "screenname": "VolkerUllrich",
+    "verified": 1,
+    "urlpath": "volker-ullrich",
+    "followers_count": 1695,
+    "statuses_count": 1273,
+    "friends_count": 615
+  },
+  {
+    "name": "Volkmar Klein",
+    "screenname": "VolkmarKlein",
+    "verified": 1,
+    "urlpath": "volkmar-klein",
+    "followers_count": 1204,
+    "statuses_count": 272,
+    "friends_count": 59
+  },
+  {
+    "name": "Waltraud Wolff",
+    "screenname": "waltraud_wolff",
+    "verified": 1,
+    "urlpath": "waltraud-wolff",
+    "followers_count": 1519,
+    "statuses_count": 574,
+    "friends_count": 94
+  },
+  {
+    "name": "Wilfried Oellers",
+    "screenname": "WilfriedOellers",
+    "verified": 0,
+    "urlpath": "wilfried-oellers",
+    "followers_count": 483,
+    "statuses_count": 441,
+    "friends_count": 0
+  },
+  {
+    "name": "Wolfgang Gehrcke",
+    "screenname": "WolfgangGehrcke",
+    "verified": 0,
+    "urlpath": "wolfgang-gehrcke",
+    "followers_count": 2896,
+    "statuses_count": 2606,
+    "friends_count": 371
+  },
+  {
+    "name": "Xaver Jung",
+    "screenname": "XaverJung",
+    "verified": 0,
+    "urlpath": "xaver-jung",
+    "followers_count": 572,
+    "statuses_count": 971,
+    "friends_count": 51
+  }
+]
