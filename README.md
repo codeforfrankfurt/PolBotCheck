@@ -10,6 +10,8 @@ or a human. We check that on retweeters of a politician and calculate a score fo
 topic (aka hashtag) he or she is talking about. This helps to identify, if a tweet is
 really interesting to the public or if it is only interesting for certain bots.
 
+The list of politicians was loaded from [Bundestwitter](http://www.bundestwitter.de).
+
 ## Installation and usage notes
 ### Backend
 
