@@ -1,6 +1,6 @@
 @import '//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css';
 
-.App {
+.App, h3 {
     text-align: center;
 }
 

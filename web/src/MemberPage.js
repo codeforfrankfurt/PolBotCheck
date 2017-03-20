@@ -2,6 +2,7 @@
  * Created by peter on 04.03.17.
  */
 import React, {Component} from 'react';
+import { Link } from 'react-router'
 import {Col, Row, Panel} from 'react-bootstrap';
 import PieChart from './PieChart';
 import BarChart from './BarChart';
@@ -17,7 +18,6 @@ class MemberPage extends Component {
     }
 
     componentWillMount() {
-        console.log(this.props.params);
         let newData = this.fetchMemberData(this.props.params.name);
         this.setState(newData);
     }
@@ -25,6 +25,7 @@ class MemberPage extends Component {
     render() {
         return (
           <div>
+            <div><Link to="/">Zurück</Link></div>
             <Col className="App-profile" md={4}>
               <img className="Profile-picture" alt="Profilbild"
                    src={this.state.member.pictureURL}/>
@@ -40,13 +41,17 @@ class MemberPage extends Component {
                 <p>Die meistbesprochenen Themen des Abgeordneten</p>
               </Row>
               <Row>
-                <Col md={6}>
+                <Col md={4}>
+                  <h3>Follower</h3>
                   <PieChart className="Info-followers" numbers={this.state.member.followers}/>
-                  <p>Follower: Verhältnis von Bots / Menschen</p>
                 </Col>
-                <Col md={6}>
+                <Col md={4}>
+                  <h3>Retweets</h3>
                   <PieChart className="Info-retweets" numbers={this.state.member.retweets}/>
-                  <p>Retweets: Verhältnis von Bots / Menschen</p>
+                </Col>
+                <Col md={4}>
+                  <h3>Retweeters</h3>
+                  <PieChart className="Info-retweeters" numbers={this.state.member.retweeters}/>
                 </Col>
               </Row>
             </Col>
