@@ -18,7 +18,6 @@ class MemberPage extends Component {
     }
 
     componentWillMount() {
-        console.log(this.props.params);
         let newData = this.fetchMemberData(this.props.params.name);
         this.setState(newData);
     }
