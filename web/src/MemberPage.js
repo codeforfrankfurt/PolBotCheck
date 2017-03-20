@@ -43,15 +43,15 @@ class MemberPage extends Component {
               </Row>
               <Row>
                 <Col md={4}>
-                  <p className="title">Follower</p>
+                  <h3>Follower</h3>
                   <PieChart className="Info-followers" numbers={this.state.member.followers}/>
                 </Col>
                 <Col md={4}>
-                  <p className="title">Retweets</p>
+                  <h3>Retweets</h3>
                   <PieChart className="Info-retweets" numbers={this.state.member.retweets}/>
                 </Col>
                 <Col md={4}>
-                  <p className="title">Retweeters</p>
+                  <h3>Retweeters</h3>
                   <PieChart className="Info-retweeters" numbers={this.state.member.retweeters}/>
                 </Col>
               </Row>

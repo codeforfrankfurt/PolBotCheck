@@ -1,6 +1,6 @@
 @import '//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css';
 
-.App {
+.App, h3 {
     text-align: center;
 }
 
@@ -34,11 +34,6 @@ ul {
 
 .Info-diagram img {
     max-width: 66%;
-}
-
-.title {
-    text-align: center;
-    font-size: 120%;
 }
 
 @keyframes App-logo-spin {
