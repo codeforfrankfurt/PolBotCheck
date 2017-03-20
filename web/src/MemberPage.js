@@ -2,6 +2,7 @@
  * Created by peter on 04.03.17.
  */
 import React, {Component} from 'react';
+import { Link } from 'react-router'
 import {Col, Row, Panel} from 'react-bootstrap';
 import PieChart from './PieChart';
 import BarChart from './BarChart';
@@ -25,6 +26,7 @@ class MemberPage extends Component {
     render() {
         return (
           <div>
+            <div><Link to="/">Zurück</Link></div>
             <Col className="App-profile" md={4}>
               <img className="Profile-picture" alt="Profilbild"
                    src={this.state.member.pictureURL}/>
