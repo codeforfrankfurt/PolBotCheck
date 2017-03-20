@@ -10,3 +10,6 @@ db_credentials.py
 dev_*.ipynb
 
 .DS_Store
+node_modules/
+polbotcheck/dump/
+web/Release.key
