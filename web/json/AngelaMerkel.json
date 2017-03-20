@@ -5,7 +5,7 @@
     "pictureURL": "https://upload.wikimedia.org/wikipedia/commons/9/93/Angela_Merkel_2016.jpg",
     "party": "CDU",
     "followers": {
-      "numFollowers": 10,
+      "numFollowers": 16,
       "numHumans": 4,
       "numBots": 12
     },
@@ -13,6 +13,11 @@
       "numRetweets": 12,
       "numHumans": 11,
       "numBots": 1
+    },
+    "retweeters": {
+      "numRetweeters": 22,
+      "numHumans": 9,
+      "numBots": 13
     },
     "wordCluster": {
       "hashTags": [

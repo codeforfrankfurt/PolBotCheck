@@ -40,13 +40,17 @@ class MemberPage extends Component {
                 <p>Die meistbesprochenen Themen des Abgeordneten</p>
               </Row>
               <Row>
-                <Col md={6}>
+                <Col md={4}>
+                  <p className="title">Follower</p>
                   <PieChart className="Info-followers" numbers={this.state.member.followers}/>
-                  <p>Follower: Verhältnis von Bots / Menschen</p>
                 </Col>
-                <Col md={6}>
+                <Col md={4}>
+                  <p className="title">Retweets</p>
                   <PieChart className="Info-retweets" numbers={this.state.member.retweets}/>
-                  <p>Retweets: Verhältnis von Bots / Menschen</p>
+                </Col>
+                <Col md={4}>
+                  <p className="title">Retweeters</p>
+                  <PieChart className="Info-retweeters" numbers={this.state.member.retweeters}/>
                 </Col>
               </Row>
             </Col>

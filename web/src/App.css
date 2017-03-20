@@ -36,6 +36,11 @@ ul {
     max-width: 66%;
 }
 
+.title {
+    text-align: center;
+    font-size: 120%;
+}
+
 @keyframes App-logo-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
