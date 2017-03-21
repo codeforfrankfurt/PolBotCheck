@@ -12,12 +12,21 @@ class App extends Component {
       topics: []
   };
 
+  load(what, url) {
+      var self = this;
+      fetch(url)
+          .then(res => res.json())
+          .then(data => {
+              self.state[what] = data;
+              self.setState(self.state);
+          })
+          .catch(e => console.log(e))
+  }
+
   componentWillMount() {
-    this.setState({
-        politicians: require('../json/politicians.json'),
-        parties: require('../json/parties.json'),
-        topics: require('../json/topics.json')
-    })
+    this.load('parties', 'https://raw.githubusercontent.com/codeforfrankfurt/PolBotCheck/master/web/json/parties.json');
+    this.load('politicians', 'https://raw.githubusercontent.com/codeforfrankfurt/PolBotCheck/master/web/json/politicians.json');
+    this.load('topics', 'https://raw.githubusercontent.com/codeforfrankfurt/PolBotCheck/master/web/json/topics.json');
   }
 
   render() {
