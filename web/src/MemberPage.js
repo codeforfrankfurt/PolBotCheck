@@ -10,16 +10,35 @@ import BarChart from './BarChart';
 class MemberPage extends Component {
 
     state = {
-        content: 'OVERVIEW'
+        content: 'OVERVIEW',
+        member: {
+            "followers": {
+                "numHumans": null,
+                "numBots": null
+            },
+            "retweets": {
+                "numHumans": null,
+                "numBots": null
+            },
+            "retweeters": {
+                "numHumans": null,
+                "numBots": null
+            },
+            wordCluster: {
+                topics: []
+            }
+        }
     };
 
-    fetchMemberData(memberName) {
-        return require('../json/' + memberName + '.json');
-    }
-
     componentWillMount() {
-        let newData = this.fetchMemberData(this.props.params.name);
-        this.setState(newData);
+        let self = this;
+        fetch('https://trustfact.dilab.co/api/politicians/' + this.props.params.name)
+            .then(res => res.json())
+            .then(data => {
+                self.state = data;
+                self.setState(self.state)
+            })
+            .catch(e => console.log(e))
     }
 
     render() {

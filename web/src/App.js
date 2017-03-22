@@ -13,7 +13,7 @@ class App extends Component {
   };
 
   load(what, url) {
-      var self = this;
+      let self = this;
       fetch(url)
           .then(res => res.json())
           .then(data => {
@@ -25,7 +25,7 @@ class App extends Component {
 
   componentWillMount() {
     this.load('parties', 'https://raw.githubusercontent.com/codeforfrankfurt/PolBotCheck/master/web/json/parties.json');
-    this.load('politicians', 'https://raw.githubusercontent.com/codeforfrankfurt/PolBotCheck/master/web/json/politicians.json');
+    this.load('politicians', 'https://trustfact.dilab.co/api/politicians');
     this.load('topics', 'https://raw.githubusercontent.com/codeforfrankfurt/PolBotCheck/master/web/json/topics.json');
   }
 
