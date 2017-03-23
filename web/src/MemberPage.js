@@ -32,7 +32,7 @@ class MemberPage extends Component {
 
     componentWillMount() {
         let self = this;
-        fetch('https://trustfact.dilab.co/api/politicians/' + this.props.params.name)
+        fetch('https://trustfact.dilab.co/api/v1/politicians/' + this.props.params.name)
             .then(res => res.json())
             .then(data => {
                 self.state = data;

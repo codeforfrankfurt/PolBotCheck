@@ -25,7 +25,7 @@ class App extends Component {
 
   componentWillMount() {
     this.load('parties', 'https://raw.githubusercontent.com/codeforfrankfurt/PolBotCheck/master/web/json/parties.json');
-    this.load('politicians', 'https://trustfact.dilab.co/api/politicians');
+    this.load('politicians', 'https://trustfact.dilab.co/api/v1/politicians');
     this.load('topics', 'https://raw.githubusercontent.com/codeforfrankfurt/PolBotCheck/master/web/json/topics.json');
   }
 
