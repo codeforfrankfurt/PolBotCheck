@@ -18,6 +18,7 @@ The list of politicians was loaded from [Bundestwitter](http://www.bundestwitter
     cd polbotcheck
     cp keys-sample.py keys.py
     cp db_credentials-sample.py db_credentials.py
+    pip install -r requirements.txt 
     python twitter_api.py --all
 
 ### Frontend
