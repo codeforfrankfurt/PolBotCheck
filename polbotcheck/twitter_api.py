@@ -74,7 +74,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='retrieve data from twitter and save to database')
     flags = ['tweets', 'followers']
     parser.add_argument('-t', '--tweets', action='store_true', help='get tweets and retweets')
-    parser.add_argument('-f', '--followers', action='store_true', help='get followers and their botnes')
+    parser.add_argument('-f', '--followers', action='store_true', help='get followers and their botness')
     parser.add_argument('-a', '--all', action='store_true', help='get all available entities')
 
     args = parser.parse_args()
