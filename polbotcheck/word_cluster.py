@@ -61,7 +61,7 @@ def get_topic_frequencies_two(tweets, words_n=50, lang='english'):
     #topic_frequencies = calc_frequencies(important_terms, words_n=words_n)
     return important_terms
 
-def save_wordcloud(frequencies, filename):
+def save_wordcloud_image(frequencies, filename):
     wordcloud = WordCloud(width=1024, height=786).fit_words(frequencies)
     fig = plt.figure()
     fig.set_figwidth(12)
@@ -104,7 +104,7 @@ if __name__ == "__main__":
     # topic_frequencies = get_topic_frequencies_two(corpus, words_n=100, lang='english')
     # for topic in topic_frequencies:
     #     print(topic)
-    # save_wordcloud(topic_frequencies, 'wordcloud_uk_election.png')
+    # save_wordcloud_image(topic_frequencies, 'wordcloud_uk_election.png')
     user = 'malechanissen'
-    freqs_test = {'word1':10, 'word3':30, 'word2':20 }
+    freqs_test = {'word1':10, 'word3':50, 'word2':60 }
     db.save_word_frequencies(user, freqs_test)
