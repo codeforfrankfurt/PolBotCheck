@@ -4,6 +4,7 @@ import nltk
 from nltk.corpus import stopwords
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
+import db
 
 def calc_frequencies(words, words_n=50, lang='german'):
     words = [word for word in words if len(word) > 1]
@@ -98,9 +99,12 @@ def get_corpus_of_most_active_users(n_users=5):
     return  corpus
 
 if __name__ == "__main__":
-    #tweets = load_example_data()
-    corpus = get_corpus_of_most_active_users()
-    topic_frequencies = get_topic_frequencies_two(corpus, words_n=100, lang='english')
-    for topic in topic_frequencies:
-        print(topic)
-    #save_wordcloud(topic_frequencies, 'wordcloud_uk_election.png')
+    # tweets = load_example_data()
+    # corpus = get_corpus_of_most_active_users()
+    # topic_frequencies = get_topic_frequencies_two(corpus, words_n=100, lang='english')
+    # for topic in topic_frequencies:
+    #     print(topic)
+    # save_wordcloud(topic_frequencies, 'wordcloud_uk_election.png')
+    user = 'malechanissen'
+    freqs_test = {'word1':10, 'word3':30, 'word2':20 }
+    db.save_word_frequencies(user, freqs_test)

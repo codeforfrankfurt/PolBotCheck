@@ -113,5 +113,12 @@ def saveRetweets(tweet, retweets):
         if not hasRetweet(fromID=tweet.id_str, toID=retweet.id_str):
             retweetsCol.insert(getRetweetEdgeDoc(fromID=tweet.id_str, toID=retweet.id_str))
 
-def saveWordFreqs(wordFreqs):
-    raise NotImplementedError
+def save_word_frequencies(user, word_cluster, force_write):
+    myuser = usersCol.find({'_key': user})
+    try: 
+        found_user = next(myuser)
+        if 'word_cluster' not in found_user or force_write:
+            found_user['word_cluster'] = word_cluster
+            usersCol.update(found_user)
+    except:
+        return None
