@@ -113,5 +113,8 @@ def saveRetweets(tweet, retweets):
         if not hasRetweet(fromID=tweet.id_str, toID=retweet.id_str):
             retweetsCol.insert(getRetweetEdgeDoc(fromID=tweet.id_str, toID=retweet.id_str))
 
-def save_word_frequencies(user, word_frequencies):
-    usersCol.update_match({'_key':user}, {'word_frequencies':word_frequencies})
+def save_word_frequencies(user_name, word_frequencies):
+    user = usersCol.get(user_name)
+    if user is not None:
+        user['word_frequencies'] = word_frequencies
+        usersCol.update(user, merge=False)

@@ -5,7 +5,7 @@ from nltk.corpus import stopwords
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import db
-
+DATASET_PATH = '/home/seb/nltk_data/corpora/twitter_samples/tweets.20150430-223406.json'
 def calc_frequencies(words, words_n=50, lang='german'):
     words = [word for word in words if len(word) > 1]
     words = [word for word in words if not word.isnumeric()]
@@ -23,27 +23,6 @@ def get_topic_frequencies(tweets, words_n=50, lang='english'):
     stopwords_file = '../data/stopwords.txt'
     custom_stopwords = set(open(stopwords_file, 'r').read().splitlines())
     all_stopwords = default_stopwords | custom_stopwords
-    vectorizer = TfidfVectorizer(max_df=0.5, min_df=2, stop_words=list(all_stopwords))
-    X = vectorizer.fit_transform(tweets)
-    terms = vectorizer.get_feature_names()
-
-    important_terms = []
-    for doc in range(len(tweets)):
-        feature_index = X[doc, :].nonzero()[1]
-        tfidf_scores = zip(feature_index, [X[doc, x] for x in feature_index])
-        doc_terms = []
-        for w, s in [(terms[i], s) for (i, s) in tfidf_scores]:
-            doc_terms.append((w, s))
-        important_terms.append([w for w, _ in sorted(doc_terms, key=lambda x: x[1])][:5])
-    important_terms = [item for sublist in important_terms for item in sublist]
-    topic_frequencies = calc_frequencies(important_terms, words_n=words_n)
-    return topic_frequencies
-
-def get_topic_frequencies_two(tweets, words_n=50, lang='english'):
-    default_stopwords = set(nltk.corpus.stopwords.words(lang))
-    stopwords_file = '../data/stopwords.txt'
-    custom_stopwords = set(open(stopwords_file, 'r').read().splitlines())
-    all_stopwords = default_stopwords | custom_stopwords
 
     vectorizer = TfidfVectorizer(max_df=0.5, min_df=2, stop_words=list(all_stopwords))
     X = vectorizer.fit_transform(tweets)
@@ -56,9 +35,7 @@ def get_topic_frequencies_two(tweets, words_n=50, lang='english'):
         doc_terms = []
         for word, score in [(terms[i], score) for (i, score) in tfidf_scores]:
             doc_terms.append((word, score))
-        important_terms.append([(word, score) for word, score in sorted(doc_terms, key=lambda x: x[1])][:100])
-    #important_terms = [item for sublist in important_terms for item in sublist]
-    #topic_frequencies = calc_frequencies(important_terms, words_n=words_n)
+        important_terms = [(word, score) for word, score in sorted(doc_terms, key=lambda x: x[1])][:words_n]
     return important_terms
 
 def save_wordcloud_image(frequencies, filename):
@@ -73,7 +50,7 @@ def save_wordcloud_image(frequencies, filename):
 
 def load_example_data():
     tweets = []
-    with open('../../../tweets.20150430-223406.json') as f:
+    with open(DATASET_PATH) as f:
         for line in f:
             tweets.append(json.loads(line)['text'])
     return tweets
@@ -81,7 +58,7 @@ def load_example_data():
 def get_corpus_of_most_active_users(n_users=5):
     tweets = []
     texts = []
-    with open('../../../tweets.20150430-223406.json') as f:
+    with open(DATASET_PATH) as f:
         for line in f:
             tweets.append(json.loads(line)['user']['screen_name'])
             texts.append((json.loads(line)['user']['screen_name'], json.loads(line)['text']))
@@ -99,12 +76,10 @@ def get_corpus_of_most_active_users(n_users=5):
     return  corpus
 
 if __name__ == "__main__":
-    # tweets = load_example_data()
-    # corpus = get_corpus_of_most_active_users()
-    # topic_frequencies = get_topic_frequencies_two(corpus, words_n=100, lang='english')
-    # for topic in topic_frequencies:
-    #     print(topic)
-    # save_wordcloud_image(topic_frequencies, 'wordcloud_uk_election.png')
+    tweets = load_example_data()
+    corpus = get_corpus_of_most_active_users()
+    topic_frequencies = get_topic_frequencies(corpus, words_n=100, lang='english')
     user = 'malechanissen'
-    freqs_test = {'word1':10, 'word3':50, 'word2':60 }
-    db.save_word_frequencies(user, freqs_test)
+    db.save_word_frequencies(user, dict(topic_frequencies))
+    # db.save_word_frequencies(user, {'w3':10, 'w4':20})
+    save_wordcloud_image(topic_frequencies, 'wordcloud_uk_election.png')
