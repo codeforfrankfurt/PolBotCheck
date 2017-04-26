@@ -18,7 +18,7 @@ def calc_frequencies(words, words_n=50, lang='german'):
     fdist = nltk.FreqDist(words)
     return fdist.most_common(words_n)
 
-def get_topic_frequencies(tweets, words_n=50, lang='english'):
+def get_word_clouds(tweets, users, words_n=50, lang='english'):
     default_stopwords = set(nltk.corpus.stopwords.words(lang))
     stopwords_file = '../data/stopwords.txt'
     custom_stopwords = set(open(stopwords_file, 'r').read().splitlines())
@@ -28,7 +28,7 @@ def get_topic_frequencies(tweets, words_n=50, lang='english'):
     X = vectorizer.fit_transform(tweets)
     terms = vectorizer.get_feature_names()
 
-    important_terms = []
+    word_cloud_per_person = {}
     for doc in range(len(tweets)):
         feature_index = X[doc, :].nonzero()[1]
         tfidf_scores = zip(feature_index, [X[doc, x] for x in feature_index])
@@ -36,7 +36,8 @@ def get_topic_frequencies(tweets, words_n=50, lang='english'):
         for word, score in [(terms[i], score) for (i, score) in tfidf_scores]:
             doc_terms.append((word, score))
         important_terms = [(word, score) for word, score in sorted(doc_terms, key=lambda x: x[1])][:words_n]
-    return important_terms
+        word_cloud_per_person[users[doc]] = important_terms
+    return word_cloud_per_person
 
 def save_wordcloud_image(frequencies, filename):
     wordcloud = WordCloud(width=1024, height=786).fit_words(frequencies)
@@ -73,13 +74,18 @@ def get_corpus_of_most_active_users(n_users=5):
             dict[user] = tweet
 
     corpus = [dict[name] for name, _ in five_users]
-    return  corpus
+    five_users = [name for name, _ in five_users]
+    return  corpus, five_users
 
 if __name__ == "__main__":
     tweets = load_example_data()
-    corpus = get_corpus_of_most_active_users()
-    topic_frequencies = get_topic_frequencies(corpus, words_n=100, lang='english')
-    user = 'malechanissen'
-    db.save_word_frequencies(user, dict(topic_frequencies))
-    # db.save_word_frequencies(user, {'w3':10, 'w4':20})
-    save_wordcloud_image(topic_frequencies, 'wordcloud_uk_election.png')
+    corpus, users = get_corpus_of_most_active_users()
+    word_cloud_per_person = get_word_clouds(corpus, users, words_n=100, lang='english')
+    for user in users:
+        topic_frequencies = word_cloud_per_person[user]
+        save_wordcloud_image(topic_frequencies, 'plots/word_clouds/' + user + '.png')
+
+    # This is an example how to save a word_cloud in the database
+    # user_in_db = 'malechanissen'
+    # db.save_word_frequencies(user_in_db, {'w3':10, 'w4':20})
+    # db.save_word_frequencies(user_in_db, dict(topic_frequencies))
