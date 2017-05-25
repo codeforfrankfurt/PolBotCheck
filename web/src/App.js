@@ -17,7 +17,7 @@ class App extends Component {
       fetch(url)
           .then(res => res.json())
           .then(data => {
-              self.state[what] = data;
+              self.state[what] = data.data || data;
               self.setState(self.state);
           })
           .catch(e => console.log(e))
