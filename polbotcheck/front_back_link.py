@@ -3,7 +3,7 @@ import seaborn as sns
 import pandas as pd
 import numpy as np
 
-# takes data (that should come from the frontend) and creates the output we would like to have 
+# takes data (that should come from the backend) and creates the output we would like to have
 # on the front end.
 
 def follower_botness(username):
