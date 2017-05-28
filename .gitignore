@@ -13,3 +13,4 @@ dev_*.ipynb
 node_modules/
 polbotcheck/dump/
 web/Release.key
+polbotcheck/__pycache__/
