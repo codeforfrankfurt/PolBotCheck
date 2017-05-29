@@ -25,8 +25,22 @@ class App extends Component {
 
   componentWillMount() {
     this.load('parties', 'https://trustfact.dilab.co/api/v2/parties');
-    this.setState({politicians : require('../../data/candidates.json')});
     this.load('topics', 'https://raw.githubusercontent.com/codeforfrankfurt/PolBotCheck/master/web/json/topics.json');
+    this.load('politicians', 'http://localhost:3000/candidates.json');
+  }
+
+  componentWillUpdate() {
+    //this.filterHessian();
+  }
+
+  filterHessian() {
+    let hessianPoliticians = [];
+    this.state.politicians.map((value)=>{
+      if (value['election']['state']=== 'he'){
+        hessianPoliticians = hessianPoliticians.concat(value)
+      }
+    });
+    this.setState({politicians : hessianPoliticians})
   }
 
   getFullName(name) {
