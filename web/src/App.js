@@ -25,8 +25,25 @@ class App extends Component {
 
   componentWillMount() {
     this.load('parties', 'https://trustfact.dilab.co/api/v2/parties');
-    this.load('politicians', 'https://trustfact.dilab.co/api/v1/politicians');
+    this.setState({politicians : require('../../data/candidates.json')});
     this.load('topics', 'https://raw.githubusercontent.com/codeforfrankfurt/PolBotCheck/master/web/json/topics.json');
+  }
+
+  getFullName(name) {
+    let fullName = [];
+    if(name['titles']) {
+      fullName = fullName.concat(name['titles']+ ' ')
+    }
+    if(name['forename']){
+      fullName = fullName.concat(name['forename']+ ' ')
+    }
+    if(name['surname']){
+      fullName = fullName.concat(name['surname']+ ' ')
+    }
+    if(name['affix']){
+      fullName = fullName.concat(name['affix'])
+    }
+    return fullName
   }
 
   render() {
@@ -59,8 +76,10 @@ class App extends Component {
                   <h3>Politiker</h3>
                   <ul>
                     {this.state.politicians.map(function(value) {
-                        return <li key={value.screenname}><Link to={'/politicians/' + value.screenname}>{value.name}</Link></li>
-                    })}
+                        return <li key={value.id}>
+                          <Link to={'/politicians/' + this.getFullName(value.name)}>
+                            {this.getFullName(value.name)}</Link></li>
+                    },this)}
                   </ul>
               </Col>
               <Col md={4}>
