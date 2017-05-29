@@ -5,7 +5,9 @@ from nltk.corpus import stopwords
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import db
-DATASET_PATH = '/home/seb/nltk_data/corpora/twitter_samples/tweets.20150430-223406.json'
+import os
+
+DATASET_PATH = os.environ['HOME'] + '/nltk_data/corpora/twitter_samples/tweets.20150430-223406.json'
 def calc_frequencies(words, words_n=50, lang='german'):
     words = [word for word in words if len(word) > 1]
     words = [word for word in words if not word.isnumeric()]
@@ -35,7 +37,7 @@ def get_word_clouds(tweets, users, words_n=50, lang='english'):
         doc_terms = []
         for word, score in [(terms[i], score) for (i, score) in tfidf_scores]:
             doc_terms.append((word, score))
-        important_terms = [(word, score) for word, score in sorted(doc_terms, key=lambda x: x[1])][:words_n]
+        important_terms = dict([(word, score) for word, score in sorted(doc_terms, key=lambda x: x[1])][:words_n])
         word_cloud_per_person[users[doc]] = important_terms
     return word_cloud_per_person
 
