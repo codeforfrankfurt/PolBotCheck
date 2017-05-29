@@ -98,10 +98,13 @@ def saveFollower(username, follower, botness):
         followersCol.insert(getUserEdgeDoc(fromName=follower.screen_name, toName=username))
 
 def saveTweet(tweet):
-    tweetDoc = {'_key': tweet.id_str}
-    tweetDoc.update(tweet._json)
+    timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
+    tweetDoc = {'_key': tweet.id_str: 'scraped_at': timestamp)
+
+    # save the actual tweet in its own subdoc to separate it from out stuff
+    tweetDoc['tweet'] = tweet._json
     if tweetsCol.has(tweet.id_str):
-        tweetsCol.update(tweetDoc)
+        tweetsCol.update_match({"_key": tweetDoc['_key']}, tweetDoc)
     else:
         tweetsCol.insert(tweetDoc)
 
