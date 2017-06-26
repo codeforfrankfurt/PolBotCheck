@@ -37,12 +37,12 @@ def get_word_clouds(tweets, users, words_n=50, lang='english'):
         doc_terms = []
         for word, score in [(terms[i], score) for (i, score) in tfidf_scores]:
             doc_terms.append((word, score))
-        important_terms = dict([(word, score) for word, score in sorted(doc_terms, key=lambda x: x[1])][:words_n])
+        important_terms = [(word, score) for word, score in sorted(doc_terms, key=lambda x: x[1], reverse=True)][:words_n]
         word_cloud_per_person[users[doc]] = important_terms
     return word_cloud_per_person
 
 def save_wordcloud_image(frequencies, filename):
-    wordcloud = WordCloud(width=1024, height=786).fit_words(frequencies)
+    wordcloud = WordCloud(width=1024, height=786, min_font_size=1).fit_words(frequencies)
     fig = plt.figure()
     fig.set_figwidth(12)
     fig.set_figheight(16)
@@ -80,14 +80,20 @@ def get_corpus_of_most_active_users(n_users=5):
     return  corpus, five_users
 
 if __name__ == "__main__":
-    tweets = load_example_data()
     corpus, users = get_corpus_of_most_active_users()
     word_cloud_per_person = get_word_clouds(corpus, users, words_n=100, lang='english')
     for user in users:
         topic_frequencies = word_cloud_per_person[user]
-        save_wordcloud_image(topic_frequencies, 'plots/word_clouds/' + user + '.png')
+        print user
+        print topic_frequencies
+        db.save_word_frequencies('test_user_seb', dict(topic_frequencies))
+        exit()
+        # save_wordcloud_image(dict(topic_frequencies), 'plots/word_clouds/' + user + '.png')
+
 
     # This is an example how to save a word_cloud in the database
     # user_in_db = 'malechanissen'
     # db.save_word_frequencies(user_in_db, {'w3':10, 'w4':20})
     # db.save_word_frequencies(user_in_db, dict(topic_frequencies))
+
+    # db.save_word_frequencies('test_user_seb', {'w3':10, 'w4':20})
