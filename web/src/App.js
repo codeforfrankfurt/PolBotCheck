@@ -100,7 +100,7 @@ class App extends Component {
                   <h3>Parteien</h3>
                   <ul>
                       {this.state.parties.map(function(value) {
-                          return <li key={value.name}><Link to={'/parties/' + value.name}>{value.name} - {value.longName}</Link></li>;
+                          return <li key={value.id}><Link to={'/parties/' + value.name}>{value.name} - {value.longName}</Link></li>;
                       })}
                   </ul>
               </Col>
