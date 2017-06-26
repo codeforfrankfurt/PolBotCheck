@@ -84,11 +84,16 @@ if __name__ == "__main__":
     word_cloud_per_person = get_word_clouds(corpus, users, words_n=100, lang='english')
     for user in users:
         topic_frequencies = word_cloud_per_person[user]
-        # print user
-        # print topic_frequencies
-        save_wordcloud_image(dict(topic_frequencies), 'plots/word_clouds/' + user + '.png')
+        print user
+        print topic_frequencies
+        db.save_word_frequencies('test_user_seb', dict(topic_frequencies))
+        exit()
+        # save_wordcloud_image(dict(topic_frequencies), 'plots/word_clouds/' + user + '.png')
+
 
     # This is an example how to save a word_cloud in the database
     # user_in_db = 'malechanissen'
     # db.save_word_frequencies(user_in_db, {'w3':10, 'w4':20})
     # db.save_word_frequencies(user_in_db, dict(topic_frequencies))
+
+    # db.save_word_frequencies('test_user_seb', {'w3':10, 'w4':20})
