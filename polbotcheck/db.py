@@ -99,7 +99,7 @@ def saveFollower(username, follower, botness):
 
 def saveTweet(tweet):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
-    tweetDoc = {'_key': tweet.id_str: 'scraped_at': timestamp)
+    tweetDoc = {'_key': tweet.id_str, 'scraped_at': timestamp}
 
     # save the actual tweet in its own subdoc to separate it from out stuff
     tweetDoc['tweet'] = tweet._json
