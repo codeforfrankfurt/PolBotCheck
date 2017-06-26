@@ -5,6 +5,10 @@ from datetime import tzinfo
 
 from db_credentials import db_credentials
 
+import argparse
+CANDIDATES_PATH = '../web/public/candidates.json'
+import json
+
 # Configure your ArangoDB server connection here
 conn = ArangoClient(protocol=db_credentials['protocol'], host=db_credentials['host'], port=db_credentials['port'], username=db_credentials['username'], password=db_credentials['password'])
 
@@ -43,6 +47,7 @@ def getEdgeDefinition(graph, edgeDefName, fromCollections, toCollections):
 
 # create the collections we need, if necessary
 usersCol = getCollection('users')
+candidatesCol = getCollection('candidates')
 
 followersGraph = getGraph('followers')
 followersCol = getEdgeDefinition(followersGraph, 'followers', ['users'], ['users'])
@@ -121,3 +126,40 @@ def save_word_frequencies(user_name, word_frequencies):
     if user is not None:
         user['word_frequencies'] = word_frequencies
         usersCol.update(user, merge=False)
+
+def save_candidate(candidate):
+    candidateDoc = {'_key': candidate['id']}
+    candidateDoc.update(candidate)
+
+    if candidatesCol.has(candidate['id']):
+        candidatesCol.update_match({'_key': candidate['id']}, candidateDoc)
+        print('Updated ', candidateDoc)
+    else:
+        candidatesCol.insert(candidateDoc)
+        print('Inserted ', candidateDoc)
+
+
+def import_candidates(filters):
+    with open(CANDIDATES_PATH) as candidatesFile:
+        json_data = json.load(candidatesFile)
+    
+    for candidate in json_data:
+        print(candidate)
+        if len(filters) > 0 and filters.items() <= candidate['election'].items():
+            print("Skipping ", candidate['slug'])
+            next
+        save_candidate(candidate)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Methods to save to and read from the database')
+    parser.add_argument('-he', '--hessian', action='store_true', help='import hessian candidates')
+    parser.add_argument('-a', '--all', action='store_true', help='import all candidates')
+    
+    args = parser.parse_args()
+    if not (args.hessian or args.all):
+        parser.error('No action requested, please see --help')
+    
+    if args.all:
+        import_candidates()
+    elif args.hessian:
+        import_candidates({"state": "he"})
