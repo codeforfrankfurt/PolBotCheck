@@ -98,7 +98,7 @@ def saveFollower(username, follower, botness):
         usersCol.update(doc)
     else:
         usersCol.insert(doc)
-    
+
     if not hasFollower(fromName=follower.screen_name, toName=username):
         followersCol.insert(getUserEdgeDoc(fromName=follower.screen_name, toName=username))
 
@@ -117,7 +117,7 @@ def saveRetweets(tweet, retweets):
     saveTweet(tweet)
     for retweet in retweets:
         saveTweet(retweet)
-        
+
         if not hasRetweet(fromID=tweet.id_str, toID=retweet.id_str):
             retweetsCol.insert(getRetweetEdgeDoc(fromID=tweet.id_str, toID=retweet.id_str))
 
@@ -142,7 +142,7 @@ def save_candidate(candidate):
 def import_candidates(filters):
     with open(CANDIDATES_PATH) as candidatesFile:
         json_data = json.load(candidatesFile)
-    
+
     for candidate in json_data:
         print(candidate)
         if len(filters) > 0 and filters.items() <= candidate['election'].items():
@@ -154,11 +154,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Methods to save to and read from the database')
     parser.add_argument('-he', '--hessian', action='store_true', help='import hessian candidates')
     parser.add_argument('-a', '--all', action='store_true', help='import all candidates')
-    
+
     args = parser.parse_args()
     if not (args.hessian or args.all):
         parser.error('No action requested, please see --help')
-    
+
     if args.all:
         import_candidates()
     elif args.hessian:

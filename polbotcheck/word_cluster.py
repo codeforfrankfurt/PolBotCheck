@@ -66,7 +66,7 @@ def get_corpus_of_most_active_users(n_users=5):
             tweets.append(json.loads(line)['user']['screen_name'])
             texts.append((json.loads(line)['user']['screen_name'], json.loads(line)['text']))
 
-    five_users = nltk.FreqDist(tweets).most_common(n_users)
+    users = nltk.FreqDist(tweets).most_common(n_users)
 
     dict = {}
     for user, tweet in texts:
@@ -75,9 +75,9 @@ def get_corpus_of_most_active_users(n_users=5):
         else:
             dict[user] = tweet
 
-    corpus = [dict[name] for name, _ in five_users]
-    five_users = [name for name, _ in five_users]
-    return  corpus, five_users
+    corpus = [dict[name] for name, _ in users]
+    user_names = [name for name, _ in users]
+    return  corpus, user_names
 
 if __name__ == "__main__":
     corpus, users = get_corpus_of_most_active_users()
