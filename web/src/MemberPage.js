@@ -42,6 +42,9 @@ class MemberPage extends Component {
     }
 
     render() {
+        const followerCount = this.state.member.followers.numHumans + this.state.member.followers.numBots;
+        const retweetCount = this.state.member.retweets.numHumans + this.state.member.retweets.numBots;
+        const retweetersCount = this.state.member.retweeters.numHumans + this.state.member.retweeters.numBots;
         return (
           <div>
             <div><Link to="/">Zurück</Link></div>
@@ -61,15 +64,15 @@ class MemberPage extends Component {
               </Row>
               <Row>
                 <Col md={4}>
-                  <h3>Follower</h3>
+                  <h3>Follower (Count {followerCount})</h3>
                   <PieChart className="Info-followers" numbers={this.state.member.followers}/>
                 </Col>
                 <Col md={4}>
-                  <h3>Retweets</h3>
+                  <h3>Retweets (Count {retweetCount})</h3>
                   <PieChart className="Info-retweets" numbers={this.state.member.retweets}/>
                 </Col>
                 <Col md={4}>
-                  <h3>Retweeters</h3>
+                  <h3>Retweeters (Count {retweetersCount})</h3>
                   <PieChart className="Info-retweeters" numbers={this.state.member.retweeters}/>
                 </Col>
               </Row>
