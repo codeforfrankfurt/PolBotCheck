@@ -79,7 +79,7 @@ def getUser(user):
     try: 
         foundUser = next(myuser)
         return foundUser
-    except:
+    except StopIteration:
         return None
 
 def getFollowers(toName=''):
@@ -126,6 +126,13 @@ def save_word_frequencies(user_name, word_frequencies):
     if user is not None:
         user['word_frequencies'] = word_frequencies
         usersCol.update(user, merge=False)
+
+def get_candidate(slug):
+    candidate = candidatesCol.find({'_key': slug})
+    try:
+        return next(candidate)
+    except StopIteration:
+        return None
 
 def save_candidate(candidate):
     candidateDoc = {'_key': candidate['slug']}

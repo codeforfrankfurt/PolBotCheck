@@ -1,9 +1,7 @@
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify
 from flask_cors import CORS
 
-#import db
-import os
-import json
+import db
 
 
 ######################### FLASK APP
@@ -18,20 +16,7 @@ def index():
     """
     return "PolBotCheck smart API v0.0.1"
 
-def get_candidate_json(slug):
-    candidates_path = os.path.join(os.path.realpath(os.getcwd()), '../web/public/candidates.json')
-
-    with open(candidates_path) as file_stream:
-        json_data = json.load(file_stream)
-
-    for candidate in json_data:
-        if candidate['slug'] == slug:
-            return candidate
-
-    return None
-
-def get_full_name(json_data):
-    name = None if not json_data else json_data['name']
+def get_full_name(name):
     if not name:
         return None
     full_name = ''
@@ -46,15 +31,18 @@ def get_full_name(json_data):
     return full_name
 
 
-@app.route("/pbc/user/<user_id>")
-def user_info(user_id=None):
+@app.route("/pbc/user/<slug>")
+def candidate_info(slug=None):
     """
     """
-    if user_id is None:
-        return "User not provided"
+    if slug is None:
+        return "Candidate not provided"
 
-    candidate_json = get_candidate_json(user_id)
-    full_name = get_full_name(candidate_json)
+    candidate = db.get_candidate(slug)
+    if candidate is None:
+        return "Candidate not found"
+
+    full_name = get_full_name(candidate['name'])
 
     #user_data = db.getUser('malechanissen')
     #if user_data is None:
@@ -65,7 +53,7 @@ def user_info(user_id=None):
         "member":{
             "name" : full_name,
             "pictureURL": '',
-            "party": candidate_json["election"]["party"],
+            "party": candidate["election"]["party"],
         },
         "wordCluster":{},
         "followers": {
