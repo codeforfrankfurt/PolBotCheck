@@ -15,13 +15,13 @@ The list of politicians was loaded from [github.com/okfde/wahldaten](https://git
 ## Installation and usage notes
 ### Backend
 
+    pip install -r requirements.txt
     cd polbotcheck/config
     cp keys-sample.py keys.py
     cp db_credentials-sample.py db_credentials.py
     # now edit the db_credentials.py to match a ArangoDB installation (or contact
     # @codeforfrankfurt on GitHub or @codeforffm on Twitter for the one we use).
     cd ..
-    pip install -r requirements.txt 
     python twitter_api.py --all
 
 ### Frontend
