@@ -5,7 +5,7 @@ import tweepy
 import botornotapi
 import db
 from config.keys import myauth
-from config.test_candidates import SLUGS
+from config.test_candidates import SLUGS, FOLLOWER_LIMIT
 
 AUTH = tweepy.OAuthHandler(myauth['consumer_key'], myauth['consumer_secret'])
 AUTH.set_access_token(myauth['access_token'], myauth['access_token_secret'])
@@ -35,14 +35,14 @@ def save_followers_with_botness(account_handle):
     for follower in followers:
         follower_handle = follower.screen_name
         if db.hasFollower(fromName=follower_handle, toName=account_handle):
-            print("Already checked @" + follower_handle + " skipping for now.")
+            print("Already checked @" + follower_handle + " ... skipping for now.")
             continue
         follower_botness = botornotapi.get_bot_or_not("@" + follower_handle)
         if follower_botness is not None:
             db.saveFollower(user, follower, follower_botness)
-            print("Saved follower @" + follower_handle + " for @" + account_handle)
+            print("Saved follower @" + follower_handle + " for @" + account_handle + " with botness: " + str(follower_botness))
         else:
-            print("Botness for @" + follower_handle + " is none.")
+            print("Botness is none for @" + follower_handle)
 
 def get_retweets(tweet_id):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
@@ -56,7 +56,7 @@ def get_followers(screen_name):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
     print(timestamp)
     followers =[]
-    for user in limit_handled(tweepy.Cursor(TWITTER_API.followers, screen_name=screen_name, count=200).items()):
+    for user in limit_handled(tweepy.Cursor(TWITTER_API.followers, screen_name=screen_name, count=FOLLOWER_LIMIT).items()):
         followers.append(user)
     return followers
 
