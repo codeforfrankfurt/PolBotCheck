@@ -56,11 +56,19 @@ retweetsGraph = getGraph('retweets')
 tweetsCol = getVertexCollection(retweetsGraph, 'tweets')
 retweetsCol = getEdgeDefinition(retweetsGraph, 'retweets', ['tweets'], ['tweets'])
 
-def saveUser(user):
-    if not usersCol.has(user.screen_name):
-        timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
-        doc = {'_key': user.screen_name, 'scraped_at': timestamp}
-        doc.update(user._json)
+def saveUser(user, botness=None):
+    timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
+    doc = {'_key': user.screen_name, 'scraped_at': timestamp}
+
+    # save the user data from twitter in its own subdoc to separate it from our stuff
+    doc['twitter'] = user._json
+
+    if botness is not None:
+        doc['botness'] = botness
+
+    if usersCol.has(user.screen_name):
+        usersCol.update_match({"_key": doc['_key']}, doc)
+    else:
         usersCol.insert(doc)
 
 
@@ -95,13 +103,10 @@ def hasRetweet(fromID='', toID=''):
     return retweetsCol.find(getRetweetEdgeDoc(fromID=fromID, toID=toID), None, 1).count() > 0
 
 def saveFollower(username, follower, botness):
-    doc = {'_key': follower.screen_name, 'botness': botness}
-    doc['followerOf'+username] = follower._json
-    if usersCol.has(doc['_key']):
-        usersCol.update(doc)
-    else:
-        usersCol.insert(doc)
+    # save the follower as a user vertex
+    saveUser(follower, botness)
 
+    # and the user-follower edge
     if not hasFollower(fromName=follower.screen_name, toName=username):
         followersCol.insert(getUserEdgeDoc(fromName=follower.screen_name, toName=username))
 
@@ -109,8 +114,8 @@ def saveTweet(tweet):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
     tweetDoc = {'_key': tweet.id_str, 'scraped_at': timestamp}
 
-    # save the actual tweet in its own subdoc to separate it from out stuff
-    tweetDoc['tweet'] = tweet._json
+    # save the actual tweet in its own subdoc to separate it from our stuff
+    tweetDoc['twitter'] = tweet._json
     if tweetsCol.has(tweet.id_str):
         tweetsCol.update_match({"_key": tweetDoc['_key']}, tweetDoc)
     else:
