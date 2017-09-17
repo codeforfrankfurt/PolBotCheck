@@ -130,7 +130,11 @@ def save_word_frequencies(user_name, word_frequencies):
 def get_candidate(slug):
     candidate = candidatesCol.find({'_key': slug})
     try:
-        return next(candidate)
+        doc = next(candidate)
+        for link in doc['links']:
+            if link["type"] == "twitter":
+                doc['twitter_handle'] = link["id"]
+        return doc
     except StopIteration:
         return None
 

@@ -58,6 +58,7 @@ class MemberPage extends Component {
                      bsSize="large">
                 <p>Name: {this.state.member.name ? this.state.member.name : '-'}</p>
                 <p>Partei: {this.state.member.party ? this.state.member.party : '-'}</p>
+                <p>Twitter-Account: {this.state.member.twitter_handle ? getTwitterLink(this.state.member.twitter_handle) : '-'}</p>
               </Panel>
             </Col>
             <Col className="App-info" md={8}>
@@ -83,6 +84,10 @@ class MemberPage extends Component {
           </div>
         )
     }
+}
+
+function getTwitterLink(twitterHandle) {
+    return <a href={'https://twitter.com/' + twitterHandle}>{twitterHandle}</a>;
 }
 
 export default MemberPage;

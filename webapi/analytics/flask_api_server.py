@@ -54,6 +54,7 @@ def candidate_info(slug=None):
             "name" : full_name,
             "pictureURL": '',
             "party": candidate["election"]["party"],
+            "twitter_handle": candidate['twitter_handle']
         },
         "wordCluster":{},
         "followers": {
