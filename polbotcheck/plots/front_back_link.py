@@ -1,3 +1,7 @@
+import sys
+from os import path
+sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
+
 import db
 import seaborn as sns
 import pandas as pd
@@ -22,7 +26,7 @@ def follower_botness(username):
         scores = pd.Series(scorelist, name='probability of follower bot') 
         ax = sns.distplot(scores) 
         fig = ax.get_figure()
-        fig.savefig('plots/testfig.png')
+        fig.savefig('testfig.png')
         botpercent = sum(np.array(scorelist)>cutoff) / len(scorelist)
         return botpercent
     else:
