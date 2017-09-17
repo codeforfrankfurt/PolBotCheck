@@ -1,13 +1,13 @@
 #/usr/bin/env python3
 
+import argparse
+import json
 from arango import ArangoClient
 from datetime import tzinfo
 
-from db_credentials import db_credentials
+from config.db_credentials import db_credentials
 
-import argparse
 CANDIDATES_PATH = '../web/public/candidates.json'
-import json
 
 # Configure your ArangoDB server connection here
 conn = ArangoClient(protocol=db_credentials['protocol'], host=db_credentials['host'], port=db_credentials['port'], username=db_credentials['username'], password=db_credentials['password'])

@@ -1,10 +1,11 @@
 import argparse
 import time
 import tweepy
-from keys import myauth
-import db
+
 import botornotapi
-from userlist import USERS
+import db
+from config.keys import myauth
+from config.userlist import USERS
 
 AUTH = tweepy.OAuthHandler(myauth['consumer_key'], myauth['consumer_secret'])
 AUTH.set_access_token(myauth['access_token'], myauth['access_token_secret'])

@@ -5,7 +5,7 @@
 ###
 from __future__ import print_function
 import botornot
-from keys import myauth
+from config.keys import myauth
 
 BOTORNOT_API = botornot.BotOrNot(**myauth)
 def get_bot_or_not(screen_name):
