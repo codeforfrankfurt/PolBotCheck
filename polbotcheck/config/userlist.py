@@ -1,1 +1,0 @@
-USERS = ['malechanissen', 'peteraltmeier', 'petertauber']

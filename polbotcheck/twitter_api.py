@@ -5,7 +5,7 @@ import tweepy
 import botornotapi
 import db
 from config.keys import myauth
-from config.userlist import USERS
+from config.test_candidates import SLUGS
 
 AUTH = tweepy.OAuthHandler(myauth['consumer_key'], myauth['consumer_secret'])
 AUTH.set_access_token(myauth['access_token'], myauth['access_token_secret'])
@@ -82,11 +82,13 @@ if __name__ == "__main__":
     if not (args.tweets or args.followers or args.all):
         parser.error('No action requested, please see --help')
 
-    for user in USERS:
+    for slug in SLUGS:
+        candidate = db.get_candidate(slug)
+        twitter_handle = candidate['twitter_handle']
         if args.all:
-            save_tweets_with_retweets(user)
-            save_followers_with_botness(user)
+            save_tweets_with_retweets(twitter_handle)
+            save_followers_with_botness(twitter_handle)
         elif args.tweets:
-            save_tweets_with_retweets(user)
+            save_tweets_with_retweets(twitter_handle)
         elif args.followers:
-            save_followers_with_botness(user)
+            save_followers_with_botness(twitter_handle)
