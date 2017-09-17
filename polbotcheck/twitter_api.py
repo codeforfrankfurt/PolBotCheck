@@ -28,20 +28,21 @@ def save_tweets_with_retweets(screen_name):
         retweets = get_retweets(tweet.id)
         db.saveRetweets(tweet, retweets)
 
-def save_followers_with_botness(user):
-    followers = get_followers("@" + user)
+def save_followers_with_botness(account_handle):
+    followers = get_followers("@" + account_handle)
+    user = TWITTER_API.get_user(account_handle)
     db.saveUser(user)
     for follower in followers:
-        screen_name = follower.screen_name
-        if db.hasFollower(fromName=screen_name, toName=user):
-            print("Already checked @" + screen_name + " skipping for now.")
+        follower_handle = follower.screen_name
+        if db.hasFollower(fromName=follower_handle, toName=account_handle):
+            print("Already checked @" + follower_handle + " skipping for now.")
             continue
-        follower_botness = botornotapi.get_bot_or_not("@" + screen_name)
+        follower_botness = botornotapi.get_bot_or_not("@" + follower_handle)
         if follower_botness is not None:
             db.saveFollower(user, follower, follower_botness)
-            print("Saved follower @" + screen_name + " for @" + user)
+            print("Saved follower @" + follower_handle + " for @" + account_handle)
         else:
-            print("Botness for @" + screen_name + " is none.")
+            print("Botness for @" + follower_handle + " is none.")
 
 def get_retweets(tweet_id):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())

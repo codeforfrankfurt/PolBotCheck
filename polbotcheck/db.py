@@ -57,8 +57,11 @@ tweetsCol = getVertexCollection(retweetsGraph, 'tweets')
 retweetsCol = getEdgeDefinition(retweetsGraph, 'retweets', ['tweets'], ['tweets'])
 
 def saveUser(user):
-    if not usersCol.has(user):
-        usersCol.insert({'_key': user})
+    if not usersCol.has(user.screen_name):
+        timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
+        doc = {'_key': user.screen_name, 'scraped_at': timestamp}
+        doc.update(user._json)
+        usersCol.insert(doc)
 
 
 def getUserEdgeDoc(fromName='', toName=''):
