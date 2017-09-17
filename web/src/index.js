@@ -8,7 +8,7 @@ import './index.css';
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={App}/>
-        <Route path="/politicians/:name" component={MemberPage}/>
+        <Route path="/politicians/:slug" component={MemberPage}/>
     </Router>,
     document.getElementById('root')
 );

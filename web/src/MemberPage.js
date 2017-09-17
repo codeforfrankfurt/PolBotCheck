@@ -10,41 +10,44 @@ import BarChart from './BarChart';
 class MemberPage extends Component {
 
     state = {
-        content: 'OVERVIEW',
+        content: 'MEMBER',
         member: {
-            "followers": {
-                "numHumans": null,
-                "numBots": null
-            },
-            "retweets": {
-                "numHumans": null,
-                "numBots": null
-            },
-            "retweeters": {
-                "numHumans": null,
-                "numBots": null
-            },
-            wordCluster: {
-                topics: []
-            }
+        },
+        followers: {
+            numHumans: null,
+            numBots: null
+        },
+        retweets: {
+            numHumans: null,
+            numBots: null
+        },
+        retweeters: {
+            numHumans: null,
+            numBots: null
+        },
+        wordCluster: {
+            topics: []
         }
     };
 
     componentWillMount() {
         let self = this;
-        fetch('https://trustfact.dilab.co/api/v1/politicians/' + this.props.params.name)
-            .then(res => res.json())
-            .then(data => {
-                self.state = data;
-                self.setState(self.state)
+        const url = 'http://localhost:6755/pbc/user/' + this.props.params.slug;
+        fetch(url, {mode: 'cors', headers: {'Accept': 'application/json'}})
+            .then(res => {
+                return res.json().then(data => {
+                    self.state = data;
+                    console.log(data);
+                    self.setState(self.state);
+                });
             })
-            .catch(e => console.log(e))
+            .catch(e => console.log("error fetching " + url, e));
     }
 
     render() {
-        const followerCount = this.state.member.followers.numHumans + this.state.member.followers.numBots;
-        const retweetCount = this.state.member.retweets.numHumans + this.state.member.retweets.numBots;
-        const retweetersCount = this.state.member.retweeters.numHumans + this.state.member.retweeters.numBots;
+        const followerCount = this.state.followers.numHumans + this.state.followers.numBots;
+        const retweetCount = this.state.retweets.numHumans + this.state.retweets.numBots;
+        const retweetersCount = this.state.retweeters.numHumans + this.state.retweeters.numBots;
         return (
           <div>
             <div><Link to="/">Zurück</Link></div>
@@ -59,27 +62,27 @@ class MemberPage extends Component {
             </Col>
             <Col className="App-info" md={8}>
               <Row className="Info-diagram">
-                <BarChart className="Info-topics" topics={this.state.member.wordCluster.topics}/>
+                <BarChart className="Info-topics" topics={this.state.wordCluster.topics}/>
                 <p>Die meistbesprochenen Themen des Abgeordneten</p>
               </Row>
               <Row>
                 <Col md={4}>
                   <h3>Follower (Count {followerCount})</h3>
-                  <PieChart className="Info-followers" numbers={this.state.member.followers}/>
+                  <PieChart className="Info-followers" numbers={this.state.followers}/>
                 </Col>
                 <Col md={4}>
                   <h3>Retweets (Count {retweetCount})</h3>
-                  <PieChart className="Info-retweets" numbers={this.state.member.retweets}/>
+                  <PieChart className="Info-retweets" numbers={this.state.retweets}/>
                 </Col>
                 <Col md={4}>
                   <h3>Retweeters (Count {retweetersCount})</h3>
-                  <PieChart className="Info-retweeters" numbers={this.state.member.retweeters}/>
+                  <PieChart className="Info-retweeters" numbers={this.state.retweeters}/>
                 </Col>
               </Row>
             </Col>
           </div>
         )
-  }
+    }
 }
 
 export default MemberPage;

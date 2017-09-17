@@ -9,7 +9,8 @@ class BarChart extends Component {
   render() {
     let scores = [];
     let labels = [];
-    this.props.topics.forEach((value) => {
+    const topics = this.props.topics || [];
+    topics.forEach((value) => {
       scores.push(value.score);
       labels.push(value.label);
     });

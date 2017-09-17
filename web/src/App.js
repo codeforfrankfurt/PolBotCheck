@@ -81,7 +81,7 @@ class App extends Component {
                 is only interesting for certain bots.
             </p>
             <p>
-                The list of politicians was loaded from <a href="http://www.bundestwitter.de">Bundestwitter</a>.
+                The list of politicians was loaded from <a href="https://github.com/okfde/wahldaten">github.com/okfde/wahldaten</a>.
             </p>
           </Jumbotron>
         </Row>
@@ -91,7 +91,7 @@ class App extends Component {
                   <ul>
                     {this.state.politicians.map(function(value) {
                         return <li key={value.id}>
-                          <Link to={'/politicians/' + this.getFullName(value.name)}>
+                          <Link to={'/politicians/' + value.slug}>
                             {this.getFullName(value.name)}</Link></li>
                     },this)}
                   </ul>
