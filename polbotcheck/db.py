@@ -128,27 +128,29 @@ def save_word_frequencies(user_name, word_frequencies):
         usersCol.update(user, merge=False)
 
 def save_candidate(candidate):
-    candidateDoc = {'_key': candidate['id']}
+    candidateDoc = {'_key': candidate['slug']}
     candidateDoc.update(candidate)
 
-    if candidatesCol.has(candidate['id']):
-        candidatesCol.update_match({'_key': candidate['id']}, candidateDoc)
-        print('Updated ', candidateDoc)
+    if candidatesCol.has(candidate['slug']):
+        candidatesCol.update_match({'_key': candidate['slug']}, candidateDoc)
     else:
         candidatesCol.insert(candidateDoc)
-        print('Inserted ', candidateDoc)
 
 
 def import_candidates(filters):
     with open(CANDIDATES_PATH) as candidatesFile:
         json_data = json.load(candidatesFile)
-
+    count = 0
+    is_filtered = len(filters) > 0
     for candidate in json_data:
-        print(candidate)
-        if len(filters) > 0 and filters.items() <= candidate['election'].items():
+        matches_filter = filters.items() <= candidate['election'].items()
+        if is_filtered and not matches_filter:
             print("Skipping ", candidate['slug'])
             next
         save_candidate(candidate)
+        count += 1
+    print("Imported %i candidates" % count)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Methods to save to and read from the database')
@@ -160,6 +162,6 @@ if __name__ == "__main__":
         parser.error('No action requested, please see --help')
 
     if args.all:
-        import_candidates()
+        import_candidates({})
     elif args.hessian:
         import_candidates({"state": "he"})
