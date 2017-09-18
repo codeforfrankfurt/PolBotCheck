@@ -2,19 +2,16 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 
 import db
-
+import json
 
 ######################### FLASK APP
 app = Flask(__name__)
 CORS(app)
 
-
 @app.route("/pbc")
 def index():
-    """
-    You know this is just the index because it is hard to visualize emptiness
-    """
-    return "PolBotCheck smart API v0.0.1"
+    return db.get_all_districs_slugs()
+
 
 def get_full_name(name):
     if not name:
@@ -29,6 +26,10 @@ def get_full_name(name):
     if name['affix']:
         full_name = full_name + ' ' + name['affix']
     return full_name
+
+@app.route("/pbc/getslugs")
+def get_slugs():
+    return db.get_all_candidate_slugs()
 
 
 @app.route("/pbc/user/<slug>")
@@ -60,7 +61,7 @@ def candidate_info(slug=None):
             "party": candidate["election"]["party"],
             "twitter_handle": candidate['twitter_handle']
         },
-        "wordCluster":{},
+        "wordCluster": twitter_user.get("word_frequencies"),
         "followers": followers,
         "retweets": {
               "numRetweets": 12,
@@ -72,10 +73,13 @@ def candidate_info(slug=None):
               "numHumans": 9,
               "numBots": 13
             },
+        "election": candidate['election'],
         "botness": twitter_user["botness"] if "botness" in twitter_user else {}
     }
 
     return jsonify(json_output)
 
+
 if __name__ == "__main__":
+    
     app.run(host="0.0.0.0", port=6755)
