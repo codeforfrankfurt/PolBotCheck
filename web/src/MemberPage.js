@@ -14,14 +14,17 @@ class MemberPage extends Component {
         member: {
         },
         followers: {
+            numFollowers: null,
             numHumans: null,
             numBots: null
         },
         retweets: {
+            numRetweets: null,
             numHumans: null,
             numBots: null
         },
         retweeters: {
+            numRetweeters: null,
             numHumans: null,
             numBots: null
         },

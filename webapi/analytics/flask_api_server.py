@@ -65,7 +65,7 @@ def candidate_info(slug=None):
             "party": candidate["election"]["party"],
             "twitter_handle": candidate['twitter_handle']
         },
-        "wordCluster": twitter_user.get("word_frequencies"),
+        "wordCluster": twitter_user.get("word_frequencies") or {'topics': []},
         "followers": followers,
         "retweets": {
               "numRetweets": 12,
