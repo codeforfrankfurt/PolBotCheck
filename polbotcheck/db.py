@@ -97,8 +97,32 @@ def getUser(twitter_handle):
     except StopIteration:
         return None
 
+
 def getFollowers(toName=''):
-    return followersCol.find(getUserEdgeDoc(toName=toName))
+    cursor = db.aql.execute(
+        "FOR vertex, edge IN INBOUND 'users/" + toName + "' GRAPH 'followers'" +
+        "RETURN {id: vertex._id, botness: vertex.botness}"
+    )
+    return cursor
+
+
+def getFollowerStats(toName=''):
+    try:
+        cursor = getFollowers(toName)
+    except:
+        cursor = []
+
+    numHumans = 0
+    numBots = 0
+    for follower in cursor:
+        if follower["botness"]["score"] >= 0.7:
+            numBots += 1
+        else:
+            numHumans += 1
+    return {
+        "numHumans": numHumans,
+        "numBots": numBots
+    }
 
 def hasFollower(fromName='', toName=''):
     return followersCol.find(getUserEdgeDoc(fromName=fromName, toName=toName), None, 1).count() > 0

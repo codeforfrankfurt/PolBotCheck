@@ -44,9 +44,13 @@ def candidate_info(slug=None):
 
     full_name = get_full_name(candidate['name'])
 
-    #user_data = db.getUser('malechanissen')
-    #if user_data is None:
-    #    return "User lost in the dark forest - make a donation for us to find this user."
+    twitter_user = db.getUser(candidate['twitter_handle'])
+    if twitter_user is None:
+       return "Twitter user for candidate lost in the dark forest - make a donation to us to find this user."
+
+    followers = {"numFollowers": twitter_user["twitter"]["followers_count"]}
+    follower_stats = db.getFollowerStats(candidate['twitter_handle'])
+    followers.update(follower_stats)
 
     json_output = {
         "content": "MEMBER", 
@@ -57,11 +61,7 @@ def candidate_info(slug=None):
             "twitter_handle": candidate['twitter_handle']
         },
         "wordCluster":{},
-        "followers": {
-              "numFollowers": 16,
-              "numHumans": 4,
-              "numBots": 12
-            },
+        "followers": followers,
         "retweets": {
               "numRetweets": 12,
               "numHumans": 11,
@@ -72,7 +72,7 @@ def candidate_info(slug=None):
               "numHumans": 9,
               "numBots": 13
             },
-        "botness": {}# if not user_data else user_data["botness"]
+        "botness": twitter_user["botness"] if "botness" in twitter_user else {}
     }
 
     return jsonify(json_output)
