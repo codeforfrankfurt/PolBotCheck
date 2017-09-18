@@ -187,7 +187,7 @@ def get_all_districs_slugs():
     districts = []
     cursor = candidatesCol.all()
     for candidate in cursor:
-        districts.append(candidate['election']['district'],candidate['election'],candidate["slug"])
+        districts.append([candidate['election']['district'],candidate['election'],candidate["slug"]])
     return districts 
     
 def save_candidate(candidate):

@@ -54,7 +54,9 @@ def candidate_info(slug=None):
     followers.update(follower_stats)
 
     json_output = {
-        "content": "MEMBER", 
+        "content": "MEMBER",
+        "facts" : candidate["facts"],
+        "links" : candidate["links"],
         "member":{
             "name" : full_name,
             "pictureURL": '',
