@@ -79,5 +79,37 @@ def candidate_info(slug=None):
     return jsonify(json_output)
 
 
+@app.route("/pbc/parties/botscores")
+def get_summary_parties():
+# @app.route("/pbc/party/<party>")
+    parties = {'afd', 'violette', 'cdu', 'fw', 'lkr', 'gruene', 'piraten', 'fdp', 'csu', 'tierschutz', 'spd', 'linke', 'oedp'}
+    candidate_slugs = db.get_all_candidate_slugs()
+    json_output = {}
+    for party in parties:
+        json_output[party] = get_botscore_per_party(candidate_slugs, party=party)
+    return jsonify(json_output)
+
+def get_botscore_per_party(slugs, party=None):
+    #TODO:use arangodb hash_indexes(e.g. candidates_col) to improve performance
+    if party is None:
+        return "party not provided"
+    print("info for: {0}".format(party))
+
+    candidates_found = []
+    for slug in slugs:
+        candidate = db.get_candidate(slug)
+        if candidate is None:
+            return "Candidate not found"
+
+        if candidate['election']['party'] == party and 'twitter_handle' in candidate:
+            print(candidate['twitter_handle'])
+            twitter_user = db.getUser(candidate['twitter_handle'])
+            candidates_found.append(candidate['twitter_handle'])
+            #TODO: calculate botness of followers
+
+    print('# of candidates found: {0}'.format(len(candidates_found)))
+    return candidates_found
+    # return jsonify(candidates_found)
+
 if __name__ == "__main__":    
     app.run(host="0.0.0.0", port=6755)
