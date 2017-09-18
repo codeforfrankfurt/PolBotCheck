@@ -9,7 +9,7 @@ class App extends Component {
   state = {
       politicians: [],
       parties: [],
-      topics: []
+      districts: {candidates_by_district: []}
   };
 
   load(what, url) {
@@ -25,22 +25,8 @@ class App extends Component {
 
   componentWillMount() {
     this.load('parties', 'https://trustfact.dilab.co/api/v2/parties');
-    this.load('topics', 'https://raw.githubusercontent.com/codeforfrankfurt/PolBotCheck/master/web/json/topics.json');
+    this.load('districts', 'http://localhost:6755/pbc');
     this.load('politicians', 'http://localhost:3000/candidates.json');
-  }
-
-  componentWillUpdate() {
-    //this.filterHessian();
-  }
-
-  filterHessian() {
-    let hessianPoliticians = [];
-    this.state.politicians.map((value)=>{
-      if (value['election']['state']=== 'he'){
-        hessianPoliticians = hessianPoliticians.concat(value)
-      }
-    });
-    this.setState({politicians : hessianPoliticians})
   }
 
   getFullName(name) {
@@ -61,6 +47,10 @@ class App extends Component {
   }
 
   render() {
+    const districts = this.state.districts.candidates_by_district;
+    if (districts[0]) {
+        districts[0].district = "Landesliste"
+    }
     return (
       <Grid className="App">
         <Row>
@@ -105,10 +95,10 @@ class App extends Component {
                   </ul>
               </Col>
               <Col md={4}>
-                  <h3>Themen</h3>
+                  <h3>Wahlkreise</h3>
                   <ul>
-                      {this.state.topics.map(function(value) {
-                          return <li key={value}><Link to={'/topics/' + value}>{value}</Link></li>;
+                      {districts.map(function(districtObject) {
+                          return <li key={districtObject.district}><Link to={'/pbc/district/' + districtObject.district}>{districtObject.district}</Link></li>;
                       })}
                   </ul>
               </Col>
