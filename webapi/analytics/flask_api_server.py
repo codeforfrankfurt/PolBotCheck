@@ -56,6 +56,7 @@ def candidate_info(slug=None):
         "content": "MEMBER",
         "facts" : candidate["facts"],
         "links" : candidate["links"],
+        "photos" : candidate["photos"],
         "member":{
             "name" : full_name,
             "pictureURL": '',
