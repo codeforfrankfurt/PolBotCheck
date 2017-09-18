@@ -31,6 +31,9 @@ def save_tweets_with_retweets(screen_name):
 def save_followers_with_botness(account_handle):
     followers = get_followers("@" + account_handle)
     user = TWITTER_API.get_user(account_handle)
+    timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
+    print(timestamp)
+    print("Save user %s and the followers ..." % account_handle)
     db.saveUser(user)
     for follower in followers:
         follower_handle = follower.screen_name
@@ -53,9 +56,10 @@ def get_retweets(tweet_id):
     return retweets
 
 def get_followers(screen_name):
+    print("Get %d followers for %s" % (FOLLOWER_LIMIT, screen_name))
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
     print(timestamp)
-    followers =[]
+    followers = []
     for user in limit_handled(tweepy.Cursor(TWITTER_API.followers, screen_name=screen_name, count=FOLLOWER_LIMIT).items()):
         followers.append(user)
     return followers
