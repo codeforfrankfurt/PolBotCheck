@@ -2,7 +2,6 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 
 import db
-import json
 
 ######################### FLASK APP
 app = Flask(__name__)
@@ -80,6 +79,5 @@ def candidate_info(slug=None):
     return jsonify(json_output)
 
 
-if __name__ == "__main__":
-    
+if __name__ == "__main__":    
     app.run(host="0.0.0.0", port=6755)
