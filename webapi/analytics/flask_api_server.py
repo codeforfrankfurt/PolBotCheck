@@ -9,7 +9,16 @@ CORS(app)
 
 @app.route("/pbc")
 def index():
-    return db.get_all_districs_slugs()
+    """
+    Return organizational entities like Landesliste Hessen and the hessian election districts
+    as well as the candidates in them
+    """
+    groupings = []
+    candidates_by_district = db.get_candidates_by_district()
+    for group in candidates_by_district:
+        print(group)
+        groupings.append(group)
+    return jsonify({'candidates_by_district': groupings})
 
 
 def get_full_name(name):
@@ -25,10 +34,6 @@ def get_full_name(name):
     if name['affix']:
         full_name = full_name + ' ' + name['affix']
     return full_name
-
-@app.route("/pbc/getslugs")
-def get_slugs():
-    return db.get_all_candidate_slugs()
 
 
 @app.route("/pbc/user/<slug>")
@@ -54,8 +59,8 @@ def candidate_info(slug=None):
 
     json_output = {
         "content": "MEMBER", 
-        "member":{
-            "name" : full_name,
+        "member": {
+            "name": full_name,
             "pictureURL": '',
             "party": candidate["election"]["party"],
             "twitter_handle": candidate['twitter_handle']
@@ -66,12 +71,12 @@ def candidate_info(slug=None):
               "numRetweets": 12,
               "numHumans": 11,
               "numBots": 1
-            },
+        },
         "retweeters": {
               "numRetweeters": 22,
               "numHumans": 9,
               "numBots": 13
-            },
+        },
         "election": candidate['election'],
         "botness": twitter_user["botness"] if "botness" in twitter_user else {}
     }
@@ -79,5 +84,5 @@ def candidate_info(slug=None):
     return jsonify(json_output)
 
 
-if __name__ == "__main__":    
+if __name__ == "__main__":
     app.run(host="0.0.0.0", port=6755)
