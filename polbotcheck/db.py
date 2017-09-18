@@ -2,8 +2,8 @@
 
 import argparse
 import json
+import time
 from arango import ArangoClient
-from datetime import tzinfo
 
 from config.db_credentials import db_credentials
 
@@ -102,13 +102,13 @@ def hasFollower(fromName='', toName=''):
 def hasRetweet(fromID='', toID=''):
     return retweetsCol.find(getRetweetEdgeDoc(fromID=fromID, toID=toID), None, 1).count() > 0
 
-def saveFollower(username, follower, botness):
+def saveFollower(user, follower, botness):
     # save the follower as a user vertex
     saveUser(follower, botness)
 
     # and the user-follower edge
-    if not hasFollower(fromName=follower.screen_name, toName=username):
-        followersCol.insert(getUserEdgeDoc(fromName=follower.screen_name, toName=username))
+    if not hasFollower(fromName=follower.screen_name, toName=user.screen_name):
+        followersCol.insert(getUserEdgeDoc(fromName=follower.screen_name, toName=user.screen_name))
 
 def saveTweet(tweet):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
