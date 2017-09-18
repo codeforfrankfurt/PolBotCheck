@@ -176,6 +176,13 @@ def get_candidate(slug):
     except StopIteration:
         return None
 
+def get_all_candidate_slugs():
+    slugs = []
+    cursor = candidatesCol.all()
+    for candidate in cursor:
+        slugs.append(candidate["slug"])
+    return slugs
+
 def save_candidate(candidate):
     candidateDoc = {'_key': candidate['slug']}
     candidateDoc.update(candidate)

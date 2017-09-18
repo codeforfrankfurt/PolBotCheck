@@ -81,16 +81,21 @@ if __name__ == "__main__":
     flags = ['tweets', 'followers']
     parser.add_argument('-t', '--tweets', action='store_true', help='get tweets and retweets')
     parser.add_argument('-f', '--followers', action='store_true', help='get followers and their botness')
-    parser.add_argument('-a', '--all', action='store_true', help='get all available entities')
+    parser.add_argument('-b', '--both', action='store_true', help='get both available entities')
+    parser.add_argument('-a', '--all', action='store_true', help='get all candidates')
 
     args = parser.parse_args()
     if not (args.tweets or args.followers or args.all):
         parser.error('No action requested, please see --help')
 
-    for slug in SLUGS:
+    slugs_to_scan = db.get_all_candidate_slugs() if args.all else SLUGS
+    for slug in slugs_to_scan:
         candidate = db.get_candidate(slug)
+        if 'twitter_handle' not in candidate:
+            print(candidate["slug"] + " is missing a twitter handle")
+            continue
         twitter_handle = candidate['twitter_handle']
-        if args.all:
+        if args.both:
             save_tweets_with_retweets(twitter_handle)
             save_followers_with_botness(twitter_handle)
         elif args.tweets:
