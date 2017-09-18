@@ -56,7 +56,10 @@ def get_retweets(tweet_id):
     return retweets
 
 def get_followers(screen_name):
-    print("Get %d followers for %s" % (FOLLOWER_LIMIT, screen_name))
+    if FOLLOWER_LIMIT == 0:
+        print("Get all followers for " + screen_name)
+    else:
+        print("Get %d followers for %s" % (FOLLOWER_LIMIT, screen_name))
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
     print(timestamp)
     followers = []
@@ -85,8 +88,11 @@ if __name__ == "__main__":
     parser.add_argument('-a', '--all', action='store_true', help='get all candidates')
 
     args = parser.parse_args()
-    if not (args.tweets or args.followers or args.all):
+    if not (args.tweets or args.followers or args.both):
         parser.error('No action requested, please see --help')
+
+    if args.all:
+        FOLLOWER_LIMIT = 0
 
     slugs_to_scan = db.get_all_candidate_slugs() if args.all else SLUGS
     for slug in slugs_to_scan:
