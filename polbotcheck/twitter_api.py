@@ -60,7 +60,7 @@ def get_followers(screen_name):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
     print(timestamp)
     followers = []
-    for user in limit_handled(tweepy.Cursor(TWITTER_API.followers, screen_name=screen_name, count=FOLLOWER_LIMIT).items()):
+    for user in limit_handled(tweepy.Cursor(TWITTER_API.followers, screen_name=screen_name, count=200).items(FOLLOWER_LIMIT)):
         followers.append(user)
     return followers
 
