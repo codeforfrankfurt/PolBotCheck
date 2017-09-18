@@ -183,6 +183,13 @@ def get_all_candidate_slugs():
         slugs.append(candidate["slug"])
     return slugs
 
+def get_all_districs_slugs():
+    districts = []
+    cursor = candidatesCol.all()
+    for candidate in cursor:
+        districts.append(candidate['election']['district'],candidate['election'],candidate["slug"])
+    return districts 
+    
 def save_candidate(candidate):
     candidateDoc = {'_key': candidate['slug']}
     candidateDoc.update(candidate)
