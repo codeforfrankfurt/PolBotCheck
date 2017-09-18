@@ -33,7 +33,7 @@ def save_followers_with_botness(account_handle):
     user = TWITTER_API.get_user(account_handle)
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
     print(timestamp)
-    print("Save user %s and the followers ..." % account_handle)
+    print("Save user @%s and the followers (twitter reported %d)  ..." % (account_handle, user.followers_count))
     db.saveUser(user)
     for follower in followers:
         follower_handle = follower.screen_name
@@ -43,7 +43,7 @@ def save_followers_with_botness(account_handle):
         follower_botness = botornotapi.get_bot_or_not("@" + follower_handle)
         if follower_botness is not None:
             db.saveFollower(user, follower, follower_botness)
-            print("Saved follower @" + follower_handle + " for @" + account_handle + " with botness: " + str(follower_botness))
+            print("Saved follower @%s for @%s with botness %f" % (follower_handle, account_handle, follower_botness['score']))
         else:
             print("Botness is none for @" + follower_handle)
 
