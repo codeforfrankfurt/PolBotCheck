@@ -45,6 +45,9 @@ def getEdgeDefinition(graph, edgeDefName, fromCollections, toCollections):
         )
     return graph.edge_collection(edgeDefName)
 
+def convertToKey(twitterHandle):
+    return twitterHandle.lower()
+
 # create the collections we need, if necessary
 usersCol = getCollection('users')
 candidatesCol = getCollection('candidates')
@@ -57,8 +60,9 @@ tweetsCol = getVertexCollection(retweetsGraph, 'tweets')
 retweetsCol = getEdgeDefinition(retweetsGraph, 'retweets', ['tweets'], ['tweets'])
 
 def saveUser(user, botness=None):
+    key = convertToKey(user.screen_name)
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
-    doc = {'_key': user.screen_name, 'scraped_at': timestamp}
+    doc = {'_key': key, 'scraped_at': timestamp}
 
     # save the user data from twitter in its own subdoc to separate it from our stuff
     doc['twitter'] = user._json
@@ -66,17 +70,17 @@ def saveUser(user, botness=None):
     if botness is not None:
         doc['botness'] = botness
 
-    if usersCol.has(user.screen_name):
-        usersCol.update_match({"_key": doc['_key']}, doc)
+    if usersCol.has(key):
+        usersCol.update_match({"_key": key}, doc)
     else:
         usersCol.insert(doc)
 
 
 def getUserEdgeDoc(fromName='', toName=''):
     if fromName != '':
-        return {'_from': 'users/'+ fromName, '_to': 'users/' + toName}
+        return {'_from': 'users/' + convertToKey(fromName), '_to': 'users/' + convertToKey(toName)}
     else:
-        return {'_to': 'users/' + toName}
+        return {'_to': 'users/' + convertToKey(toName)}
 
 def getRetweetEdgeDoc(fromID='', toID=''):
     if fromID != '':
@@ -85,8 +89,8 @@ def getRetweetEdgeDoc(fromID='', toID=''):
         return {'_to': 'tweets/' + toID}
 
 
-def getUser(user):
-    myuser = usersCol.find({'_key':user})
+def getUser(twitter_handle):
+    myuser = usersCol.find({'_key': convertToKey(twitter_handle)})
     try: 
         foundUser = next(myuser)
         return foundUser
@@ -107,8 +111,10 @@ def saveFollower(user, follower, botness):
     saveUser(follower, botness)
 
     # and the user-follower edge
-    if not hasFollower(fromName=follower.screen_name, toName=user.screen_name):
-        followersCol.insert(getUserEdgeDoc(fromName=follower.screen_name, toName=user.screen_name))
+    user_name = user.screen_name
+    follower_name = follower.screen_name
+    if not hasFollower(fromName=follower_name, toName=user_name):
+        followersCol.insert(getUserEdgeDoc(fromName=follower_name, toName=user_name))
 
 def saveTweet(tweet):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
