@@ -32,6 +32,10 @@ def get_full_name(name):
 def get_slugs():
     return [row['slug'] for row in candidates]
 
+def get_candidate_by_slug(slug)
+    if not slug:
+        return None
+    return list(filter(lambda x: x['slug']==slug,candidates))
 
 @app.route("/pbc/user/<slug>")
 def candidate_info(slug=None):
@@ -74,6 +78,7 @@ def candidate_info(slug=None):
               "numHumans": 9,
               "numBots": 13
             },
+        "election": get_candidate_by_slug(slug)['election'],
         "botness": twitter_user["botness"] if "botness" in twitter_user else {}
     }
 
