@@ -42,7 +42,7 @@ def save_followers_with_botness(account_handle):
         'accounts': {
             account_handle: {
                 'tw_followers_count': user.followers_count,
-                'accout_saved_at': timestamp.timestamp()
+                'account_saved_at': timestamp.timestamp()
             }
         }
     })
@@ -98,21 +98,17 @@ def get_retweets(tweet_id):
 def get_followers(screen_name):
     timestamp = datetime.now()
     log_doc = {
-        'main_action': 'get_followers',
-        'main_params': {"limit": 0},
-        'time': timestamp.timestamp(),
         'accounts': {
             screen_name: {
-                'followers': []
+                'started_at': timestamp.timestamp()
             }
         }
     }
+    db.saveToImportLog(IMPORT_KEY, log_doc)
     if FOLLOWER_LIMIT == 0:
         print("Get all followers for @" + screen_name)
     else:
-        log_doc['main_params']['limit'] = FOLLOWER_LIMIT
         print("Get %d followers for @%s" % (FOLLOWER_LIMIT, screen_name))
-    db.saveToImportLog(IMPORT_KEY, log_doc)
     print(timestamp.strftime("%d.%m.%Y %H:%M:%S"))
     followers = []
     for user in limit_handled(tweepy.Cursor(TWITTER_API.followers, screen_name="@"+screen_name, count=200).items(FOLLOWER_LIMIT)):
@@ -153,11 +149,17 @@ if __name__ == "__main__":
     TOTAL_FOLLOWERS_WITH_BOTNESS = 0
     TOTAL_FOLLOWERS_WITHOUT_BOTNESS = 0
 
+    if args.followers or args.both:
+        log_doc = {'get_followers': FOLLOWER_LIMIT}
+        db.saveToImportLog(IMPORT_KEY, log_doc)
+
     # Now do the actual work
     slugs_to_scan = db.get_all_candidate_slugs() if args.all else SLUGS
     for slug in slugs_to_scan:
         candidate = db.get_candidate(slug)
         if 'twitter_handle' not in candidate:
+            timestamp = datetime.now().timestamp()
+            db.saveToImportLog(IMPORT_KEY, {'candidates_wo_twitter': {candidate['slug']: timestamp}})
             print(candidate["slug"] + " is missing a twitter handle")
             continue
         twitter_handle = candidate['twitter_handle']
