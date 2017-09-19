@@ -156,22 +156,28 @@ if __name__ == "__main__":
     # Now do the actual work
     slugs_to_scan = db.get_all_candidate_slugs() if args.all else SLUGS
     for slug in slugs_to_scan:
-        if slug in SLUGS_TO_SKIP:
+        try:
+            if slug in SLUGS_TO_SKIP:
+                timestamp = datetime.now().timestamp()
+                db.saveToImportLog(IMPORT_KEY, {'candidates_skipped': {slug: timestamp}})
+                print(slug + " was skipped via SLUGS_TO_SKIP")
+                continue
+            candidate = db.get_candidate(slug)
+            if 'twitter_handle' not in candidate:
+                timestamp = datetime.now().timestamp()
+                db.saveToImportLog(IMPORT_KEY, {'candidates_wo_twitter': {candidate['slug']: timestamp}})
+                print(candidate["slug"] + " is missing a twitter handle")
+                continue
+            twitter_handle = candidate['twitter_handle']
+            if args.both:
+                save_tweets_with_retweets(twitter_handle)
+                save_followers_with_botness(twitter_handle)
+            elif args.tweets:
+                save_tweets_with_retweets(twitter_handle)
+            elif args.followers:
+                save_followers_with_botness(twitter_handle)
+        except tweepy.error.TweepError as ex:
             timestamp = datetime.now().timestamp()
-            db.saveToImportLog(IMPORT_KEY, {'candidates_skipped': {slug: timestamp}})
-            print(slug + " was skipped via SLUGS_TO_SKIP")
-            continue
-        candidate = db.get_candidate(slug)
-        if 'twitter_handle' not in candidate:
-            timestamp = datetime.now().timestamp()
-            db.saveToImportLog(IMPORT_KEY, {'candidates_wo_twitter': {candidate['slug']: timestamp}})
-            print(candidate["slug"] + " is missing a twitter handle")
-            continue
-        twitter_handle = candidate['twitter_handle']
-        if args.both:
-            save_tweets_with_retweets(twitter_handle)
-            save_followers_with_botness(twitter_handle)
-        elif args.tweets:
-            save_tweets_with_retweets(twitter_handle)
-        elif args.followers:
-            save_followers_with_botness(twitter_handle)
+            db.saveToImportLog(IMPORT_KEY, {'candidates_w_exception': {slug: {'at': timestamp, 'msg': str(ex)}}})
+            print(slug + " raised exception: " + str(ex))
+
