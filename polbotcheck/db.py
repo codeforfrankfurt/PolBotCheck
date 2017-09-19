@@ -2,6 +2,7 @@
 
 import argparse
 import json
+from datetime import datetime
 import time
 from arango import ArangoClient
 
@@ -51,6 +52,7 @@ def convertToKey(twitterHandle):
 # create the collections we need, if necessary
 usersCol = getCollection('users')
 candidatesCol = getCollection('candidates')
+importLogsCol = getCollection('importLogs')
 
 followersGraph = getGraph('followers')
 followersCol = getEdgeDefinition(followersGraph, 'followers', ['users'], ['users'])
@@ -139,6 +141,21 @@ def saveFollower(user, follower, botness):
     follower_name = follower.screen_name
     if not hasFollower(fromName=follower_name, toName=user_name):
         followersCol.insert(getUserEdgeDoc(fromName=follower_name, toName=user_name))
+
+
+def saveNewImportLog(import_type):
+    """
+    :param import_type: twitter or file name
+    :type import_type: String
+    :return : value of DB key of that import
+    """
+    result = importLogsCol.insert({"created_at": datetime.now().timestamp(), "import_type": import_type})
+    return result['_key']
+
+
+def saveToImportLog(key, doc_to_save):
+    importLogsCol.update_match({"_key": key}, dict(updated_at=datetime.now().timestamp(), **doc_to_save))
+
 
 def saveTweet(tweet):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())

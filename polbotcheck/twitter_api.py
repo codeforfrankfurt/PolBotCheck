@@ -1,4 +1,5 @@
 import argparse
+from datetime import datetime
 import time
 import tweepy
 
@@ -31,20 +32,29 @@ def save_tweets_with_retweets(screen_name):
 def save_followers_with_botness(account_handle):
     followers = get_followers("@" + account_handle)
     user = TWITTER_API.get_user(account_handle)
-    timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
-    print(timestamp)
-    print("Save user @%s and the followers (twitter reported %d)  ..." % (account_handle, user.followers_count))
     db.saveUser(user)
+
+    timestamp = datetime.now()
+    db.saveToImportLog(IMPORT_KEY, {
+        'account': account_handle,
+        'account_followers': user.followers_count,
+        'accout_saved_at': timestamp.timestamp()
+    })
+    print(timestamp.strftime("%d.%m.%Y %H:%M:%S"))
+    print("Save user @%s and the followers (twitter reported %d)  ..." % (account_handle, user.followers_count))
     for follower in followers:
         follower_handle = follower.screen_name
         if db.hasFollower(fromName=follower_handle, toName=account_handle):
+            db.saveToImportLog(IMPORT_KEY, {'followers_skipped': {follower_handle: 'existed'}})
             print("Already checked @" + follower_handle + " ... skipping for now.")
             continue
         follower_botness = botornotapi.get_bot_or_not("@" + follower_handle)
         if follower_botness is not None:
             db.saveFollower(user, follower, follower_botness)
+            db.saveToImportLog(IMPORT_KEY, {'followers': {follower_handle: follower_botness['score']}})
             print("Saved follower @%s for @%s with botness %f" % (follower_handle, account_handle, follower_botness['score']))
         else:
+            db.saveToImportLog(IMPORT_KEY, {'followers_no_botness': {follower_handle: False}})
             print("Botness is none for @" + follower_handle)
 
 def get_retweets(tweet_id):
@@ -56,12 +66,15 @@ def get_retweets(tweet_id):
     return retweets
 
 def get_followers(screen_name):
+    timestamp = datetime.now()
+    log_doc = {'main_action': 'get_followers', 'main_params': {"limit": 0}, 'time': timestamp.timestamp()}
     if FOLLOWER_LIMIT == 0:
         print("Get all followers for " + screen_name)
     else:
+        log_doc['main_params']['limit'] = FOLLOWER_LIMIT
         print("Get %d followers for %s" % (FOLLOWER_LIMIT, screen_name))
-    timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
-    print(timestamp)
+    db.saveToImportLog(IMPORT_KEY, log_doc)
+    print(timestamp.strftime("%d.%m.%Y %H:%M:%S"))
     followers = []
     for user in limit_handled(tweepy.Cursor(TWITTER_API.followers, screen_name=screen_name, count=200).items(FOLLOWER_LIMIT)):
         followers.append(user)
@@ -90,6 +103,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if not (args.tweets or args.followers or args.both):
         parser.error('No action requested, please see --help')
+
+    IMPORT_KEY = db.saveNewImportLog('twitter') # for logging purposes, the key will be used to
+                                             # log to that document
 
     if args.all:
         FOLLOWER_LIMIT = 0
