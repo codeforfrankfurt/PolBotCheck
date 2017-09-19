@@ -32,6 +32,7 @@ def save_tweets_with_retweets(screen_name):
 
 
 def save_followers_with_botness(account_handle):
+    global TOTAL_FOLLOWERS_SKIPPED, TOTAL_FOLLOWERS_WITH_BOTNESS, TOTAL_FOLLOWERS_WITHOUT_BOTNESS
     followers = get_followers(account_handle)
     user = TWITTER_API.get_user(account_handle)
     db.saveUser(user)
