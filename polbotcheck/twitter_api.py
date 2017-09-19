@@ -6,7 +6,7 @@ import tweepy
 import botornotapi
 import db
 from config.keys import myauth
-from config.test_candidates import SLUGS, FOLLOWER_LIMIT
+from config.test_candidates import SLUGS, SLUGS_TO_SKIP, FOLLOWER_LIMIT
 
 AUTH = tweepy.OAuthHandler(myauth['consumer_key'], myauth['consumer_secret'])
 AUTH.set_access_token(myauth['access_token'], myauth['access_token_secret'])
@@ -156,6 +156,11 @@ if __name__ == "__main__":
     # Now do the actual work
     slugs_to_scan = db.get_all_candidate_slugs() if args.all else SLUGS
     for slug in slugs_to_scan:
+        if slug in SLUGS_TO_SKIP:
+            timestamp = datetime.now().timestamp()
+            db.saveToImportLog(IMPORT_KEY, {'candidates_skipped': {slug: timestamp}})
+            print(slug + " was skipped via SLUGS_TO_SKIP")
+            continue
         candidate = db.get_candidate(slug)
         if 'twitter_handle' not in candidate:
             timestamp = datetime.now().timestamp()
