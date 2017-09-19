@@ -74,7 +74,7 @@ def save_followers_with_botness(account_handle):
                 },
                 'followers_with_botness': TOTAL_FOLLOWERS_WITH_BOTNESS
             })
-            print("Saved follower @%s for @%s with botness %f" % (follower_handle, account_handle, follower_botness['score']))
+            print("Saved follower @%s for @%s with botness %.2f" % (follower_handle, account_handle, follower_botness['score']))
         else:
             TOTAL_FOLLOWERS_WITHOUT_BOTNESS += 1
             db.saveToImportLog(IMPORT_KEY, {
