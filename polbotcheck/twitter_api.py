@@ -33,10 +33,8 @@ def save_tweets_with_retweets(screen_name):
 
 def save_followers_with_botness(account_handle):
     global TOTAL_FOLLOWERS_SKIPPED, TOTAL_FOLLOWERS_WITH_BOTNESS, TOTAL_FOLLOWERS_WITHOUT_BOTNESS
-    followers = get_followers(account_handle)
     user = TWITTER_API.get_user(account_handle)
     db.saveUser(user)
-
     timestamp = datetime.now()
     db.saveToImportLog(IMPORT_KEY, {
         'accounts': {
@@ -47,7 +45,9 @@ def save_followers_with_botness(account_handle):
         }
     })
     print(timestamp.strftime("%d.%m.%Y %H:%M:%S"))
-    print("Save user @%s and the followers (twitter reported %d)  ..." % (account_handle, user.followers_count))
+    print("Saved user @%s, now getting the followers (twitter reported %d)  ..." % (account_handle, user.followers_count))
+
+    followers = get_followers(account_handle)
     for follower in followers:
         follower_handle = follower.screen_name
         if db.hasFollower(fromName=follower_handle, toName=account_handle):
@@ -86,6 +86,17 @@ def save_followers_with_botness(account_handle):
                 'followers_without_botness': TOTAL_FOLLOWERS_WITHOUT_BOTNESS
             })
             print("Botness is none for @" + follower_handle)
+
+    # done with followers loop, save timestamp
+    timestamp = datetime.now()
+    db.saveToImportLog(IMPORT_KEY, {
+        'accounts': {
+            account_handle: {
+                'ended_at': timestamp.timestamp()
+            }
+        }
+    })
+
 
 def get_retweets(tweet_id):
     timestamp = time.strftime("%d.%m.%Y %H:%M:%S", time.localtime())
@@ -150,7 +161,7 @@ if __name__ == "__main__":
     TOTAL_FOLLOWERS_WITHOUT_BOTNESS = 0
 
     if args.followers or args.both:
-        log_doc = {'get_followers': FOLLOWER_LIMIT}
+        log_doc = {'get_followers': {'limit': FOLLOWER_LIMIT}}
         db.saveToImportLog(IMPORT_KEY, log_doc)
 
     # Now do the actual work
