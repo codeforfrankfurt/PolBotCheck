@@ -1,5 +1,4 @@
 {
-  "root": "web/build/",
   "https_only": true,
   "headers": {
     "/**": {

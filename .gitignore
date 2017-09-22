@@ -12,5 +12,17 @@ dev_*.ipynb
 .DS_Store
 node_modules/
 polbotcheck/dump/
-web/Release.key
+Release.key
 polbotcheck/__pycache__/
+
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
