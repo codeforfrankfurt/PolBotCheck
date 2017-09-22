@@ -263,8 +263,10 @@ def import_districts():
         if identifier is None:
             identifier = 0
             name = 'Landesliste'
+        identifier = str(identifier)
 
         if not districtsCol.has(identifier):
+            print('Import ' + str(identifier))
             districtsCol.insert({'_key': identifier, 'name': name})
 
 
