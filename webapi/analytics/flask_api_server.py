@@ -1,6 +1,6 @@
 import os
 
-if not os.environ['FLASK_ENV'] == 'production':
+if os.environ.get('FLASK_ENV') == 'production':
     from dotenv import load_dotenv, find_dotenv
     load_dotenv(find_dotenv(), override=True)
 
@@ -31,8 +31,44 @@ def index():
     as well as the candidates in them
     """
     groupings = []
-    candidates_by_district = db.get_candidates_by_district()
+    candidates_by_district = db.get_candidates_grouped_by_district()
     for group in candidates_by_district:
+        print(group)
+        groupings.append(group)
+    return jsonify({'candidates_grouped_by_district': groupings})
+
+
+@app.route("/pbc/districts")
+def index():
+    """
+    Return organizational entities like Landesliste Hessen and the hessian election districts
+    """
+    return jsonify({'districts': db.get_districts()})
+
+
+@app.route("/pbc/districts/<slug>")
+def index(slug=None):
+    """
+    Return one organizational entity like Landesliste Hessen or a hessian election district
+    as well as the candidates in them
+    """
+    groupings = []
+    candidates = db.get_candidates_by_district(slug)
+    for group in candidates_in_district:
+        print(group)
+        groupings.append(group)
+    return jsonify({'district': groupings})
+
+
+@app.route("/pbc/parties/<slug>")
+def party(slug=None):
+    """
+    Return organizational entities like Landesliste Hessen and the hessian election districts
+    as well as the candidates in them
+    """
+    membersOnLists = []
+    candidates_by_party = db.get_candidates_by_party(slug)
+    for group in candidates_by_party:
         print(group)
         groupings.append(group)
     return jsonify({'candidates_by_district': groupings})
@@ -53,7 +89,7 @@ def get_full_name(name):
     return full_name
 
 
-@app.route("/pbc/user/<slug>")
+@app.route("/pbc/users/<slug>")
 def candidate_info(slug=None):
     """
     """

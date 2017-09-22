@@ -10,6 +10,7 @@ from config.db_credentials import db_credentials
 
 CANDIDATES_PATH = '../web/public/candidates.json'
 
+
 # Configure your ArangoDB server connection here
 conn = ArangoClient(protocol=db_credentials['protocol'], host=db_credentials['host'], port=db_credentials['port'], username=db_credentials['username'], password=db_credentials['password'])
 
@@ -52,6 +53,7 @@ def convertToKey(twitterHandle):
 # create the collections we need, if necessary
 usersCol = getCollection('users')
 candidatesCol = getCollection('candidates')
+districtsCol = getCollection('districts')
 importLogsCol = getCollection('importLogs')
 
 followersGraph = getGraph('followers')
@@ -182,6 +184,10 @@ def save_word_frequencies(user_name, word_frequencies):
         user['word_frequencies'] = word_frequencies
         usersCol.update(user, merge=False)
 
+def get_districts():
+    return districtsCol.all()
+
+
 def get_candidate(slug):
     candidate = candidatesCol.find({'_key': slug})
     try:
@@ -194,7 +200,7 @@ def get_candidate(slug):
         return None
 
 
-def get_candidates_by_district():
+def get_candidates_grouped_by_district():
     cursor = db.aql.execute(
         '''
         FOR c IN candidates
@@ -206,6 +212,14 @@ def get_candidates_by_district():
         '''[1:-1]
     )
     return cursor
+
+
+def get_candidates_by_district(district):
+    return candidatesCol.find({'election.district': district})
+
+
+def get_candidates_by_party(party):
+    return candidatesCol.find({'election.party': party})
 
 
 def get_all_candidate_slugs():
@@ -240,16 +254,33 @@ def import_candidates(filters):
     print("Imported %i candidates" % count)
 
 
+def import_districts():
+    with open(CANDIDATES_PATH) as candidatesFile:
+        json_data = json.load(candidatesFile)
+    for candidate in json_data:
+        identifier = candidate['election']['district']
+        name = None
+        if identifier is None:
+            identifier = 0
+            name = 'Landesliste'
+
+        if not districtsCol.has(identifier):
+            districtsCol.insert({'_key': identifier, 'name': name})
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Methods to save to and read from the database')
     parser.add_argument('-he', '--hessian', action='store_true', help='import hessian candidates')
     parser.add_argument('-a', '--all', action='store_true', help='import all candidates')
+    parser.add_argument('-d', '--districts', action='store_true', help='import all districts')
 
     args = parser.parse_args()
-    if not (args.hessian or args.all):
+    if not (args.hessian or args.all or args.districts):
         parser.error('No action requested, please see --help')
 
     if args.all:
         import_candidates({})
     elif args.hessian:
         import_candidates({"state": "he"})
+    elif args.districts:
+        import_districts()
