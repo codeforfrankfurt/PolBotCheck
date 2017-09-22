@@ -6,12 +6,14 @@ import { Link } from 'react-router'
 import {Col, Row, Panel} from 'react-bootstrap';
 import PieChart from './PieChart';
 import BarChart from './BarChart';
+import picPlaceholder from '../public/Portrait_placeholder.png'
 
 class MemberPage extends Component {
 
     state = {
         content: 'MEMBER',
         member: {
+            photos: []
         },
         followers: {
             numFollowers: null,
@@ -63,6 +65,7 @@ class MemberPage extends Component {
     }
 
     render() {
+        const photo = this.state.member.photos.length > 0 ? this.state.member.photos[0].url : picPlaceholder;
         const followerCount = <span>Gesamt: {this.state.followers.numFollowers}, analysierte<br />
             Bots: {this.state.followers.numBots} oder Menschen: {this.state.followers.numHumans}</span>;
         const retweetCount = this.state.retweets.numHumans + this.state.retweets.numBots;
@@ -73,7 +76,7 @@ class MemberPage extends Component {
             <Row className="App-profile" >
                 <Col md={4}>
                   <img className="Profile-picture" alt="Profilbild"
-                       src={this.state.member.pictureURL}/>
+                       src={photo}/>
                 </Col>
                 <Col md={4}>
                   <Panel bsStyle="primary"
