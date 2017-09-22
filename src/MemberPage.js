@@ -16,6 +16,9 @@ class MemberPage extends Component {
         member: {
             photos: []
         },
+        twitter: {
+            profile_url: ""
+        },
         followers: {
             numFollowers: null,
             numHumans: null,
@@ -77,7 +80,7 @@ class MemberPage extends Component {
             <Row className="App-profile" >
                 <Col md={4}>
                   <img className="Profile-picture" alt="Profilbild"
-                       src={getPhoto(this.state.member.photos)}/>
+                       src={getPhoto(this.state.member.photos, this.state.twitter)}/>
                 </Col>
                 <Col md={4}>
                   <Panel bsStyle="primary"
@@ -111,9 +114,9 @@ class MemberPage extends Component {
     }
 }
 
-function getPhoto(photos) {
+function getPhoto(photos, twitter) {
     if (photos.length === 0) {
-        return picPlaceholder;
+        return (twitter && twitter.profile_url.replace('_normal', '')) || picPlaceholder;
     } else {
         let wikimediaPhoto = photos.find((p) => p.url.indexOf('wikimedia') !== -1);
         wikimediaPhoto = wikimediaPhoto && wikimediaPhoto.url;
