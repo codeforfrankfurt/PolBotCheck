@@ -54,8 +54,8 @@ class App extends Component {
     return (
       <Grid className="App">
         <Row>
-          <a href="http://codefor.de/frankfurt" id="logo">
-            <img src={logo} alt="Logo von Code for Frankfurt"/>
+          <a href="http://codefor.de/frankfurt">
+            <img className="App-logo" src={logo} alt="Logo von Code for Frankfurt"/>
           </a>
           <h1>BotOrNot hessische BTW-Kandidaten 2017</h1>
         </Row>
@@ -70,7 +70,7 @@ class App extends Component {
                 Accounts und erzeugen so Aufmerksamkeit. Andere sorgen aber mit Retweets für eine größere
                 Reichweite anderer Accounts die sie voranbringen wollen. Gut wäre da nun Einblick, wieviele Retweets der
                 Politiker von Bots sind, um besser einschätzen zu können, ob da nachgeholfen wird.  Zur Erkennung ob ein
-                Twitter Account ein Bot ist, verlassen wir uns auf die mehrjährige Recherche-Arbeit des Projekts
+                Twitter Account ein Bot ist, verlassen wir uns auf die mehrjährige Recherche-Arbeit des Projekts&nbsp;
                 <a href="http://truthy.indiana.edu/botornot/">Botometer</a> (früher Truthy BotOrNot). Es wurde 2014 von
                 der Indiana University aus den USA ins Leben gerufen. Über deren Web-Dienst kann man die
                 Wahrscheinlichkeit einholen, mit der ein Twitter Account ein Bot ist. Wir gehen ab 70% Prozent davon aus,
@@ -118,7 +118,7 @@ class App extends Component {
                 <a href="https://github.com/okfde/wahldaten/tree/master/kandidierende">github.com/okfde/wahldaten</a> eingeholt.
             </p>
             <p>
-                Die Wahrscheinlichkeit ob ein Account ein Bot ist, holen wir uns über
+                Die Wahrscheinlichkeit ob ein Account ein Bot ist, holen wir uns über&nbsp;
                 <a href="http://truthy.indiana.edu/botornot/">Botometer</a> (früher Truthy BotOrNot) von der
                 Indiana University aus den USA ein.
             </p>

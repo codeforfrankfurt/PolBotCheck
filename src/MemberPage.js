@@ -63,8 +63,8 @@ class MemberPage extends Component {
     }
 
     render() {
-        const followerCount = <span>Twitter: {this.state.followers.numFollowers}, <br />
-            Bots: {this.state.followers.numBots}, Menschen: {this.state.followers.numHumans}</span>;
+        const followerCount = <span>Gesamt: {this.state.followers.numFollowers}, analysierte<br />
+            Bots: {this.state.followers.numBots} oder Menschen: {this.state.followers.numHumans}</span>;
         const retweetCount = this.state.retweets.numHumans + this.state.retweets.numBots;
         const retweetersCount = this.state.retweeters.numHumans + this.state.retweeters.numBots;
         return (

@@ -7,8 +7,10 @@ body {
 .App-logo {
     -webkit-animation: none;
     animation: none;
+    float: left;
 }
 
 #footer {
     margin-top: 3em;
+    text-align: left;
 }
