@@ -17,7 +17,7 @@
 }
 
 .App-profile {
-    padding: 2em;
+    padding: 2em 0;
 }
 
 img {
@@ -36,7 +36,6 @@ ul {
     max-width: 66%;
 }
 
-@keyframes App-logo-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+.number {
+    float: right;
 }

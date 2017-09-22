@@ -69,20 +69,22 @@ class MemberPage extends Component {
     }
 
     render() {
-        const followerCount = <span>Gesamt: {this.state.followers.numFollowers}, analysierte<br />
-            Bots: {this.state.followers.numBots} oder Menschen: {this.state.followers.numHumans}</span>;
+        const followerCount = <Col sm={12} xs={6}>
+            Gesamt: <span className="number">{this.state.followers.numFollowers}</span><br />
+            Bots: <span className="number">{this.state.followers.numBots}</span><br />
+            Menschen: <span className="number">{this.state.followers.numHumans}</span></Col>;
         const retweetCount = this.state.retweets.numHumans + this.state.retweets.numBots;
         const retweetersCount = this.state.retweeters.numHumans + this.state.retweeters.numBots;
         return (
           <div className="container">
             <Title />
-              <div><Link to="/">Zurück</Link></div>
+              <div><Link to="/" className="btn btn-default">« Zurück</Link></div>
             <Row className="App-profile" >
-                <Col md={4} xs={8}>
+                <Col xs={6}>
                   <img className="Profile-picture" alt="Profilbild"
                        src={getPhoto(this.state.member.photos, this.state.twitter)}/>
                 </Col>
-                <Col md={4} xs={4}>
+                <Col xs={6}>
                   <Panel bsStyle="primary"
                          bsSize="large">
                     <p>Name: {this.state.member.name ? this.state.member.name : '-'}</p>
@@ -91,22 +93,23 @@ class MemberPage extends Component {
                   </Panel>
                 </Col>
             </Row>
-            <Row>
-                <Col className="App-info" md={12}>
+            <Row className="App-info">
+                <Col sm={4}>
+                  <h4>Follower</h4>
                   <Row>
-                    <Col md={4}>
-                      <h4>Follower ({followerCount})</h4>
-                      <PieChart className="Info-followers" numbers={this.state.followers}/>
-                    </Col>
-                    <Col md={4}>
-                      <h4>Retweets (<em>in den nächsten Tagen</em>)</h4>
-                      <PieChart className="Info-retweets" numbers={this.state.retweets}/>
-                    </Col>
-                    <Col md={4}>
-                      <h4>Retweeters (<em>in den nächsten Tagen</em>)</h4>
-                      <PieChart className="Info-retweeters" numbers={this.state.retweeters}/>
-                    </Col>
+                      <Col sm={12} xs={6}><PieChart className="Info-followers" numbers={this.state.followers}/></Col>
+                      {followerCount}
                   </Row>
+                </Col>
+                <Col sm={4}>
+                  <h4>Retweets</h4>
+                  <PieChart className="Info-retweets" numbers={this.state.retweets}/>
+                    <em>Daten folgen in den nächsten Tagen</em>
+                </Col>
+                <Col sm={4}>
+                  <h4>Retweeters</h4>
+                  <PieChart className="Info-retweeters" numbers={this.state.retweeters}/>
+                    <em>Daten folgen in den nächsten Tagen</em>
                 </Col>
             </Row>
           </div>
