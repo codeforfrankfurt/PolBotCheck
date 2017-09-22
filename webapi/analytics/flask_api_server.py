@@ -79,7 +79,7 @@ def candidate_info(slug=None):
         "member": {
             "name": full_name,
             "party": candidate["election"]["party"],
-            "twitter_handle": candidate['twitter_handle']
+            "twitter_handle": candidate['twitter_handle'],
             "facts" : candidate["facts"],
             "links" : candidate["links"],
             "photos" : candidate["photos"]
