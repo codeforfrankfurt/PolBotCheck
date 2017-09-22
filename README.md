@@ -15,14 +15,22 @@ The list of politicians was loaded from [github.com/okfde/wahldaten](https://git
 ## Installation and usage notes
 ### Backend
 
-    pip install -r requirements.txt
-    cd polbotcheck/config
-    cp keys-sample.py keys.py
-    cp db_credentials-sample.py db_credentials.py
-    # now edit the db_credentials.py to match a ArangoDB installation (or contact
+    pip install pipenv
+    pipenv install
+    cp .env.sample .env
+    # now edit the .env to match a ArangoDB installation (or contact
     # @codeforfrankfurt on GitHub or @codeforffm on Twitter for the one we use).
-    cd ..
+    # If you want to query twitter data, you'll need to specify credentials for a created
+    # Twitter app as well. Then you can run twitter jobs that save to the DB you configured.
+    cd polbotcheck
     python twitter_api.py --all
+    # or
+    python db.py --all
+    
+    # To run the API for the frontend
+    cd webapi
+    cat README.md
+    
 
 ### Frontend
 
