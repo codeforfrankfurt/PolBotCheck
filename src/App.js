@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router'
-import {Grid, Row, Col, Jumbotron} from 'react-bootstrap'
+import {Grid, Row, Col, Jumbotron, Panel} from 'react-bootstrap'
+import logo from './logo.png'
 import './App.css'
 
 class App extends Component {
@@ -53,6 +54,9 @@ class App extends Component {
     return (
       <Grid className="App">
         <Row>
+          <a href="http://codefor.de/frankfurt">
+            <img src={logo} className="App-logo" alt="Logo von Code for Frankfurt"/>
+          </a>
           <h1>BotOrNot hessische BTW-Kandidaten 2017</h1>
         </Row>
         <Row>
@@ -67,15 +71,16 @@ class App extends Component {
                 Reichweite anderer Accounts die sie voranbringen wollen. Gut wäre da nun Einblick, wieviele Retweets der
                 Politiker von Bots sind, um besser einschätzen zu können, ob da nachgeholfen wird.  Zur Erkennung ob ein
                 Twitter Account ein Bot ist, verlassen wir uns auf die mehrjährige Recherche-Arbeit des Projekts
-                <a href="http://truthy.indiana.edu/botornot/">Botometer</a> (früher Truthy  BotOrNot). Es wurde 2014 von der Indiana University
-                aus den USA ins Leben gerufen. Über deren Web-Dienst kann man die Wahrscheinlichkeit einholen, mit der ein
-                Twitter Account ein Bot ist. Wir gehen ab 70% Prozent davon aus, dass es sich um einen Bot handelt.
-                Für jeden Politiker zu dem wir die Daten einholen konnten, zeigen wir hier nun den Anteil der Follower
-                die Bots sind, den Anteil der Retweets die von Bots stammen und wieviel Prozent der Retweeter Bots sind.
+                <a href="http://truthy.indiana.edu/botornot/">Botometer</a> (früher Truthy BotOrNot). Es wurde 2014 von
+                der Indiana University aus den USA ins Leben gerufen. Über deren Web-Dienst kann man die
+                Wahrscheinlichkeit einholen, mit der ein Twitter Account ein Bot ist. Wir gehen ab 70% Prozent davon aus,
+                dass es sich um einen Bot handelt.
             </p>
             <p>
-                Die Liste der Politiker und die Infos über sie, u.a. die Twitter-Profile haben wir über
-                <a href="https://github.com/okfde/wahldaten/tree/master/kandidierende">github.com/okfde/wahldaten</a> eingeholt.
+                <strong>
+                Für jeden Politiker zu dem wir die Daten einholen konnten, zeigen wir hier nun den Anteil der Follower
+                die Bots sind, den Anteil der Retweets die von Bots stammen und wieviel Prozent der Retweeter Bots sind.
+                </strong>
             </p>
           </Jumbotron>
         </Row>
@@ -106,7 +111,19 @@ class App extends Component {
                       })}
                   </ul>
               </Col>
-          </Row>
+        </Row>
+        <Row>
+          <Panel header="Quellen">
+            Die Liste der Politiker und die Infos über sie, u.a. die Twitter-Profile haben wir über
+            <a href="https://github.com/okfde/wahldaten/tree/master/kandidierende">github.com/okfde/wahldaten</a> eingeholt.
+
+            Die Wahrscheinlichkeit ob ein Account ein Bot ist, holen wir uns über
+            <a href="http://truthy.indiana.edu/botornot/">Botometer</a> (früher Truthy BotOrNot) von der
+            Indiana University aus den USA ein.
+
+            Die Follower und Retweet Daten sind über die Twitter-API von Twitter selbst eingeholt worden.
+          </Panel>
+        </Row>
       </Grid>
     );
   }
