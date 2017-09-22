@@ -16,8 +16,32 @@
     color: white;
 }
 
+img.Profile-picture {
+    display: inline-block;
+    max-width: 240px;
+    max-height: 240px;
+    margin-top: 1em;
+}
+
 .App-profile {
-    padding: 2em 0;
+    display: inline-block;
+    margin-left: 20px;
+    min-width: 300px;
+}
+
+.App-info {
+    margin: 1em -5px;
+    padding: 0;
+}
+
+.App-info > div {
+    padding: 5px;
+}
+
+.App-info > div > div {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 img {
