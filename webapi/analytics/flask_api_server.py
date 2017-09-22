@@ -61,9 +61,11 @@ def candidate_info(slug=None):
         "content": "MEMBER", 
         "member": {
             "name": full_name,
-            "pictureURL": '',
             "party": candidate["election"]["party"],
             "twitter_handle": candidate['twitter_handle']
+            "facts" : candidate["facts"],
+            "links" : candidate["links"],
+            "photos" : candidate["photos"]
         },
         "wordCluster": twitter_user.get("word_frequencies") or {'topics': []},
         "followers": followers,
