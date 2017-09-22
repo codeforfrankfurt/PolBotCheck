@@ -41,6 +41,21 @@ class MemberPage extends Component {
                 return res.json().then(data => {
                     self.state = data;
                     console.log(data);
+
+                    // deactivate retweets and & retweeters for now.
+                    Object.assign(self.state, {
+                        retweets: {
+                            numRetweets: null,
+                            numHumans: null,
+                            numBots: null
+                        },
+                        retweeters: {
+                            numRetweeters: null,
+                            numHumans: null,
+                            numBots: null
+                        }
+                    });
+
                     self.setState(self.state);
                 });
             })
@@ -66,21 +81,17 @@ class MemberPage extends Component {
               </Panel>
             </Col>
             <Col className="App-info" md={8}>
-              <Row className="Info-diagram">
-                <BarChart className="Info-topics" topics={this.state.wordCluster.topics}/>
-                <p>Die meistbesprochenen Themen des Abgeordneten</p>
-              </Row>
               <Row>
                 <Col md={4}>
                   <h4>Follower ({followerCount})</h4>
                   <PieChart className="Info-followers" numbers={this.state.followers}/>
                 </Col>
                 <Col md={4}>
-                  <h4>Retweets (Count {retweetCount})</h4>
+                  <h4>Retweets (<em>in den nächsten Tagen</em>)</h4>
                   <PieChart className="Info-retweets" numbers={this.state.retweets}/>
                 </Col>
                 <Col md={4}>
-                  <h4>Retweeters (Count {retweetersCount})</h4>
+                  <h4>Retweeters (<em>in den nächsten Tagen</em>)</h4>
                   <PieChart className="Info-retweeters" numbers={this.state.retweeters}/>
                 </Col>
               </Row>

@@ -67,7 +67,7 @@ class App extends Component {
             <p>
                 Twitter Bots sind computergesteuerte Programme die sich automatisiert auf dem Social Network bewegen
                 und verschiedene Ziele verfolgen. Die meisten betreiben quasi Marketing und folgen wild allen möglichen
-                Accounts und tauchen so in deren Benachrichtigungen auf. Andere sorgen aber mit Retweets für eine größere
+                Accounts und erzeugen so Aufmerksamkeit. Andere sorgen aber mit Retweets für eine größere
                 Reichweite anderer Accounts die sie voranbringen wollen. Gut wäre da nun Einblick, wieviele Retweets der
                 Politiker von Bots sind, um besser einschätzen zu können, ob da nachgeholfen wird.  Zur Erkennung ob ein
                 Twitter Account ein Bot ist, verlassen wir uns auf die mehrjährige Recherche-Arbeit des Projekts
@@ -77,10 +77,9 @@ class App extends Component {
                 dass es sich um einen Bot handelt.
             </p>
             <p>
-                <strong>
-                Für jeden Politiker zu dem wir die Daten einholen konnten, zeigen wir hier nun den Anteil der Follower
-                die Bots sind, den Anteil der Retweets die von Bots stammen und wieviel Prozent der Retweeter Bots sind.
-                </strong>
+                Für jeden Politiker zu dem wir die Daten einholen konnten, zeigen wir hier nun den <strong>Anteil der
+                Follower die Bots sind, den Anteil der Retweets die von Bots stammen und wieviel Prozent der Retweeter
+                Bots sind.</strong>
             </p>
           </Jumbotron>
         </Row>
