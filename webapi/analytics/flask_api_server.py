@@ -39,7 +39,7 @@ def index():
 
 
 @app.route("/pbc/districts")
-def index():
+def districts():
     """
     Return organizational entities like Landesliste Hessen and the hessian election districts
     """
@@ -47,7 +47,7 @@ def index():
 
 
 @app.route("/pbc/districts/<slug>")
-def index(slug=None):
+def show_district(slug=None):
     """
     Return one organizational entity like Landesliste Hessen or a hessian election district
     as well as the candidates in them
@@ -61,7 +61,7 @@ def index(slug=None):
 
 
 @app.route("/pbc/parties/<slug>")
-def party(slug=None):
+def show_party(slug=None):
     """
     Return organizational entities like Landesliste Hessen and the hessian election districts
     as well as the candidates in them
@@ -90,7 +90,7 @@ def get_full_name(name):
 
 
 @app.route("/pbc/users/<slug>")
-def candidate_info(slug=None):
+def show_candidate(slug=None):
     """
     """
     if slug is None:
