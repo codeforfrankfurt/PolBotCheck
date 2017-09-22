@@ -78,11 +78,11 @@ class MemberPage extends Component {
             <Title />
               <div><Link to="/">Zurück</Link></div>
             <Row className="App-profile" >
-                <Col md={4}>
+                <Col md={4} xs={8}>
                   <img className="Profile-picture" alt="Profilbild"
                        src={getPhoto(this.state.member.photos, this.state.twitter)}/>
                 </Col>
-                <Col md={4}>
+                <Col md={4} xs={4}>
                   <Panel bsStyle="primary"
                          bsSize="large">
                     <p>Name: {this.state.member.name ? this.state.member.name : '-'}</p>
