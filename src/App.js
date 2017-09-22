@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router'
 import {Grid, Row, Col, Jumbotron, Panel} from 'react-bootstrap'
-import logo from './logo.png'
+import logo from '../public/logo.png'
 import './App.css'
 
 class App extends Component {
