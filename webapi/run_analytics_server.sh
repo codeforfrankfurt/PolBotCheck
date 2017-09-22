@@ -1,8 +1,5 @@
 #!/bin/bash
 
-from dotenv import load_dotenv, find_dotenv
-load_dotenv(find_dotenv(), override=True)
-
 if [[ "$FLASK_ENV" == "production" ]]; then
 	export PYTHONPATH="./polbotcheck:./webapi"
 	: ${WEB_CONCURRENCY:=4}

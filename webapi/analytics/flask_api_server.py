@@ -1,5 +1,9 @@
 import os
 
+if not os.environ['FLASK_ENV'] == 'production':
+    from dotenv import load_dotenv, find_dotenv
+    load_dotenv(find_dotenv(), override=True)
+
 from flask import Flask, jsonify
 from flask_cors import CORS
 
