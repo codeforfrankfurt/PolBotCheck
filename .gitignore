@@ -1,7 +1,5 @@
 .idea
 tags
-keys.py
-db_credentials.py
 .node_modules
 *.pyc
 
