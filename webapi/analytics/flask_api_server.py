@@ -11,14 +11,15 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-
-if os.environ['WEB_CONCURRENCY'] > 1:
+print("Value of WEB_CONCURRENCY is %s" % os.environ['WEB_CONCURRENCY'])
+if int(os.environ['WEB_CONCURRENCY']) > 1:
     # sleep for a random interval to avoid all workers hitting
     # the database multiple times on bootup
     from random import randint
     from time import sleep
-
-    sleep(randint(4,20))
+    interval = randint(4,20)
+    print("Sleep for %d seconds to avoid too many concurrent db hits" % interval)
+    sleep(interval)
 import db
 
 
