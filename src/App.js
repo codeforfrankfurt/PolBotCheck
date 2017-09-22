@@ -54,8 +54,8 @@ class App extends Component {
     return (
       <Grid className="App">
         <Row>
-          <a href="http://codefor.de/frankfurt">
-            <img src={logo} className="App-logo" alt="Logo von Code for Frankfurt"/>
+          <a href="http://codefor.de/frankfurt" id="logo">
+            <img src={logo} alt="Logo von Code for Frankfurt"/>
           </a>
           <h1>BotOrNot hessische BTW-Kandidaten 2017</h1>
         </Row>
@@ -113,15 +113,19 @@ class App extends Component {
               </Col>
         </Row>
         <Row>
-          <Panel header="Quellen">
-            Die Liste der Politiker und die Infos über sie, u.a. die Twitter-Profile haben wir über
-            <a href="https://github.com/okfde/wahldaten/tree/master/kandidierende">github.com/okfde/wahldaten</a> eingeholt.
-
-            Die Wahrscheinlichkeit ob ein Account ein Bot ist, holen wir uns über
-            <a href="http://truthy.indiana.edu/botornot/">Botometer</a> (früher Truthy BotOrNot) von der
-            Indiana University aus den USA ein.
-
-            Die Follower und Retweet Daten sind über die Twitter-API von Twitter selbst eingeholt worden.
+          <Panel id="footer" header="Quellen">
+            <p>
+                Die Liste der Politiker und die Infos über sie, u.a. die Twitter-Profile haben wir über
+                <a href="https://github.com/okfde/wahldaten/tree/master/kandidierende">github.com/okfde/wahldaten</a> eingeholt.
+            </p>
+            <p>
+                Die Wahrscheinlichkeit ob ein Account ein Bot ist, holen wir uns über
+                <a href="http://truthy.indiana.edu/botornot/">Botometer</a> (früher Truthy BotOrNot) von der
+                Indiana University aus den USA ein.
+            </p>
+            <p>
+                Die Follower und Retweet Daten sind über die Twitter-API von Twitter selbst eingeholt worden.
+            </p>
           </Panel>
         </Row>
       </Grid>

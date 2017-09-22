@@ -3,3 +3,12 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.App-logo {
+    -webkit-animation: none;
+    animation: none;
+}
+
+#footer {
+    margin-top: 3em;
+}
