@@ -2,7 +2,7 @@
   "root": "build/",
   "https_only": true,
   "routes": {
-    "/*.html": "index.html"
+    "/*.html": "index.html",
     "/politicians/*": "index.html"
   },
   "headers": {
