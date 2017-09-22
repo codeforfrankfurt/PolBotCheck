@@ -85,7 +85,7 @@ def candidate_info(slug=None):
             "photos" : candidate["photos"]
         },
         "twitter": {
-            "profile_url": twitter_user["twitter"]["profile_image_url"],
+            "profile_url": twitter_user["twitter"]["profile_image_url_https"],
         },
         "wordCluster": twitter_user.get("word_frequencies") or {'topics': []},
         "followers": followers,
