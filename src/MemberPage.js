@@ -66,7 +66,6 @@ class MemberPage extends Component {
     }
 
     render() {
-        const photo = this.state.member.photos.length > 0 ? this.state.member.photos[0].url : picPlaceholder;
         const followerCount = <span>Gesamt: {this.state.followers.numFollowers}, analysierte<br />
             Bots: {this.state.followers.numBots} oder Menschen: {this.state.followers.numHumans}</span>;
         const retweetCount = this.state.retweets.numHumans + this.state.retweets.numBots;
@@ -78,7 +77,7 @@ class MemberPage extends Component {
             <Row className="App-profile" >
                 <Col md={4}>
                   <img className="Profile-picture" alt="Profilbild"
-                       src={photo}/>
+                       src={getPhoto(this.state.member.photos)}/>
                 </Col>
                 <Col md={4}>
                   <Panel bsStyle="primary"
@@ -109,6 +108,28 @@ class MemberPage extends Component {
             </Row>
           </div>
         )
+    }
+}
+
+function getPhoto(photos) {
+    if (photos.length === 0) {
+        return picPlaceholder;
+    } else {
+        let wikimediaPhoto = photos.find((p) => p.url.indexOf('wikimedia') !== -1);
+        wikimediaPhoto = wikimediaPhoto && wikimediaPhoto.url;
+
+        let abgwPhoto = photos.find((p) => p.url.indexOf('abgeordnetenwatch') !== -1);
+        if (abgwPhoto) {
+            // get non-404 images through web.archive.org, the 20 is the first part of the date,
+            // id_ gives the original scraped file without header
+            abgwPhoto = 'https://web.archive.org/web/20id_/' + abgwPhoto.url;
+        }
+
+        if (!wikimediaPhoto && !abgwPhoto) {
+            return photos[0].url;
+        }
+
+        return wikimediaPhoto ? wikimediaPhoto : abgwPhoto;
     }
 }
 
