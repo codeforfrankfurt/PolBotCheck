@@ -1,12 +1,29 @@
+import os
+
+if not os.environ['FLASK_ENV'] == 'production':
+    from dotenv import load_dotenv, find_dotenv
+    load_dotenv(find_dotenv(), override=True)
+
 from flask import Flask, jsonify
 from flask_cors import CORS
-
-import db
 
 ######################### FLASK APP
 app = Flask(__name__)
 CORS(app)
 
+print("Value of WEB_CONCURRENCY is %s" % os.environ['WEB_CONCURRENCY'])
+if int(os.environ['WEB_CONCURRENCY']) > 1:
+    # sleep for a random interval to avoid all workers hitting
+    # the database multiple times on bootup
+    from random import randint
+    from time import sleep
+    interval = randint(4,20)
+    print("Sleep for %d seconds to avoid too many concurrent db hits" % interval)
+    sleep(interval)
+import db
+
+
+######################### ACTIONS
 @app.route("/pbc")
 def index():
     """
@@ -87,4 +104,5 @@ def candidate_info(slug=None):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=6755)
+    port = os.environ.get('PORT') or 6755
+    app.run(host="0.0.0.0", port=port)
