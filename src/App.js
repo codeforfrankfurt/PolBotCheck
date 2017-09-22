@@ -8,7 +8,13 @@ class App extends Component {
 
   state = {
       politicians: [],
-      parties: [],
+      parties: [
+        {name: "AfD", slug: 'afd'},
+        {name: "CDU", slug: 'cdu'},
+        {name: "Grüne", slug: 'gruene'},
+        {name: "Linke", slug: 'linke'},
+        {name: "SPD", slug: 'spd'}
+      ],
       districts: {candidates_by_district: []}
   };
 
@@ -24,7 +30,6 @@ class App extends Component {
   }
 
   componentWillMount() {
-    this.load('parties', 'https://trustfact.dilab.co/api/v2/parties');
     this.load('districts', 'https://botornot-hessen-api.herokuapp.com/pbc');
     this.load('politicians', '/candidates.json');
   }
@@ -72,9 +77,9 @@ class App extends Component {
                 dass es sich um einen Bot handelt.
             </p>
             <p>
-                Für jeden Politiker zu dem wir die Daten einholen konnten, zeigen wir hier nun den <strong>Anteil der
-                Follower die Bots sind, den Anteil der Retweets die von Bots stammen und wieviel Prozent der Retweeter
-                Bots sind.</strong>
+                Für jeden Politiker zu dem wir die Daten einholen konnten (siehe Quellen unten), zeigen wir hier nun den&nbsp;
+                <strong>Anteil der Follower die Bots sind, den Anteil der Retweets die von Bots stammen und wieviel
+                Prozent der Retweeter Bots sind.</strong>
             </p>
           </Jumbotron>
         </Row>
@@ -93,7 +98,7 @@ class App extends Component {
                   <h3>Parteien</h3>
                   <ul>
                       {this.state.parties.map(function(value) {
-                          return <li key={value.id}><Link to={'/parties/' + value.name}>{value.name} - {value.longName}</Link></li>;
+                          return <li key={value.slug}><Link to={'/parties/' + value.slug}>{value.name}</Link></li>;
                       })}
                   </ul>
               </Col>
