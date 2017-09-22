@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router'
 import {Grid, Row, Col, Jumbotron, Panel} from 'react-bootstrap'
-import logo from '../public/logo.png'
 import './App.css'
+import Title from './Title'
 
 class App extends Component {
 
@@ -53,12 +53,7 @@ class App extends Component {
     }
     return (
       <Grid className="App">
-        <Row>
-          <a href="http://codefor.de/frankfurt">
-            <img className="App-logo" src={logo} alt="Logo von Code for Frankfurt"/>
-          </a>
-          <h1>BotOrNot hessische BTW-Kandidaten 2017</h1>
-        </Row>
+        <Title />
         <Row>
           <Jumbotron>
             <h2>

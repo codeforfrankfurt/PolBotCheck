@@ -2,6 +2,7 @@
  * Created by peter on 04.03.17.
  */
 import React, {Component} from 'react';
+import Title from './Title'
 import { Link } from 'react-router'
 import {Col, Row, Panel} from 'react-bootstrap';
 import PieChart from './PieChart';
@@ -71,8 +72,9 @@ class MemberPage extends Component {
         const retweetCount = this.state.retweets.numHumans + this.state.retweets.numBots;
         const retweetersCount = this.state.retweeters.numHumans + this.state.retweeters.numBots;
         return (
-          <div>
-            <div><Link to="/">Zurück</Link></div>
+          <div className="container">
+            <Title />
+              <div><Link to="/">Zurück</Link></div>
             <Row className="App-profile" >
                 <Col md={4}>
                   <img className="Profile-picture" alt="Profilbild"
