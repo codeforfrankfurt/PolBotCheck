@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, jsonify
 from flask_cors import CORS
 
@@ -85,4 +87,5 @@ def candidate_info(slug=None):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=6755)
+    port = os.environ.get('PORT') or 6755
+    app.run(host="0.0.0.0", port=port)

@@ -16,4 +16,4 @@ nltk==3.2.4
 numpy==1.13.0
 scipy==0.19.1
 scikit-learn==0.18.2
-
+gunicorn==19.7.1
