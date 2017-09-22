@@ -1,6 +1,10 @@
 {
   "root": "build/",
   "https_only": true,
+  "routes": {
+    "/*.html": "index.html"
+    "/politicians/*": "index.html"
+  },
   "headers": {
     "/**": {
       "Strict-Transport-Security": "max-age=7776000"

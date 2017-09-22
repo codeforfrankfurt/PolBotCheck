@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router'
 import {Grid, Row, Col, Jumbotron} from 'react-bootstrap'
-import logo from './logo.svg'
 import './App.css'
 
 class App extends Component {
@@ -54,7 +53,6 @@ class App extends Component {
     return (
       <Grid className="App">
         <Row>
-          <img src={logo} className="App-logo" alt="logo"/>
           <h1>BotOrNot hessische BTW-Kandidaten 2017</h1>
         </Row>
         <Row>
@@ -67,9 +65,9 @@ class App extends Component {
                 und verschiedene Ziele verfolgen. Die meisten betreiben quasi Marketing und folgen wild allen möglichen
                 Accounts und tauchen so in deren Benachrichtigungen auf. Andere sorgen aber mit Retweets für eine größere
                 Reichweite anderer Accounts die sie voranbringen wollen. Gut wäre da nun Einblick, wieviele Retweets der
-                Politker von Bots sind, um besser einschätzen zu können, ob da nachgeholfen wird.  Zur Erkennung ob ein
+                Politiker von Bots sind, um besser einschätzen zu können, ob da nachgeholfen wird.  Zur Erkennung ob ein
                 Twitter Account ein Bot ist, verlassen wir uns auf die mehrjährige Recherche-Arbeit des Projekts
-                <a href="http://truthy.indiana.edu/botornot/">Truthy BotOrNot</a>. Es wurde 2014 von der Indiana University
+                <a href="http://truthy.indiana.edu/botornot/">Botometer</a> (früher Truthy  BotOrNot). Es wurde 2014 von der Indiana University
                 aus den USA ins Leben gerufen. Über deren Web-Dienst kann man die Wahrscheinlichkeit einholen, mit der ein
                 Twitter Account ein Bot ist. Wir gehen ab 70% Prozent davon aus, dass es sich um einen Bot handelt.
                 Für jeden Politiker zu dem wir die Daten einholen konnten, zeigen wir hier nun den Anteil der Follower
@@ -77,7 +75,7 @@ class App extends Component {
             </p>
             <p>
                 Die Liste der Politiker und die Infos über sie, u.a. die Twitter-Profile haben wir über
-                <a href="https://github.com/okfde/wahldaten">github.com/okfde/wahldaten</a> eingeholt.
+                <a href="https://github.com/okfde/wahldaten/tree/master/kandidierende">github.com/okfde/wahldaten</a> eingeholt.
             </p>
           </Jumbotron>
         </Row>
