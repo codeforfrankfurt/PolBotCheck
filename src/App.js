@@ -25,8 +25,8 @@ class App extends Component {
 
   componentWillMount() {
     this.load('parties', 'https://trustfact.dilab.co/api/v2/parties');
-    this.load('districts', 'http://localhost:6755/pbc');
-    this.load('politicians', 'http://localhost:3000/candidates.json');
+    this.load('districts', 'https://botornot-hessen-api.herokuapp.com/pbc');
+    this.load('politicians', '/candidates.json');
   }
 
   getFullName(name) {
@@ -55,23 +55,29 @@ class App extends Component {
       <Grid className="App">
         <Row>
           <img src={logo} className="App-logo" alt="logo"/>
-          <h1>Welcome to PolBotCheck</h1>
+          <h1>BotOrNot hessische BTW-Kandidaten 2017</h1>
         </Row>
         <Row>
           <Jumbotron>
             <h2>
-                Our goal is to show information about politicians regarding who is retweeting their Twitter tweets,
-                if it is humans or bots.
+                Twitter Bots folgen vielen Accounts, wieviele sind unter den Followern unserer BTW-Kandidaten 2017?
             </h2>
             <p>
-                We use information from <a href="http://truthy.indiana.edu/botornot/">Truthy BotOrNot</a>, a project
-                from Indiana University, which calculates a probability of a Twitter account being a bot or a human.
-                We check that on retweeters of a politician and calculate a score for each topic (aka hashtag) he or
-                she is talking about. This helps to identify, if a tweet is really interesting to the public or if it
-                is only interesting for certain bots.
+                Twitter Bots sind computergesteuerte Programme die sich automatisiert auf dem Social Network bewegen
+                und verschiedene Ziele verfolgen. Die meisten betreiben quasi Marketing und folgen wild allen möglichen
+                Accounts und tauchen so in deren Benachrichtigungen auf. Andere sorgen aber mit Retweets für eine größere
+                Reichweite anderer Accounts die sie voranbringen wollen. Gut wäre da nun Einblick, wieviele Retweets der
+                Politker von Bots sind, um besser einschätzen zu können, ob da nachgeholfen wird.  Zur Erkennung ob ein
+                Twitter Account ein Bot ist, verlassen wir uns auf die mehrjährige Recherche-Arbeit des Projekts
+                <a href="http://truthy.indiana.edu/botornot/">Truthy BotOrNot</a>. Es wurde 2014 von der Indiana University
+                aus den USA ins Leben gerufen. Über deren Web-Dienst kann man die Wahrscheinlichkeit einholen, mit der ein
+                Twitter Account ein Bot ist. Wir gehen ab 70% Prozent davon aus, dass es sich um einen Bot handelt.
+                Für jeden Politiker zu dem wir die Daten einholen konnten, zeigen wir hier nun den Anteil der Follower
+                die Bots sind, den Anteil der Retweets die von Bots stammen und wieviel Prozent der Retweeter Bots sind.
             </p>
             <p>
-                The list of politicians was loaded from <a href="https://github.com/okfde/wahldaten">github.com/okfde/wahldaten</a>.
+                Die Liste der Politiker und die Infos über sie, u.a. die Twitter-Profile haben wir über
+                <a href="https://github.com/okfde/wahldaten">github.com/okfde/wahldaten</a> eingeholt.
             </p>
           </Jumbotron>
         </Row>
