@@ -70,32 +70,38 @@ class MemberPage extends Component {
         return (
           <div>
             <div><Link to="/">Zurück</Link></div>
-            <Col className="App-profile" md={4}>
-              <img className="Profile-picture" alt="Profilbild"
-                   src={this.state.member.pictureURL}/>
-              <Panel bsStyle="primary"
-                     bsSize="large">
-                <p>Name: {this.state.member.name ? this.state.member.name : '-'}</p>
-                <p>Partei: {this.state.member.party ? this.state.member.party : '-'}</p>
-                <p>Twitter-Account: {this.state.member.twitter_handle ? getTwitterLink(this.state.member.twitter_handle) : '-'}</p>
-              </Panel>
-            </Col>
-            <Col className="App-info" md={8}>
-              <Row>
+            <Row className="App-profile" >
                 <Col md={4}>
-                  <h4>Follower ({followerCount})</h4>
-                  <PieChart className="Info-followers" numbers={this.state.followers}/>
+                  <img className="Profile-picture" alt="Profilbild"
+                       src={this.state.member.pictureURL}/>
                 </Col>
                 <Col md={4}>
-                  <h4>Retweets (<em>in den nächsten Tagen</em>)</h4>
-                  <PieChart className="Info-retweets" numbers={this.state.retweets}/>
+                  <Panel bsStyle="primary"
+                         bsSize="large">
+                    <p>Name: {this.state.member.name ? this.state.member.name : '-'}</p>
+                    <p>Partei: {this.state.member.party ? this.state.member.party : '-'}</p>
+                    <p>Twitter-Account: {this.state.member.twitter_handle ? getTwitterLink(this.state.member.twitter_handle) : '-'}</p>
+                  </Panel>
                 </Col>
-                <Col md={4}>
-                  <h4>Retweeters (<em>in den nächsten Tagen</em>)</h4>
-                  <PieChart className="Info-retweeters" numbers={this.state.retweeters}/>
+            </Row>
+            <Row>
+                <Col className="App-info" md={12}>
+                  <Row>
+                    <Col md={4}>
+                      <h4>Follower ({followerCount})</h4>
+                      <PieChart className="Info-followers" numbers={this.state.followers}/>
+                    </Col>
+                    <Col md={4}>
+                      <h4>Retweets (<em>in den nächsten Tagen</em>)</h4>
+                      <PieChart className="Info-retweets" numbers={this.state.retweets}/>
+                    </Col>
+                    <Col md={4}>
+                      <h4>Retweeters (<em>in den nächsten Tagen</em>)</h4>
+                      <PieChart className="Info-retweeters" numbers={this.state.retweeters}/>
+                    </Col>
+                  </Row>
                 </Col>
-              </Row>
-            </Col>
+            </Row>
           </div>
         )
     }
