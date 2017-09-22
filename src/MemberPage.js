@@ -6,7 +6,6 @@ import Title from './Title'
 import { Link } from 'react-router'
 import {Col, Row, Panel} from 'react-bootstrap';
 import PieChart from './PieChart';
-import BarChart from './BarChart';
 import picPlaceholder from '../public/Portrait_placeholder.png'
 
 class MemberPage extends Component {

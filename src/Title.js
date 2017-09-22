@@ -5,11 +5,12 @@ import './Title.css'
 
 class Title extends Component {
     render() {
-        return (<Row><Col xs={12}>
+        return (<Row><Col xs={12} className="main-title">
             <a href="http://codefor.de/frankfurt">
                 <img className="App-logo" src={logo} alt="Logo von Code for Frankfurt"/>
             </a>
-            <h1 className="main-title">BotOrNot hessische BTW-Kandidaten 2017</h1>
+            <h1>BotOrNot</h1>
+            <p>hessische BTW-Kandidaten 2017</p>
         </Col></Row>)
     }
 }
