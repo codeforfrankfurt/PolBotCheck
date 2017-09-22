@@ -7,12 +7,22 @@ if not os.environ['FLASK_ENV'] == 'production':
 from flask import Flask, jsonify
 from flask_cors import CORS
 
-import db
-
 ######################### FLASK APP
 app = Flask(__name__)
 CORS(app)
 
+
+if os.environ['WEB_CONCURRENCY'] > 1:
+    # sleep for a random interval to avoid all workers hitting
+    # the database multiple times on bootup
+    from random import randint
+    from time import sleep
+
+    sleep(randint(4,20))
+import db
+
+
+######################### ACTIONS
 @app.route("/pbc")
 def index():
     """
