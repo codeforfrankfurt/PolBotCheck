@@ -11,9 +11,9 @@ class App extends Component {
       parties: {
         afd: "AfD",
         cdu: "CDU",
+        linke: "DIE LINKE",
         fdp: "FDP",
         gruene: "GRÜNE",
-        linke: "DIE LINKE",
         spd: "SPD"
       },
       districts: {districts: []}
@@ -55,6 +55,7 @@ class App extends Component {
   }
 
   render() {
+    const politicians = this.state.politicians.sort((a, b) => a.name.surname.localeCompare(b.name.surname));
     const parties = this.state.parties;
     const districts = this.state.districts.districts;
     return (
@@ -89,7 +90,7 @@ class App extends Component {
               <Col md={4}>
                   <h3>Politiker</h3>
                   <ul>
-                    {this.state.politicians.map(function(value) {
+                    {politicians.map(function(value) {
                         return <li key={value.id}>
                           <Link to={'/politicians/' + value.slug}>
                             {this.getCandidateEntry(value)}</Link></li>
