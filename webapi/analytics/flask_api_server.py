@@ -55,15 +55,10 @@ def show_district(slug=None):
     Return one organizational entity like Landesliste Hessen or a hessian election district
     as well as the candidates in them
     """
-    districts = db.get_districts()
-    district = None
-    for d in districts:
-        if d['_key'] == slug:
-            district = d
-            break
-    candidate_cursor = db.get_candidates_by_district(slug)
+    district = db.get_district(slug)
+    candidates_cursor = db.get_candidates_by_district(slug)
     candidates = []
-    for candidate in candidate_cursor:
+    for candidate in candidates_cursor:
         candidates.append(candidate)
     return jsonify({
         'district': {
@@ -129,6 +124,10 @@ def show_candidate(slug=None):
         if word_frequencies:
             word_cluster = word_frequencies
 
+    election = candidate['election']
+    district = db.get_district(election['district'])
+    election['district'] = {'id': district['_key'], 'name': district['name']}
+
     json_output = {
         "content": "MEMBER", 
         "member": {
@@ -151,7 +150,7 @@ def show_candidate(slug=None):
               "numHumans": None,
               "numBots": None
         },
-        "election": candidate['election'],
+        "election": election,
         "botness": twitter_user["botness"] if twitter_user and "botness" in twitter_user else {}
     }
 

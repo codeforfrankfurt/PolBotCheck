@@ -191,6 +191,11 @@ def get_districts():
     return cursor
 
 
+def get_district(number):
+    if number == None:
+        number = '0'
+    return districtsCol.get(str(number))
+
 
 def get_candidate(slug):
     candidate = candidatesCol.find({'_key': slug})
