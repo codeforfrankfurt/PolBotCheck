@@ -9,7 +9,31 @@
 }
 
 .jumbotron p {
-    font-size: 18px;
+    font-size: 16px;
+}
+
+dl, dd {
+    display: inline;
+}
+
+dd {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+dt {
+    display: none;
+    position: absolute;
+    background: #ffe;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: left;
+    padding: 5px;
+    max-width: 320px;
+}
+
+dl:hover dt {
+    display: inline-block;
 }
 
 .App-header {

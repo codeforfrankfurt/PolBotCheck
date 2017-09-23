@@ -45,28 +45,43 @@ class App extends Component {
         <Row>
           <Jumbotron>
             <h2>
-                Twitter Bots folgen vielen Accounts, wieviele sind unter den Followern unserer BTW-Kandidaten 2017?
+                Wer folgt unseren Bundestagswahl-Kandidaten wirklich?
             </h2>
+            <p>Sind es Bots oder echte Menschen, die den Kandidaten folgen? Das finden wir hier für euch heraus,
+                damit klar wird, was echt ist und was nicht.
+            </p>
+
+            <h3>Was sind das für Bots, um die es geht?</h3>
             <p>
                 Twitter Bots sind computergesteuerte Programme die sich automatisiert auf dem Social Network bewegen
-                und verschiedene Ziele verfolgen. Die meisten betreiben quasi Marketing und folgen wild allen möglichen
-                Accounts und erzeugen so Aufmerksamkeit. Andere sorgen aber mit Retweets für eine größere
-                Reichweite anderer Accounts die sie voranbringen wollen.
+                und verschiedene Ziele verfolgen. Die meisten betreiben Marketing und folgen allen möglichen
+                Accounts und erzeugen so Aufmerksamkeit. Andere sorgen mit Retweets für eine größere
+                Reichweite anderer Accounts, die sie voranbringen wollen.
             </p>
             <p>
-                Gut wäre da nun Einblick, wieviele Retweets der
-                Politiker von Bots sind, um besser einschätzen zu können, ob da nachgeholfen wird.  Zur Erkennung ob ein
-                Twitter Account ein Bot ist, verlassen wir uns auf die mehrjährige Recherche-Arbeit des Projekts&nbsp;
-                <a href="http://truthy.indiana.edu/botornot/">Botometer</a> (früher Truthy BotOrNot). Es wurde 2014 von
-                der Indiana University aus den USA ins Leben gerufen. Über deren Web-Dienst kann man die
-                Wahrscheinlichkeit einholen, mit der ein Twitter Account ein Bot ist. Wir gehen ab 70% Prozent davon aus,
-                dass es sich um einen Bot handelt.
+                Eigentlich ist es noch kein Problem, wenn Bots dem Account eines Kandidaten folgen. Problematisch wird
+                es, wenn wir als Wähler die Meldungen eines Kandidaten häufiger zu sehen bekommen, weil sie angeblich
+                viele andere interessieren (und daher auch mich interessieren könnten), aber hauptsächlich Bots diese
+                Retweets erzeugt haben.
+            </p>
+
+            <h3>Und wie erkenne ich, welche Retweets "echt" sind, und was von Bots künstlich erzeugt wird?</h3>
+            <p>
+                Wir geben dir einen Einblick, wieviele Retweets der Politiker von Bots sind, um besser einschätzen zu können,
+                ob nachgeholfen wird. Zur Erkennung ob ein Twitter Account ein Bot ist, verlassen wir uns auf die
+                mehrjährige Recherche-Arbeit des <dl><dd>Projekts&nbsp;
+                <a href="http://truthy.indiana.edu/botornot/">Botometer</a></dd><dt>früher Truthy BotOrNot</dt></dl>.
+                Es wurde 2014 von der Indiana University aus den USA ins Leben gerufen. Über deren Web-Dienst kann man die
+                Wahrscheinlichkeit einholen, mit der ein Twitter Account ein Bot ist.
             </p>
             <p>
-                Für jeden Politiker zu dem wir die Daten einholen konnten (die Datenlage ist recht eingeschränkt, siehe
-                Quellen ganz unten, daher auch die fehlenden Parteien und Wahlkreise), zeigen wir hier nun den <strong>Anteil
-                der Follower die Bots sind, den Anteil der Retweets die von Bots stammen und wieviel Prozent der
-                Retweeter Bots sind.</strong>
+                Wir gehen ab 70% Prozent davon aus, dass es sich um einen Bot handelt.
+            </p>
+            <p>
+                Für jeden <dl><dd>Politiker, zu dem wir die Daten einholen konnten</dd><dt>die Datenlage ist recht
+                eingeschränkt, siehe Quellen ganz unten, daher auch die fehlenden Parteien und Wahlkreise</dt></dl>&nbsp;
+                zeigen wir hier nun den <strong>Anteil der Follower die Bots sind, den Anteil der Retweets die von Bots
+                stammen und wieviel Prozent der Retweeter Bots sind.</strong>
             </p>
           </Jumbotron>
         </Row>
