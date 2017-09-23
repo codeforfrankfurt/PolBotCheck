@@ -8,7 +8,7 @@ class PartyPage extends Component {
     state = {
         party: {
             name: '',
-            membersOnList: []
+            membersOnLists: []
         }
     }
 
@@ -27,7 +27,7 @@ class PartyPage extends Component {
     }
 
     render() {
-        let members = this.state.party.membersOnList.map(member => (
+        let members = this.state.party.membersOnLists.map(member => (
             <li key={member.id}>
                 <Link to={'/politicians/' + member.slug}>{this.getFullName(member.name)}</Link>
             </li>
@@ -44,7 +44,7 @@ class PartyPage extends Component {
 
             <Row className="App-info">
                 <Col xs={12}>
-                    <h3>Mitglieder auf der Liste</h3>
+                    <h3>Mitglieder auf den Listen</h3>
                     {members}
                 </Col>
             </Row>

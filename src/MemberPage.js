@@ -40,7 +40,7 @@ class MemberPage extends Component {
 
     componentWillMount() {
         let self = this;
-        const url = 'https://botornot-hessen-api.herokuapp.com/pbc/user/' + this.props.params.slug;
+        const url = 'https://botornot-hessen-api.herokuapp.com/pbc/users/' + this.props.params.slug;
         fetch(url, {mode: 'cors', headers: {'Accept': 'application/json'}})
             .then(res => {
                 return res.json().then(data => {
