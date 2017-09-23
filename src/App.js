@@ -15,7 +15,7 @@ class App extends Component {
         {name: "Linke", slug: 'linke'},
         {name: "SPD", slug: 'spd'}
       ],
-      districts: {candidates_by_district: []}
+      districts: {districts: []}
   };
 
   load(what, url) {
@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    this.load('districts', 'https://botornot-hessen-api.herokuapp.com/pbc');
+    this.load('districts', 'https://botornot-hessen-api.herokuapp.com/pbc/districts');
     this.load('politicians', '/candidates.json');
   }
 
@@ -52,10 +52,7 @@ class App extends Component {
   }
 
   render() {
-    const districts = this.state.districts.candidates_by_district;
-    if (districts[0]) {
-        districts[0].district = "Landesliste"
-    }
+    const districts = this.state.districts.districts;
     return (
       <Grid className="App">
         <Title />
@@ -77,9 +74,10 @@ class App extends Component {
                 dass es sich um einen Bot handelt.
             </p>
             <p>
-                Für jeden Politiker zu dem wir die Daten einholen konnten (siehe Quellen unten), zeigen wir hier nun den&nbsp;
-                <strong>Anteil der Follower die Bots sind, den Anteil der Retweets die von Bots stammen und wieviel
-                Prozent der Retweeter Bots sind.</strong>
+                Für jeden Politiker zu dem wir die Daten einholen konnten (die Datenlage ist recht eingeschränkt, siehe
+                Quellen ganz unten, daher auch die fehlenden Parteien und Wahlkreise), zeigen wir hier nun den <strong>Anteil
+                der Follower die Bots sind, den Anteil der Retweets die von Bots stammen und wieviel Prozent der
+                Retweeter Bots sind.</strong>
             </p>
           </Jumbotron>
         </Row>
@@ -106,7 +104,7 @@ class App extends Component {
                   <h3>Wahlkreise</h3>
                   <ul>
                       {districts.map(function(districtObject) {
-                          return <li key={districtObject.district}><Link to={'/pbc/district/' + districtObject.district}>{districtObject.district}</Link></li>;
+                          return <li key={districtObject.id}><Link to={'/pbc/district/' + districtObject.id}>{districtObject.name}</Link></li>;
                       })}
                   </ul>
               </Col>
@@ -114,7 +112,7 @@ class App extends Component {
         <Row>
           <Panel id="footer" header="Quellen">
             <p>
-                Die Liste der Politiker und die Infos über sie, u.a. die Twitter-Profile haben wir über
+                Die Liste der Politiker und die Infos über sie, u.a. die Account-Namen der Twitter-Profile haben wir über&nbsp;
                 <a href="https://github.com/okfde/wahldaten/tree/master/kandidierende">github.com/okfde/wahldaten</a> eingeholt.
             </p>
             <p>
@@ -123,7 +121,12 @@ class App extends Component {
                 Indiana University aus den USA ein.
             </p>
             <p>
-                Die Follower und Retweet Daten sind über die Twitter-API von Twitter selbst eingeholt worden.
+                Die Follower und Retweet Daten sind über die <a href="https://dev.twitter.com/rest/public">Twitter-API</a>
+                &nbsp;von Twitter selbst eingeholt worden.
+            </p>
+            <p>
+                Die Namen der Wahlkreise haben wir über die&nbsp;
+                <a href="https://www.abgeordnetenwatch.de/api/">Abgeordnetenwatch API</a> abgerufen.
             </p>
           </Panel>
         </Row>
