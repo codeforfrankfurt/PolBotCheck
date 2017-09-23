@@ -3,7 +3,9 @@
   "https_only": true,
   "routes": {
     "/*.html": "index.html",
-    "/politicians/*": "index.html"
+    "/politicians/*": "index.html",
+    "/parties/*": "index.html",
+    "/districts/*": "index.html"
   },
   "headers": {
     "/**": {
