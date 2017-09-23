@@ -7,6 +7,7 @@ import { Link } from 'react-router'
 import {Col, Row, Panel} from 'react-bootstrap';
 import PieChart from './PieChart';
 import picPlaceholder from '../public/Portrait_placeholder.png'
+import { parties } from './Utils'
 
 class MemberPage extends Component {
 
@@ -80,7 +81,7 @@ class MemberPage extends Component {
                   src={getPhoto(this.state.member.photos, this.state.twitter)}/>
               <Panel bsStyle="primary" className="App-profile" bsSize="large">
                   <p>Name: {this.state.member.name ? this.state.member.name : '-'}</p>
-                  <p>Partei: {this.state.member.party ? this.state.member.party : '-'}</p>
+                  <p>Partei: {this.state.member.party ? parties[this.state.member.party] : '-'}</p>
                   <p>Twitter-Account: {this.state.member.twitter_handle ? getTwitterLink(this.state.member.twitter_handle) : '-'}</p>
               </Panel>
 
