@@ -219,6 +219,10 @@ def get_candidates_grouped_by_district():
 
 
 def get_candidates_by_district(district):
+    if district == "0":
+        district = None
+    else:
+        district = int(district)
     return candidatesCol.find({'election.district': district})
 
 

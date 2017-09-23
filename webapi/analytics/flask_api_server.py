@@ -55,12 +55,23 @@ def show_district(slug=None):
     Return one organizational entity like Landesliste Hessen or a hessian election district
     as well as the candidates in them
     """
-    groupings = []
-    candidates = db.get_candidates_by_district(slug)
-    for group in candidates_in_district:
-        print(group)
-        groupings.append(group)
-    return jsonify({'district': groupings})
+    districts = db.get_districts()
+    district = None
+    for d in districts:
+        if d['_key'] == slug:
+            district = d
+            break
+    candidate_cursor = db.get_candidates_by_district(slug)
+    candidates = []
+    for candidate in candidate_cursor:
+        candidates.append(candidate)
+    return jsonify({
+        'district': {
+            'id': slug,
+            'name': district['name'],
+            'candidates': candidates
+        }
+    })
 
 
 @app.route("/pbc/parties/<slug>")
@@ -74,7 +85,7 @@ def show_party(slug=None):
     for candidate in candidates_by_party:
         print(candidate)
         members.append(candidate)
-    return jsonify({'candidates_by_party': members})
+    return jsonify({'candidates': members})
 
 
 def get_full_name(name):
@@ -107,7 +118,7 @@ def show_candidate(slug=None):
 
     twitter_user = db.getUser(candidate.get('twitter_handle'))
     twitter_data = None
-    followers = {"numFollowers": None}
+    followers = {"numFollowers": None, "numBots": None, "numHumans": None}
     word_cluster = {'topics': []}
     if twitter_user:
         twitter_data = {"profile_url": twitter_user["twitter"]["profile_image_url_https"]}
