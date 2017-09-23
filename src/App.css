@@ -4,6 +4,14 @@
     text-align: center;
 }
 
+.App h2 {
+    font-size: 28px;
+}
+
+.jumbotron p {
+    font-size: 18px;
+}
+
 .App-header {
     background-color: #222;
     padding: 20px;

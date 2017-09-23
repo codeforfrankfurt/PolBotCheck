@@ -51,7 +51,10 @@ class App extends Component {
                 Twitter Bots sind computergesteuerte Programme die sich automatisiert auf dem Social Network bewegen
                 und verschiedene Ziele verfolgen. Die meisten betreiben quasi Marketing und folgen wild allen möglichen
                 Accounts und erzeugen so Aufmerksamkeit. Andere sorgen aber mit Retweets für eine größere
-                Reichweite anderer Accounts die sie voranbringen wollen. Gut wäre da nun Einblick, wieviele Retweets der
+                Reichweite anderer Accounts die sie voranbringen wollen.
+            </p>
+            <p>
+                Gut wäre da nun Einblick, wieviele Retweets der
                 Politiker von Bots sind, um besser einschätzen zu können, ob da nachgeholfen wird.  Zur Erkennung ob ein
                 Twitter Account ein Bot ist, verlassen wir uns auf die mehrjährige Recherche-Arbeit des Projekts&nbsp;
                 <a href="http://truthy.indiana.edu/botornot/">Botometer</a> (früher Truthy BotOrNot). Es wurde 2014 von
