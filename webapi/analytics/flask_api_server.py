@@ -133,7 +133,6 @@ def show_candidate(slug=None):
         "content": "MEMBER", 
         "member": {
             "name": full_name,
-            "party": candidate["election"]["party"],
             "twitter_handle": candidate.get('twitter_handle'),
             "facts" : candidate["facts"],
             "links" : candidate["links"],
