@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import BrowserHistory from 'react-router/lib/browserHistory'
 import { Link } from 'react-router'
-import {Row, Col, Panel} from 'react-bootstrap';
+import {Row, Col, Panel} from 'react-bootstrap'
 import Title from './Title'
 import { parties, getFullName } from './Utils'
 
@@ -39,7 +40,7 @@ class DistrictPage extends Component {
 
         return (<div className="container">
             <Title />
-            <div><Link to="/" className="btn btn-default">« Zurück</Link></div>
+            <div><button onClick={BrowserHistory.goBack} className="btn btn-default">« Zurück</button></div>
 
             <Panel bsStyle="primary" className="App-profile" bsSize="large">
                 <p>Wahlkreis: {this.state.district.name ? this.state.district.name : '-'}</p>

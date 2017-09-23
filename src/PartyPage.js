@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import BrowserHistory from 'react-router/lib/browserHistory'
 import { Link } from 'react-router'
-import {Row, Col, Panel} from 'react-bootstrap';
+import {Row, Col, Panel} from 'react-bootstrap'
 import Title from './Title'
 import { parties, getFullName } from './Utils'
 import * as partyLogos from './PartyLogos'
@@ -35,7 +36,7 @@ class PartyPage extends Component {
 
         return (<div className="container">
             <Title />
-            <div><Link to="/" className="btn btn-default">« Zurück</Link></div>
+            <div><button onClick={BrowserHistory.goBack} className="btn btn-default">« Zurück</button></div>
 
             <img className="Profile-picture" alt="Parteilogo" src={this.state.logo} />
             <Panel bsStyle="primary" className="App-profile" bsSize="large">

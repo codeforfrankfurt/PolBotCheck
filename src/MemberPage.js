@@ -1,11 +1,12 @@
 /**
  * Created by peter on 04.03.17.
  */
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import BrowserHistory from 'react-router/lib/browserHistory'
 import Title from './Title'
 import { Link } from 'react-router'
-import {Col, Row, Panel} from 'react-bootstrap';
-import PieChart from './PieChart';
+import {Col, Row, Panel} from 'react-bootstrap'
+import PieChart from './PieChart'
 import picPlaceholder from '../public/Portrait_placeholder.png'
 import { parties } from './Utils'
 
@@ -86,7 +87,7 @@ class MemberPage extends Component {
         return (
           <div className="container">
             <Title />
-              <div><Link to="/" className="btn btn-default">« Zurück</Link></div>
+              <div><button onClick={BrowserHistory.goBack} className="btn btn-default">« Zurück</button></div>
               <img className="Profile-picture" alt="Profilbild"
                   src={getPhoto(this.state.member.photos, this.state.twitter)}/>
               <Panel bsStyle="primary" className="App-profile" bsSize="large">
