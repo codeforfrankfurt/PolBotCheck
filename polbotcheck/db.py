@@ -185,7 +185,11 @@ def save_word_frequencies(user_name, word_frequencies):
         usersCol.update(user, merge=False)
 
 def get_districts():
-    return districtsCol.all()
+    cursor = db.aql.execute(
+        "FOR d IN %s SORT d.name ASC RETURN d" % districtsCol.name
+    )
+    return cursor
+
 
 
 def get_candidate(slug):
@@ -203,13 +207,13 @@ def get_candidate(slug):
 def get_candidates_grouped_by_district():
     cursor = db.aql.execute(
         '''
-        FOR c IN candidates
+        FOR c IN %s
             COLLECT district = c.election.district INTO candidateByDistrict
             RETURN {
                 district,
                 candidates: ( FOR temp IN candidateByDistrict SORT candidateByDistrict.d.election.list ASC RETURN {id: temp.c._key, election: temp.c.election} )
             }
-        '''[1:-1]
+        '''[1:-1] % candidatesCol.name
     )
     return cursor
 
