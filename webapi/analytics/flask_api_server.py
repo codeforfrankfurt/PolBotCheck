@@ -105,41 +105,44 @@ def show_candidate(slug=None):
 
     full_name = get_full_name(candidate['name'])
 
-    twitter_user = db.getUser(candidate['twitter_handle'])
-    if twitter_user is None:
-       return "Twitter user for candidate lost in the dark forest - make a donation to us to find this user."
-
-    followers = {"numFollowers": twitter_user["twitter"]["followers_count"]}
-    follower_stats = db.getFollowerStats(candidate['twitter_handle'])
-    followers.update(follower_stats)
+    twitter_user = db.getUser(candidate.get('twitter_handle'))
+    twitter_data = None
+    followers = {"numFollowers": None}
+    word_cluster = {'topics': []}
+    if twitter_user:
+        twitter_data = {"profile_url": twitter_user["twitter"]["profile_image_url_https"]}
+        followers["numFollowers"] = twitter_user["twitter"]["followers_count"]
+        follower_stats = db.getFollowerStats(candidate['twitter_handle'])
+        followers.update(follower_stats)
+        word_frequencies = twitter_user.get('word_frequencies')
+        if word_frequencies:
+            word_cluster = word_frequencies
 
     json_output = {
         "content": "MEMBER", 
         "member": {
             "name": full_name,
             "party": candidate["election"]["party"],
-            "twitter_handle": candidate['twitter_handle'],
+            "twitter_handle": candidate.get('twitter_handle'),
             "facts" : candidate["facts"],
             "links" : candidate["links"],
             "photos" : candidate["photos"]
         },
-        "twitter": {
-            "profile_url": twitter_user["twitter"]["profile_image_url_https"],
-        },
-        "wordCluster": twitter_user.get("word_frequencies") or {'topics': []},
+        "twitter": twitter_data,
+        "wordCluster": word_cluster,
         "followers": followers,
         "retweets": {
-              "numRetweets": 12,
-              "numHumans": 11,
-              "numBots": 1
+              "numRetweets": None,
+              "numHumans": None,
+              "numBots": None
         },
         "retweeters": {
-              "numRetweeters": 22,
-              "numHumans": 9,
-              "numBots": 13
+              "numRetweeters": None,
+              "numHumans": None,
+              "numBots": None
         },
         "election": candidate['election'],
-        "botness": twitter_user["botness"] if "botness" in twitter_user else {}
+        "botness": twitter_user["botness"] if twitter_user and "botness" in twitter_user else {}
     }
 
     return jsonify(json_output)

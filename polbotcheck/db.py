@@ -48,7 +48,7 @@ def getEdgeDefinition(graph, edgeDefName, fromCollections, toCollections):
     return graph.edge_collection(edgeDefName)
 
 def convertToKey(twitterHandle):
-    return twitterHandle.lower()
+    return twitterHandle and twitterHandle.lower()
 
 # create the collections we need, if necessary
 usersCol = getCollection('users')
