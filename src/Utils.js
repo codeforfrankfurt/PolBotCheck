@@ -1,5 +1,5 @@
 export const getFullName = function (name) {
-    let fullName = [];
+    let fullName = '';
     if(name['titles']) {
       fullName = fullName.concat(name['titles']+ ' ')
     }

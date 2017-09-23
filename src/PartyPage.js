@@ -18,7 +18,7 @@ class PartyPage extends Component {
         fetch(url, {mode: 'cors', headers: {'Accept': 'application/json'}})
             .then(res => {
                 return res.json().then(data => {
-                    self.state.candidates = data.candidates_by_party;
+                    self.state.candidates = data.candidates;
                     console.log(data);
                     self.setState(self.state);
                 });

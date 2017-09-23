@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router'
 import {Row, Col, Panel} from 'react-bootstrap';
 import Title from './Title'
-import picPlaceholder from '../public/Portrait_placeholder.png'
+import { parties, getFullName } from './Utils'
 
 class DistrictPage extends Component {
     state = {
@@ -27,18 +27,22 @@ class DistrictPage extends Component {
     }
 
     render() {
-        let candidates = this.state.district.candidates.map(candidate => (
-            <li key={candidate.id}>
-                <Link to={'/politicians/' + candidate.slug}>{this.getFullName(candidate.name)}</Link>
-            </li>
-        ), this)
+        let candidates = this.state.district.candidates.map(candidate => {
+            const fullName = getFullName(candidate.name);
+            const party = parties[candidate.election.party];
+            return (
+                <li key={candidate.id}>
+                    <Link to={'/politicians/' + candidate.slug}>{fullName + " (" + party + ") "}</Link>
+                </li>
+            );
+        }, this)
 
         return (<div className="container">
             <Title />
             <div><Link to="/" className="btn btn-default">« Zurück</Link></div>
 
             <Panel bsStyle="primary" className="App-profile" bsSize="large">
-                <p>Name: {this.state.district.name ? this.state.district.name : '-'}</p>
+                <p>Wahlkreis: {this.state.district.name ? this.state.district.name : '-'}</p>
             </Panel>
 
             <Row className="App-info">
