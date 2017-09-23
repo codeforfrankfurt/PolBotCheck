@@ -8,13 +8,14 @@ class App extends Component {
 
   state = {
       politicians: [],
-      parties: [
-        {name: "AfD", slug: 'afd'},
-        {name: "CDU", slug: 'cdu'},
-        {name: "Grüne", slug: 'gruene'},
-        {name: "Linke", slug: 'linke'},
-        {name: "SPD", slug: 'spd'}
-      ],
+      parties: {
+        afd: "AfD",
+        cdu: "CDU",
+        fdp: "FDP",
+        gruene: "GRÜNE",
+        linke: "DIE LINKE",
+        spd: "SPD"
+      },
       districts: {districts: []}
   };
 
@@ -34,24 +35,27 @@ class App extends Component {
     this.load('politicians', '/candidates.json');
   }
 
-  getFullName(name) {
+  getCandidateEntry(candidate) {
+    const name = candidate.name;
     let fullName = [];
     if(name['titles']) {
       fullName = fullName.concat(name['titles']+ ' ')
     }
+    if(name['surname']){
+      fullName = fullName.concat(name['surname']+ ', ')
+    }
     if(name['forename']){
       fullName = fullName.concat(name['forename']+ ' ')
-    }
-    if(name['surname']){
-      fullName = fullName.concat(name['surname']+ ' ')
     }
     if(name['affix']){
       fullName = fullName.concat(name['affix'])
     }
+    fullName = fullName.concat(" (" + this.state.parties[candidate.election.party] + ")");
     return fullName
   }
 
   render() {
+    const parties = this.state.parties;
     const districts = this.state.districts.districts;
     return (
       <Grid className="App">
@@ -88,15 +92,16 @@ class App extends Component {
                     {this.state.politicians.map(function(value) {
                         return <li key={value.id}>
                           <Link to={'/politicians/' + value.slug}>
-                            {this.getFullName(value.name)}</Link></li>
+                            {this.getCandidateEntry(value)}</Link></li>
                     },this)}
                   </ul>
               </Col>
               <Col md={4}>
                   <h3>Parteien</h3>
                   <ul>
-                      {this.state.parties.map(function(value) {
-                          return <li key={value.slug}><Link to={'/parties/' + value.slug}>{value.name}</Link></li>;
+                      {Object.keys(parties).map(function(key) {
+                            const value = parties[key];
+                            return <li key={key}><Link to={'/parties/' + key}>{value}</Link></li>;
                       })}
                   </ul>
               </Col>
