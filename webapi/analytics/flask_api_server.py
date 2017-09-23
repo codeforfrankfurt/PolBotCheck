@@ -69,12 +69,12 @@ def show_party(slug=None):
     Return organizational entities like Landesliste Hessen and the hessian election districts
     as well as the candidates in them
     """
-    membersOnLists = []
+    members = []
     candidates_by_party = db.get_candidates_by_party(slug)
-    for group in candidates_by_party:
-        print(group)
-        groupings.append(group)
-    return jsonify({'candidates_by_district': groupings})
+    for candidate in candidates_by_party:
+        print(candidate)
+        members.append(candidate)
+    return jsonify({'candidates_by_party': members})
 
 
 def get_full_name(name):
