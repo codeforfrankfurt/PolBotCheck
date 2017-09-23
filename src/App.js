@@ -1,21 +1,16 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router'
 import {Grid, Row, Col, Jumbotron, Panel} from 'react-bootstrap'
+
 import './App.css'
 import Title from './Title'
+import { parties, getFullName } from './Utils'
 
 class App extends Component {
 
   state = {
       politicians: [],
-      parties: {
-        afd: "AfD",
-        cdu: "CDU",
-        linke: "DIE LINKE",
-        fdp: "FDP",
-        gruene: "GRÜNE",
-        spd: "SPD"
-      },
+      parties: parties,
       districts: {districts: []}
   };
 
@@ -36,22 +31,8 @@ class App extends Component {
   }
 
   getCandidateEntry(candidate) {
-    const name = candidate.name;
-    let fullName = [];
-    if(name['titles']) {
-      fullName = fullName.concat(name['titles']+ ' ')
-    }
-    if(name['surname']){
-      fullName = fullName.concat(name['surname']+ ', ')
-    }
-    if(name['forename']){
-      fullName = fullName.concat(name['forename']+ ' ')
-    }
-    if(name['affix']){
-      fullName = fullName.concat(name['affix'])
-    }
-    fullName = fullName.concat(" (" + this.state.parties[candidate.election.party] + ")");
-    return fullName
+    const fullName = getFullName(candidate.name);
+    return fullName.concat(" (" + this.state.parties[candidate.election.party] + ")");
   }
 
   render() {

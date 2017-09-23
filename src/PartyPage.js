@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router'
 import {Row, Col, Panel} from 'react-bootstrap';
+
 import Title from './Title'
+import { parties, getFullName } from './Utils'
 import picPlaceholder from '../public/Portrait_placeholder.png'
 
 class PartyPage extends Component {
     state = {
         party: {
-            name: '',
-            membersOnLists: []
-        }
+            name: parties[this.props.params.slug],
+        },
+        candidates: [],
     }
 
     componentWillMount() {
@@ -18,7 +20,7 @@ class PartyPage extends Component {
         fetch(url, {mode: 'cors', headers: {'Accept': 'application/json'}})
             .then(res => {
                 return res.json().then(data => {
-                    self.state = data;
+                    self.state.candidates = data.candidates_by_party;
                     console.log(data);
                     self.setState(self.state);
                 });
@@ -27,9 +29,9 @@ class PartyPage extends Component {
     }
 
     render() {
-        let members = this.state.party.membersOnLists.map(member => (
+        let members = this.state.candidates.map(member => (
             <li key={member.id}>
-                <Link to={'/politicians/' + member.slug}>{this.getFullName(member.name)}</Link>
+                <Link to={'/politicians/' + member.slug}>{getFullName(member.name)}</Link>
             </li>
         ), this)
 

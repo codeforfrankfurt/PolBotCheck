@@ -15,9 +15,7 @@ class MemberPage extends Component {
         member: {
             photos: []
         },
-        twitter: {
-            profile_url: ""
-        },
+        twitter: null,
         followers: {
             numFollowers: null,
             numHumans: null,
