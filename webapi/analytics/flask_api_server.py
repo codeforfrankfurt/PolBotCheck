@@ -43,7 +43,10 @@ def districts():
     """
     Return organizational entities like Landesliste Hessen and the hessian election districts
     """
-    return jsonify({'districts': db.get_districts()})
+    districts = db.get_districts()
+    for district in districts:
+        districts.append({'id': district['_id', 'name': district['name']]})
+    return jsonify({'districts': districts})
 
 
 @app.route("/pbc/districts/<slug>")
