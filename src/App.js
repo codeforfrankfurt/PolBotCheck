@@ -118,6 +118,9 @@ class App extends Component {
                 Die Namen der Wahlkreise haben wir über die&nbsp;
                 <a href="https://www.abgeordnetenwatch.de/api/">Abgeordnetenwatch API</a> abgerufen.
             </p>
+            <p>Der Quellcode dieses Projekts ist zu finden auf&nbsp;
+                <a href="https://github.com/codeforfrankfurt/PolBotCheck">github</a>.
+            </p>
           </Panel>
         </Row>
       </Grid>
