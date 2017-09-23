@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router'
 import {Row, Col, Panel} from 'react-bootstrap';
-
 import Title from './Title'
 import { parties, getFullName } from './Utils'
 import picPlaceholder from '../public/Portrait_placeholder.png'
@@ -9,9 +8,9 @@ import picPlaceholder from '../public/Portrait_placeholder.png'
 class PartyPage extends Component {
     state = {
         party: {
-            name: parties[this.props.params.slug],
+            name: parties[this.props.params.slug]
         },
-        candidates: [],
+        candidates: []
     }
 
     componentWillMount() {
