@@ -3,13 +3,12 @@ import { Link } from 'react-router'
 import {Row, Col, Panel} from 'react-bootstrap';
 import Title from './Title'
 import { parties, getFullName } from './Utils'
-import picPlaceholder from '../public/Portrait_placeholder.png'
+import * as partyLogos from './PartyLogos'
 
 class PartyPage extends Component {
     state = {
-        party: {
-            name: parties[this.props.params.slug]
-        },
+        name: parties[this.props.params.slug],
+        logo: partyLogos[this.props.params.slug],
         candidates: []
     }
 
@@ -38,9 +37,9 @@ class PartyPage extends Component {
             <Title />
             <div><Link to="/" className="btn btn-default">« Zurück</Link></div>
 
-            <img className="Profile-picture" alt="Parteilogo" src={picPlaceholder} />
+            <img className="Profile-picture" alt="Parteilogo" src={this.state.logo} />
             <Panel bsStyle="primary" className="App-profile" bsSize="large">
-                <p>Name: {this.state.party.name ? this.state.party.name : '-'}</p>
+                <p>Name: {this.state.name ? this.state.name : '-'}</p>
             </Panel>
 
             <Row className="App-info">
