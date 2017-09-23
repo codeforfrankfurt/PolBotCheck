@@ -223,11 +223,25 @@ def get_candidates_by_district(district):
         district = None
     else:
         district = int(district)
-    return candidatesCol.find({'election.district': district})
+    query = '''
+        FOR candidate IN %s
+            FILTER candidate.election.district == @district
+            SORT candidate.name.surname ASC
+            RETURN candidate
+        '''[1:-1] % candidatesCol.name
+    cursor = db.aql.execute(query, bind_vars={'district': district})
+    return cursor
 
 
 def get_candidates_by_party(party):
-    return candidatesCol.find({'election.party': party})
+    query = '''
+        FOR candidate IN %s
+            FILTER candidate.election.party == @party
+            SORT candidate.name.surname ASC
+            RETURN candidate
+        '''[1:-1] % candidatesCol.name
+    cursor = db.aql.execute(query, bind_vars={'party': party})
+    return cursor
 
 
 def get_all_candidate_slugs():
