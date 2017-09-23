@@ -32,6 +32,14 @@ class MemberPage extends Component {
             numHumans: null,
             numBots: null
         },
+        election: {
+            party: null,
+            district: {
+                id: null,
+                name: null
+            },
+            list: null
+        },
         wordCluster: {
             topics: []
         }
@@ -73,6 +81,8 @@ class MemberPage extends Component {
             Menschen: <span className="number">{this.state.followers.numHumans}</span></Col>;
         const retweetCount = this.state.retweets.numHumans + this.state.retweets.numBots;
         const retweetersCount = this.state.retweeters.numHumans + this.state.retweeters.numBots;
+        const partySlug = this.state.election.party;
+        const district = this.state.election.district;
         return (
           <div className="container">
             <Title />
@@ -81,7 +91,9 @@ class MemberPage extends Component {
                   src={getPhoto(this.state.member.photos, this.state.twitter)}/>
               <Panel bsStyle="primary" className="App-profile" bsSize="large">
                   <p>Name: {this.state.member.name ? this.state.member.name : '-'}</p>
-                  <p>Partei: {this.state.member.party ? parties[this.state.member.party] : '-'}</p>
+                  <p>Partei: {partySlug ? <Link to={'/parties/' + partySlug}>{parties[partySlug]}</Link> : '-'}</p>
+                  <p>Wahlkreis: {district ? <Link to={'/districts/' + district.id}>{district.name}</Link> : '-'}</p>
+                  <p>Listenplatz: {this.state.election.list ? this.state.election.list : '-'}</p>
                   <p>Twitter-Account: {this.state.member.twitter_handle ? getTwitterLink(this.state.member.twitter_handle) : '-'}</p>
               </Panel>
 

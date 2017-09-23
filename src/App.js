@@ -91,7 +91,7 @@ class App extends Component {
                   <h3>Wahlkreise</h3>
                   <ul>
                       {districts.map(function(districtObject) {
-                          return <li key={districtObject.id}><Link to={'/district/' + districtObject.id}>{districtObject.name}</Link></li>;
+                          return <li key={districtObject.id}><Link to={'/districts/' + districtObject.id}>{districtObject.name}</Link></li>;
                       })}
                   </ul>
               </Col>
