@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Row, Col} from 'react-bootstrap'
-import logo from '../public/logo.png'
+import logo from './logo.png'
 import './Title.css'
 
 class Title extends Component {

@@ -1,9 +1,9 @@
-import afd from '../public/partyLogos/afd.svg'
-import cdu from '../public/partyLogos/cdu.svg'
-import fdp from '../public/partyLogos/fdp.svg'
-import gruene from '../public/partyLogos/gruene.svg'
-import linke from '../public/partyLogos/linke.svg'
-import spd from '../public/partyLogos/spd.svg'
+import afd from './partyLogos/afd.svg'
+import cdu from './partyLogos/cdu.svg'
+import fdp from './partyLogos/fdp.svg'
+import gruene from './partyLogos/gruene.svg'
+import linke from './partyLogos/linke.svg'
+import spd from './partyLogos/spd.svg'
 
 export {
   afd,

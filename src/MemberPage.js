@@ -4,10 +4,10 @@
 import React, {Component} from 'react'
 import Title from './Title'
 import Breadcrumbs from './Breadcrumbs'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import {Col, Row, Panel} from 'react-bootstrap'
 import PieChart from './PieChart'
-import picPlaceholder from '../public/Portrait_placeholder.png'
+import picPlaceholder from './Portrait_placeholder.png'
 import { parties } from './Utils'
 
 class MemberPage extends Component {
@@ -48,7 +48,7 @@ class MemberPage extends Component {
 
     componentWillMount() {
         let self = this;
-        const url = 'https://botornot-hessen-api.herokuapp.com/pbc/users/' + this.props.params.slug;
+        const url = 'https://botornot-hessen-api.herokuapp.com/pbc/users/' + this.props.match.params.slug;
         fetch(url, {mode: 'cors', headers: {'Accept': 'application/json'}})
             .then(res => {
                 return res.json().then(data => {

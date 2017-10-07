@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Breadcrumbs from './Breadcrumbs'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import {Row, Col, Panel} from 'react-bootstrap'
 import Title from './Title'
 import { parties, getFullName } from './Utils'
@@ -15,7 +15,7 @@ class DistrictPage extends Component {
 
     componentWillMount() {
         let self = this;
-        const url = 'https://botornot-hessen-api.herokuapp.com/pbc/districts/' + this.props.params.slug;
+        const url = 'https://botornot-hessen-api.herokuapp.com/pbc/districts/' + this.props.match.params.slug;
         fetch(url, {mode: 'cors', headers: {'Accept': 'application/json'}})
             .then(res => {
                 return res.json().then(data => {

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Breadcrumbs from './Breadcrumbs'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import {Row, Col, Panel} from 'react-bootstrap'
 import Title from './Title'
 import { parties, getFullName } from './Utils'
@@ -8,14 +8,14 @@ import * as partyLogos from './PartyLogos'
 
 class PartyPage extends Component {
     state = {
-        name: parties[this.props.params.slug],
-        logo: partyLogos[this.props.params.slug],
+        name: parties[this.props.match.params.slug],
+        logo: partyLogos[this.props.match.params.slug],
         candidates: []
     }
 
     componentWillMount() {
         let self = this;
-        const url = 'https://botornot-hessen-api.herokuapp.com/pbc/parties/' + this.props.params.slug;
+        const url = 'https://botornot-hessen-api.herokuapp.com/pbc/parties/' + this.props.match.params.slug;
         fetch(url, {mode: 'cors', headers: {'Accept': 'application/json'}})
             .then(res => {
                 return res.json().then(data => {
