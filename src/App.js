@@ -69,8 +69,8 @@ class App extends Component {
             <p>
                 Wir geben dir einen Einblick, wieviele Retweets der Politiker von Bots sind, um besser einschätzen zu können,
                 ob nachgeholfen wird. Zur Erkennung ob ein Twitter Account ein Bot ist, verlassen wir uns auf die
-                mehrjährige Recherche-Arbeit des <dl><dd>Projekts&nbsp;
-                <a href="http://truthy.indiana.edu/botornot/">Botometer</a></dd><dt>früher Truthy BotOrNot</dt></dl>.
+                mehrjährige Recherche-Arbeit des <span className="dl"><span className="dd">Projekts&nbsp;
+                <a href="http://truthy.indiana.edu/botornot/">Botometer</a></span><span className="dt">früher Truthy BotOrNot</span></span>.
                 Es wurde 2014 von der Indiana University aus den USA ins Leben gerufen. Über deren Web-Dienst kann man die
                 Wahrscheinlichkeit einholen, mit der ein Twitter Account ein Bot ist.
             </p>
@@ -78,8 +78,9 @@ class App extends Component {
                 Wir gehen ab 70% Prozent davon aus, dass es sich um einen Bot handelt.
             </p>
             <p>
-                Für jeden <dl><dd>Politiker, zu dem wir die Daten einholen konnten</dd><dt>die Datenlage ist recht
-                eingeschränkt, siehe Quellen ganz unten, daher auch die fehlenden Parteien und Wahlkreise</dt></dl>&nbsp;
+                Für jeden <span className="dl"><span className="dd">Politiker, zu dem wir die Daten einholen konnten</span>
+                <span className="dt">die Datenlage ist recht
+                eingeschränkt, siehe Quellen ganz unten, daher auch die fehlenden Parteien und Wahlkreise</span></span>&nbsp;
                 zeigen wir hier nun den <strong>Anteil der Follower die Bots sind, den Anteil der Retweets die von Bots
                 stammen und wieviel Prozent der Retweeter Bots sind.</strong>
             </p>

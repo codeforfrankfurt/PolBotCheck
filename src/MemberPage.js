@@ -2,8 +2,8 @@
  * Created by peter on 04.03.17.
  */
 import React, {Component} from 'react'
-import BrowserHistory from 'react-router/lib/browserHistory'
 import Title from './Title'
+import Breadcrumbs from './Breadcrumbs'
 import { Link } from 'react-router'
 import {Col, Row, Panel} from 'react-bootstrap'
 import PieChart from './PieChart'
@@ -87,7 +87,7 @@ class MemberPage extends Component {
         return (
           <div className="container">
             <Title />
-              <div><button onClick={BrowserHistory.goBack} className="btn btn-default">« Zurück</button></div>
+            <Breadcrumbs />
               <img className="Profile-picture" alt="Profilbild"
                   src={getPhoto(this.state.member.photos, this.state.twitter)}/>
               <Panel bsStyle="primary" className="App-profile" bsSize="large">

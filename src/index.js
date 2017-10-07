@@ -5,7 +5,6 @@ import App from './App'
 import MemberPage from './MemberPage'
 import PartyPage from './PartyPage'
 import DistrictPage from './DistrictPage'
-import './index.css'
 
 ReactDOM.render(
     <Router history={browserHistory}>
