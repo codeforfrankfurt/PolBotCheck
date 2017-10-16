@@ -17,7 +17,7 @@ if int(os.environ.get('WEB_CONCURRENCY')) > 1:
     # the database multiple times on bootup
     from random import randint
     from time import sleep
-    interval = randint(4,20)
+    interval = randint(1,5)
     print("Sleep for %d seconds to avoid too many concurrent db hits" % interval)
     sleep(interval)
 import db
