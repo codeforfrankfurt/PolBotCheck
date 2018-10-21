@@ -1,0 +1,106 @@
+@import '//maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css';
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.App-logo {
+    float: left;
+}
+
+.App, h3 {
+    text-align: center;
+}
+
+.App h2 {
+    font-size: 28px;
+}
+
+.jumbotron p {
+    font-size: 16px;
+}
+
+.dl, .dd {
+    display: inline;
+}
+
+.dd {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.dt {
+    display: none;
+    position: absolute;
+    background: #ffe;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: left;
+    padding: 5px;
+    max-width: 320px;
+}
+
+.dl:hover .dt {
+    display: inline-block;
+}
+
+.App-header {
+    background-color: #222;
+    padding: 20px;
+    color: white;
+}
+
+.Profile-picture {
+    display: inline-block;
+    max-width: 240px;
+    max-height: 240px;
+    vertical-align: top;
+}
+
+.App-profile {
+    display: inline-block;
+    margin-left: 20px;
+    min-width: 300px;
+}
+
+.App-info {
+    margin: 1em -5px;
+    padding: 0;
+}
+
+.App-info > div {
+    padding: 5px;
+}
+
+.App-info > div > div {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    text-align: left;
+}
+
+.Info-diagram {
+    padding: 2em;
+}
+
+.Info-diagram img {
+    max-width: 66%;
+}
+
+.number {
+    float: right;
+}
+
+#footer {
+    margin-top: 3em;
+    text-align: left;
+}

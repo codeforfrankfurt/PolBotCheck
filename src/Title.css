@@ -1,0 +1,16 @@
+.App-logo {
+    margin-right: 2em;
+    height: 80px;
+}
+
+.main-title > h1,
+.main-title > p {
+    text-align: left;
+    margin-top: 0.2em;
+    margin-bottom: 0;
+}
+
+.main-title > p {
+    margin-top: 2px;
+    font-size: 18px;
+}

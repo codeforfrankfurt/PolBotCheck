@@ -8,7 +8,7 @@ from arango import ArangoClient
 
 from config.db_credentials import db_credentials
 
-CANDIDATES_PATH = '../web/public/candidates.json'
+CANDIDATES_PATH = '../public/candidates.json'
 
 
 # Configure your ArangoDB server connection here
