@@ -22,7 +22,7 @@ botornot = "==0.3"
 python-arango = "==3.6.0"
 tweepy = "==3.5.0"
 flask = "==0.12.2"
-flask-cors = "==3.0.3"
+flask-cors = "==3.0.9"
 gunicorn = "==19.7.1"
 
 [requires]
